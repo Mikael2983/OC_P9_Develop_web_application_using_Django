@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% if user.is_authenticated %}
+    <div class="follow">
+        <h2>suivre d'autres utilisateur</h2>
+        <form method="POST" >
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit"> Suivre </button>
+        </form>
+        {% if messages %}
+            {% for message in  messages|slice:"-1:" %}
+                <p>{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+    </div>
+    <div class="follow">
+        <table>
+            <tr>
+            {% for user in following_users %}
+            {% with list_class|random as class %}
+                <td class="{{ class }}">
+                    <span class="user">{{ user.username }}</span>
+                    <a href="{% url 'unfollow' user.id %}">Désabonner</a>
+                </td>
+            {% endwith %}
+            {% endfor %}
+            </tr>
+        </table>
+        <img src="{% static 'images/etagere_abonnements.png' %}" alt="Abonnements">
+    </div>
+    <div class="follow">
+        <table>
+            <tr>
+            {% for user in followers_users %}
+            {% with list_class|random as class %}
+                <td class="{{ class }}">
+                    <span class="user">{{ user.username }}</span>
+                    <a href="{% url 'unsubscribe_followers' user.id %}">Désabonner</a>
+                    {% if user in banning_users %}
+                    <a href="{% url 'unban_followers' user.id %}">Débloquer</a>
+                    {% else %}
+                    <a href="{% url 'ban_followers' user.id %}">Bloquer</a>
+                    {% endif %}
+                </td>
+            {% endwith %}
+            {% endfor %}
+            </tr>
+        </table>
+        <img src="{% static 'images/etagere_abonnes.png' %}" alt="Abonnes">
+    </div>
+{% endif %}
+{% endblock %}

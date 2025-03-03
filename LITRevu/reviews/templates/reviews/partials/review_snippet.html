@@ -1,0 +1,25 @@
+{% load reviews_extras %}
+{% load static %}
+<div class="review">
+    <div class="header">
+        <p>{% get_user_display review.user %} publié une critique </p>
+        <p>{{ review.time_created | get_posted_at_display }}</p>
+    </div>
+    <div class="rating">
+        <h4>{{ review.headline }}  -   </h4>
+        <span class="star">
+            {% if review.rating >= 1 %}⭐{% else %}☆{% endif %}
+            {% if review.rating >= 2 %}⭐{% else %}☆{% endif %}
+            {% if review.rating >= 3 %}⭐{% else %}☆{% endif %}
+            {% if review.rating >= 4 %}⭐{% else %}☆{% endif %}
+            {% if review.rating >= 5 %}⭐{% else %}☆{% endif %}
+        </span>
+    </div>
+    <p>{{ review.body }}</p>
+    {% include 'reviews/partials/ticket_snippet.html' with ticket=review.ticket %}
+    {% if review.user == request.user %}
+    <div class="button-group">
+        <button type="button" onclick="window.location.href='{% url 'modify_review' review.id %}'">Modifier</button>
+    </div>
+    {% endif %}
+</div>
