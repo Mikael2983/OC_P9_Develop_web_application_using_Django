@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if user.is_authenticated %}
+<div class="review">
+    <div class="post">
+        <p>Vous êtes en train de poster en réponse à </p>
+    {% include 'reviews/partials/ticket_snippet.html' with ticket=ticket %}
+    </div>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h2>Modifier la Critique</h2>
+        {{ review_form.as_p }}
+
+        <div class="button-group">
+            <button type="button" onclick="window.location.href='{% url 'flux' %}'">Retour</button>
+            <button type="submit">Valider</button>
+        </div>
+    </form>
+</div>
+{% endif %}
+{% endblock %}

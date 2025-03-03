@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+    <section class="accueil" >
+        <div id="inscription" class=grid>
+            <h2>Inscrivez-vous maintenant</h2>
+            <form class="login" method="post" action="{% url 'signup' %}">
+                {% csrf_token %}
+                <button type="submit">S'inscrire</button>
+            </form>
+        </div>
+        <div id="connection" class=grid>
+            <h2>Connectez-vous</h2>
+            <form class="login" method="post" action="{% url 'login' %}">
+                {% csrf_token %}
+                <input type="text" name="username" placeholder="Nom d'utilisateur" required>
+                <input type="password" name="password" placeholder="Mot de passe" required>
+
+                <span class="error">{{ form.non_field_errors.0 }}</span>
+                <a href="{% url 'reset_password' %}">mot de passe oublié?</a>
+                <button type="submit">Se connecter</button>
+            </form>
+        </div>
+    </section>
+{% endblock %}

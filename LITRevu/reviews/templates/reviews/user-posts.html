@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load reviews_extras %}
+{% load static %}
+
+
+{% block content %}
+{% if user.is_authenticated %}
+
+<h2>Vos Posts</h2>
+{% for instance in reviews_and_tickets %}
+    {% if instance|model_type == 'Ticket' %}
+        {% include 'reviews/partials/ticket_snippet.html' with ticket=instance %}
+    {% elif instance|model_type == 'Review' %}
+        {% include 'reviews/partials/review_snippet.html' with review=instance %}
+    {% endif %}
+{% endfor %}
+
+
+{% endif %}
+{% endblock %}
