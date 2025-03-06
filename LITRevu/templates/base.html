@@ -8,9 +8,8 @@
 
 </head>
 <body >
-    <div class="container">
+    <section class="container">
         <header>
-
             <h1>LITReview</h1>
             {% if request.user.is_authenticated %}
                 <nav>
@@ -20,7 +19,6 @@
                     <a href="{% url 'logout' %}" >Déconnecter</a>
                 </nav>
             {% endif %}
-
         </header>
         <main>
             {% block content %}{% endblock content %}
@@ -28,6 +26,6 @@
         <footer>
             &copy; 2025 LITReview - Tous droits réservés.
         </footer>
-    </div>
+    </section>
 </body>
 </html>

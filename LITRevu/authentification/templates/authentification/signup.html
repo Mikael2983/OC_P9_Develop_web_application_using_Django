@@ -1,31 +1,29 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<section class="accueil" >
-    <div class="signup">
-        <h2>Inscription</h2>
-        <form method="post" action="{% url 'signup' %}">
-            {% csrf_token %}
+<div class="signup">
+    <h2>Inscription</h2>
+    <form method="post" action="{% url 'signup' %}">
+        {% csrf_token %}
 
-            {% for field in form %}
-            <div class="form">
-                {{ field.label_tag }}
-                {{ field }}
-            </div>
+        {% for field in form %}
+        <div class="form">
+            {{ field.label_tag }}
+            {{ field }}
+        </div>
 
-                    {% for error in field.errors %}
-            <span class="error">{{ error }}</span>
-                    {% endfor %}
+                {% for error in field.errors %}
+        <span class="error">{{ error }}</span>
+                {% endfor %}
 
+        {% endfor %}
 
-            {% endfor %}
+        <div class="submit">
+            <button type="button" onclick="window.location.href='{% url 'login' %}'">Retour</button>
+            <button type="submit">S'inscrire</button>
 
-            <div class="submit">
-                <button type="button" onclick="window.location.href='{% url 'login' %}'">Retour</button>
-                <button type="submit">S'inscrire</button>
+        </div>
+    </form>
+</div>
 
-            </div>
-        </form>
-    </div>
-</section>
 {% endblock content %}

@@ -14,10 +14,10 @@ from reviews.forms import ReviewForm, TicketForm, FollowUserForm
 
 @login_required
 def flux(request):
-    # user_follow_id = UserFollows.objects.filter(user=request.user).values_list(
-    #         'followed_user', flat=True)
-    # banned_user = UserFollows.objects.filter(banned=True)
-    following_users = UserFollows.objects.filter(user=request.user, banned=False).values_list('followed_user', flat=True)
+
+    following_users = UserFollows.objects.filter(
+        user=request.user,
+        banned=False).values_list('followed_user', flat=True)
 
     users = chain([request.user], following_users)
     list_users = list(users)
@@ -77,7 +77,7 @@ def create_review(request):
         'ticket_form': ticket_form,
         'review_form': review_form
     }
-    return render(request, 'reviews/create-review.html', context)
+    return render(request, 'reviews/create_review.html', context)
 
 
 @login_required
@@ -116,7 +116,7 @@ def create_ticket(request):
         form = TicketForm()
 
     return render(request,
-                  'reviews/create-ticket.html',
+                  'reviews/create_ticket.html',
                   {'form': form})
 
 
@@ -136,7 +136,7 @@ def user_posts(request):
     )
 
     return render(request,
-                  'reviews/user-posts.html',
+                  'reviews/user_posts.html',
                   {'reviews_and_tickets': reviews_and_tickets})
 
 
@@ -183,7 +183,7 @@ def answer_ticket(request, ticket_id):
         'ticket': ticket,
         'review_form': review_form
     }
-    return render(request, 'reviews/answer-review.html', context)
+    return render(request, 'reviews/answer_review.html', context)
 
 
 @login_required
@@ -215,8 +215,6 @@ def follow(request):
 
     following_users = User.objects.filter(followers__user=request.user).exclude(id__in=banned_users)
 
-    print(f'following_users: {following_users}', f'banning_user: {banning_users}')
-    print(f'followers_users: {followers_users}', f'banned_user: {banned_users}')
     if request.method == "POST":
         form = FollowUserForm(request.POST)
         if form.is_valid():
@@ -245,15 +243,13 @@ def follow(request):
     else:
         form = FollowUserForm()
 
-    list_class = ["tranche1", "tranche2", "tranche3", "tranche4"]
-
     return render(request, 'reviews/follow.html', {
         'form': form,
         'followers_users': followers_users,
         'following_users': following_users,
         'banned_users': banned_users,
         'banning_users': banning_users,
-        'list_class': list_class,
+
     })
 
 

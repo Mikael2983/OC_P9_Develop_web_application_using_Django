@@ -1,14 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
     <section class="accueil" >
-        <div id="inscription" class=grid>
+        <div class=grid>
             <h2>Inscrivez-vous maintenant</h2>
             <form class="login" method="post" action="{% url 'signup' %}">
                 {% csrf_token %}
                 <button type="submit">S'inscrire</button>
             </form>
         </div>
-        <div id="connection" class=grid>
+        <div class=grid>
             <h2>Connectez-vous</h2>
             <form class="login" method="post" action="{% url 'login' %}">
                 {% csrf_token %}

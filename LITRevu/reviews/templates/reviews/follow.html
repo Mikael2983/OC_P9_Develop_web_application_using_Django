@@ -17,9 +17,7 @@
     </div>
     <div class="follow">
         <table>
-
             {% for user in following_users %}
-            {% with list_class|random as class %}
             <tr>
                 <td class="col1">
                     {{ user.username }}
@@ -28,17 +26,15 @@
                     <a role="button" href="{% url 'unfollow' user.id %}">Désabonner</a>
                 </td>
             </tr>
-            {% endwith %}
             {% endfor %}
-
         </table>
+
         <img src="{% static 'images/etagere_abonnements.png' %}" alt="Abonnements">
     </div>
+
     <div class="follow">
         <table>
-
             {% for user in followers_users %}
-            {% with list_class|random as class %}
             <tr>
                 <td class="col1">
                     {{ user.username }}
@@ -53,12 +49,10 @@
                     <a role="button" href="{% url 'ban_followers' user.id %}">Bloquer</a>
                 {% endif %}
                 </td>
-
             </tr>
-            {% endwith %}
             {% endfor %}
-
         </table>
+
         <img src="{% static 'images/etagere_abonnes.png' %}" alt="Abonnes">
     </div>
 {% endif %}
