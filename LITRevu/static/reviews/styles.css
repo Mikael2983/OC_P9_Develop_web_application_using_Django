@@ -29,10 +29,9 @@ body {
 header {
     margin: auto;
     background-color: var(--secondary-color);
-    padding: 20px 0;
+    padding: 10px 0;
     font-size: 24px;
-    border-radius: 20px;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
     width: 100%;
 }
 
@@ -48,6 +47,7 @@ header {
     width: 80%;
     display: flex;
     margin: auto;
+    margin-bottom: 10px;
 }
 
 main{
@@ -57,9 +57,7 @@ main{
 
 .accueil {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 80vh;
+
 }
 
 nav {
@@ -116,6 +114,7 @@ nav {
 }
 
 h1 {
+    margin: 0;
     text-align: center;
     font-size: 28px;
 }
@@ -149,7 +148,7 @@ a:hover {
 .logout {
     display: flex;
     flex-direction: column;
-    justify-items: center;
+    align-items: center;
     background-color: var(--secondary-color);
     border-radius: 20px;
     width: 100%;
@@ -163,9 +162,8 @@ a:hover {
     display: flex;
     flex-direction: column;
     justify-items: center;
-    background-color: var (--secondary-color);
+    background-color: var(--secondary-color);
     border-radius: 20px;
-    max-width: 70%;
     padding: 20px;
     margin: auto;
 }
