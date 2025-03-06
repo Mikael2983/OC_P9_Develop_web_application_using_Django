@@ -3,7 +3,7 @@
 {% block content %}
 {% if user.is_authenticated %}
     <div class="follow">
-        <h2>suivre d'autres utilisateur</h2>
+        <h2>Suivre d'autres utilisateurs</h2>
         <form method="POST" >
             {% csrf_token %}
             {{ form.as_p }}
@@ -17,36 +17,47 @@
     </div>
     <div class="follow">
         <table>
-            <tr>
+
             {% for user in following_users %}
             {% with list_class|random as class %}
-                <td class="{{ class }}">
-                    <span class="user">{{ user.username }}</span>
-                    <a href="{% url 'unfollow' user.id %}">Désabonner</a>
+            <tr>
+                <td class="col1">
+                    {{ user.username }}
                 </td>
+                <td class="col2">
+                    <a role="button" href="{% url 'unfollow' user.id %}">Désabonner</a>
+                </td>
+            </tr>
             {% endwith %}
             {% endfor %}
-            </tr>
+
         </table>
         <img src="{% static 'images/etagere_abonnements.png' %}" alt="Abonnements">
     </div>
     <div class="follow">
         <table>
-            <tr>
+
             {% for user in followers_users %}
             {% with list_class|random as class %}
-                <td class="{{ class }}">
-                    <span class="user">{{ user.username }}</span>
-                    <a href="{% url 'unsubscribe_followers' user.id %}">Désabonner</a>
-                    {% if user in banning_users %}
-                    <a href="{% url 'unban_followers' user.id %}">Débloquer</a>
-                    {% else %}
-                    <a href="{% url 'ban_followers' user.id %}">Bloquer</a>
-                    {% endif %}
+            <tr>
+                <td class="col1">
+                    {{ user.username }}
                 </td>
+                <td class="col2">
+                    <a role="button" href="{% url 'unsubscribe_followers' user.id %}">Désabonner</a>
+                </td>
+                <td class="col3">
+                {% if user in banning_users %}
+                    <a role="button" href="{% url 'unban_followers' user.id %}">Débloquer</a>
+                {% else %}
+                    <a role="button" href="{% url 'ban_followers' user.id %}">Bloquer</a>
+                {% endif %}
+                </td>
+
+            </tr>
             {% endwith %}
             {% endfor %}
-            </tr>
+
         </table>
         <img src="{% static 'images/etagere_abonnes.png' %}" alt="Abonnes">
     </div>

@@ -55,9 +55,6 @@ class Ticket(models.Model):
 
     def resize_image(self):
         """ Redimensionne et superpose l'image uniquement si une image utilisateur est fournie. """
-        if not self.picture:
-            self.generate_default_image()
-            return
 
         fond_path = os.path.join(settings.BASE_DIR,
                                  "static/images/couverture.png")
@@ -80,8 +77,12 @@ class Ticket(models.Model):
         super().save(*args, **kwargs)
         if self.picture and os.path.exists(self.picture.path):
             with Image.open(self.picture.path) as img:
+
                 if img.size != self.COVER_SIZE:
                     self.resize_image()
+        else:
+            self.generate_default_image()
+            self.resize_image()
 
     def __str__(self):
         return f'{self.title}'

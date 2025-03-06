@@ -1,29 +1,39 @@
-body {
-    color: #562336;
-    font-family: Arial, sans-serif;
-    margin: auto;
-    padding: 0;
-    background-color: #F1903B;
-    background-image:url(images/image_de_fond.png);
-    background-size: 80%;
-    text-align: center;
-    width: 80%;
-    min-height: 100vh;
-	display: grid;
-	grid-template-rows: auto 1fr auto;
-	background-repeat:repeat-y;
-    background-position: top;
+:root {
+    --primary-color: #F1903B;
+    --secondary-color: rgba(194, 250, 255);
+    --highlight-color: #ffd700;
+    --ticket-bg-color: rgba(189, 233, 184);
+    --review-bg-color: rgba(194, 250, 255);
+    --text-color: #562336;
 }
+
+body {
+    margin: auto;
+    min-height: 100vh;
+    background: url(images/image_de_fond.png) top center / 100% repeat-y;
+    display:block;
+    align-items: center;
+
+}
+
+.container {
+    min-height: 100vh;
+    display: grid;
+	grid-template-rows: auto 1fr auto;
+    margin: auto;
+    width: 70%;
+    background-color: var(--primary-color);
+        }
+
+
 header {
-    background-color: rgba(194, 250, 255,.75);
-    padding: 20px;
+    margin: auto;
+    background-color: var(--secondary-color);
+    padding: 20px 0;
     font-size: 24px;
     border-radius: 20px;
     margin-bottom: 30px;
-}
-
-.header{
-
+    width: 100%;
 }
 
 .header p {
@@ -32,12 +42,17 @@ header {
 }
 
 .head{
-    background-color: rgba(194, 250, 255,.75);
+    background-color: var(--secondary-color);
     padding: 20px;
     border-radius: 20px;
-    width: 70%;
-    margin-block: 20px;
-    display: inline-flex;
+    width: 80%;
+    display: flex;
+    margin: auto;
+}
+
+main{
+    text-align: center;
+    margin:auto;
 }
 
 .accueil {
@@ -48,6 +63,7 @@ header {
 }
 
 nav {
+    padding: 0 20px;
     display: flex;
     justify-content: end;
     font-size: 12px;
@@ -55,15 +71,39 @@ nav {
 }
 
 .nav {
-    padding:15px;
+    display: flex;
+    padding: 15px;
+    justify-self: center;
 }
 
-.grid-container{
+.grid-container {
+    display: grid;
+}
+
+.ticket {
+        justify-self: center;
+        background-color: var(--ticket-bg-color);
+        padding: 10px;
+        border: solid #ffd700;
+        margin: 5px 0px;
+        display: inline-grid;
+        border-radius: 20px;
+    }
+
+.review{
+    background-color: var(--review-bg-color);
+    text-align: justify;
+    padding: 10px;
+    border: solid #ffd700;
+    margin: auto;
+    width: 80%;
+    margin-top: 10px;
+    border-radius: 20px;
 
 }
 
 .grid {
-    background-color: rgba(194, 250, 255,.75);
+    background-color: var(--secondary-color);
     height: 240px;
     margin: 20px;
     padding: 40px 20px 80px 20px;
@@ -76,6 +116,7 @@ nav {
 }
 
 h1 {
+    text-align: center;
     font-size: 28px;
 }
 
@@ -89,11 +130,11 @@ h4{
 }
 
 a {
-    color: #562336;
+    color: var(--text-color);
 }
 
 a:hover {
-    color: #ffd700;
+    color: var(--highlight-color);
 }
 
 .login {
@@ -109,18 +150,20 @@ a:hover {
     display: flex;
     flex-direction: column;
     justify-items: center;
-    background-color: rgba(194, 250, 255,.75);
+    background-color: var(--secondary-color);
     border-radius: 20px;
-    width: 70%;
-    margin-top: 30px;
-    gap: 10px;
+    width: 100%;
+    margin-top: 20px;
+    gap: 20px;
+    padding: 20px;
+
 }
 
 .signup {
     display: flex;
     flex-direction: column;
     justify-items: center;
-    background-color: rgba(194, 250, 255,.75);
+    background-color: var (--secondary-color);
     border-radius: 20px;
     max-width: 70%;
     padding: 20px;
@@ -151,7 +194,7 @@ form label {
 }
 
 input {
-    color: #F1903B;
+    color: var(--primary-color);
     padding: 10px;
     margin: 10px 0;
     border: 1px solid #F1903B;
@@ -160,16 +203,16 @@ input {
 }
 
 textarea{
-    color: #F1903B;
+    color: var(--primary-color);
     padding: 10px;
     margin: 10px 0;
-    border: 1px solid #F1903B;
+    border: 1px solid var(--primary-color);
     border-radius: 5px;
 }
 
 button {
     margin: auto;
-    background-color: #F1903B;
+    background-color: var(--primary-color);
     color: #C2FAFF;
     border: none;
     padding: 10px;
@@ -178,7 +221,7 @@ button {
 }
 
 button:hover {
-    background-color: #ffd700;
+    background-color: var(--highlight-color);
 }
 
 .button-group{
@@ -204,7 +247,8 @@ button:hover {
 }
 
 .follow{
-    background-color: rgba(194, 250, 255,.75);
+    margin-block: 10px;
+    background-color: var(--secondary-color);
     text-align: justify;
     padding: 10px;
     border: solid #ffd700;
@@ -213,7 +257,7 @@ button:hover {
     display: flex;
     flex-direction: column;
     border-radius: 20px;
-    max-width: 600px;
+    max-width: 800px;
     align-items: center;
 }
 .follow img {
@@ -245,21 +289,24 @@ align-items: center;
 }
 
 footer {
-padding: 20px;
+    text-align: center;
+    padding: 20px;
 }
 
 table {
+    width: inherit;
     margin: auto;
     border: none;
     border-collapse: collapse;
     display: flex;
-    justify-content: center; /* Centre l’étagère */
+    justify-content: center;
 }
 
 tr {
-    display: flex; /* Permet d'aligner les livres horizontalement */
+    display: flex;
     align-items: flex-end;
 }
+
 .user {
     font-size: 25px;
     height: 100px;
@@ -268,87 +315,31 @@ tr {
 
 td {
     text-shadow: -1px 1px 0px lightyellow;
-    writing-mode: vertical-rl;
-    text-orientation: mixed;
-    transform: rotate(180deg);
-    background-repeat: no-repeat;
     font-weight: bold;
-    display: flex;
-    align-items: center;
+    width: 33%;
 }
 
 td a {
-    margin-top: 10px;
-    color: black;
-}
-
-.tranche1 {
-    background-image: url('/static/images/tranche1.png');
-    background-size: cover;
-    background-position: center;
-    width: 30px;
-    height: 48%;
-    color: black;
-}
-
-
-.tranche2 {
-    background-image: url('/static/images/tranche2.png');
-    background-size: cover;
-    background-position: center;
-    width: 40px;
-    height: 35%;
-    color: black;
-}
-
-.tranche3 {
-    background-image: url('/static/images/tranche3.png');
-    background-size: cover;
-    background-position: center;
-    width: 34px;
-    height: 45%;
-    color: black;
-}
-
-.tranche4 {
-    background-image: url('/static/images/tranche4.png');
-    background-size: cover;
-    background-position: center;
-    width: 45px;
-    height: 33%;
     color: black;
 }
 
 td a:hover {
-    color : blue;
+    color : white;
 }
 
-
-
+.col2 {
+    margin: 0 20px;
+}
 
 @media screen and (min-width: 430px) {
     .ticket {
         grid-template-columns: repeat(3, 1fr);
-        background-color: rgba(189, 233, 184,0.7);
         text-align: start;
-        padding: 10px;
-        border: solid #ffd700;
-        margin: 5px 0px;
-        width: 70%;
-        display: inline-grid;
-        border-radius: 20px;
+        width: 80%;
     }
 
     .review{
-        background-color: rgba(194, 250, 255,.75);
-        text-align: justify;
-        padding: 10px;
-        border: solid #ffd700;
-        margin: 10px 0px;
-        width: 70%;
-        display: inline-grid;
-        border-radius: 20px;
-
+        width: 90%;
     }
     .grid-1 {
         grid-column: 1;
@@ -397,24 +388,12 @@ td a:hover {
     }
 
     .ticket {
-        background-color: rgba(189, 233, 184, 0.7);
-        padding: 10px;
-        border: solid #ffd700;
-        margin: 5px 0px;
         width: 80%;
-        display: inline-grid;
-        border-radius: 20px;
     }
 
     .review{
-        background-color: rgba(194, 250, 255,.75);
-        text-align: justify;
-        padding: 10px;
-        border: solid #ffd700;
-        margin: 10px 0px;
         width: 80%;
-        display: inline-grid;
-        border-radius: 20px;
+
 
     }
     grid {

@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<section class="accueil">
+
     <div class="logout">
         {% if user.is_authenticated %}
             <p>Êtes-vous sûr de vouloir vous déconnecter ?</p>
@@ -12,5 +12,5 @@
             </form>
         {% endif %}
     </div>
-</section>
+
 {% endblock %}

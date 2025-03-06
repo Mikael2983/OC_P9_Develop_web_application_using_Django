@@ -28,7 +28,7 @@ urlpatterns = [
 
     path('login/', CustomLoginView.as_view(
         template_name='authentification/login.html'),
-         name='login'),
+        name='login'),
     path('logout/', custom_logout, name='logout'),
 
     path('signup/', signup_page, name='signup'),
@@ -55,5 +55,6 @@ urlpatterns = [
     path('tickets/<int:ticket_id>/delete-ticket/', r_views.delete_ticket, name='delete_ticket'),
     path('tickets/<int:ticket_id>/answer-ticket/', r_views.answer_ticket, name='answer_ticket'),
 ]
+
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

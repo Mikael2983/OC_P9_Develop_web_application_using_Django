@@ -2,11 +2,11 @@
 {% load reviews_extras %}
 {% block content %}
 {% if user.is_authenticated %}
-    <div class="bouton_group head">
+    <div class="head">
         <button type="button" onclick="window.location.href='{% url 'create_review' %}'">demander une critique</button>
         <button type="button" onclick="window.location.href='{% url 'create_ticket' %}'">créer une critique</button>
     </div>
-    <div class="grid-container">
+    <div>
         {% for instance in page_obj %}
             {% if instance|model_type == 'Ticket' %}
                 {% include 'reviews/partials/ticket_snippet.html' with ticket=instance %}
