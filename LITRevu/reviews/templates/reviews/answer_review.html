@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 {% if user.is_authenticated %}
-<div class="review">
+<div class="review ">
     <div class="post">
         <p>Vous êtes en train de poster en réponse à </p>
     {% include 'reviews/partials/ticket_snippet.html' with ticket=ticket %}

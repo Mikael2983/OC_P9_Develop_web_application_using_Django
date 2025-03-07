@@ -1,24 +1,24 @@
 {% load reviews_extras %}
 {% load static %}
 
-<div class="ticket">
+<div class="ticket color1">
     <div class="header grid-1">
         <p>{{ ticket.time_created|get_posted_at_display }}</p>
-        <h4>{% get_user_display ticket.user %} demandé une critique</h4>
+        <p>{% get_user_display ticket.user %} demandé une critique</p>
     </div>
     <div class="text grid-2">
         <h2>{{ticket.title}}</h2>
         <p>{{ticket.description}}</p>
     </div>
-    <div class="img grid-3">
-        <img class="cover" src="{% if ticket.picture %}{{ ticket.picture.url }}{% else %}{% static 'images/book_default.png' %}{% endif %}" alt="{{ ticket.title }}">
+    <div class="grid-3">
+        <img class="cover" src="{{ ticket.picture.url }}" alt="{{ ticket.title }}">
     </div>
     {% if not ticket.answered and ticket.user == request.user %}
     <div class="button-group grid-4">
         <button type="button" onclick="window.location.href='{% url 'modify_ticket' ticket.id %}'">Modifier</button>
         <button type="button" onclick="window.location.href='{% url 'delete_ticket' ticket.id %}'">Supprimer</button>
     </div>
-    {% elif not ticket.answered and ticket.user != request.user %}
+    {% elif not ticket.answered and ticket.user != request.user and ticket.user not in banning_users %}
     <div class="button-group grid-4">
         <button type="button" onclick="window.location.href='{% url 'answer_ticket' ticket.id %}'">Donner un avis</button>
     </div>

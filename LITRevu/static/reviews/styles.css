@@ -7,10 +7,16 @@
     --text-color: #562336;
 }
 
+.color1 {
+    background-color: var(--ticket-bg-color);
+}
+.color2{
+    background-color: var(--review-bg-color);
+}
 body {
     margin: auto;
     min-height: 100vh;
-    background: url(images/image_de_fond.png) top center / 100% repeat-y;
+    background: url(images/image_de_fond.webp) top center / 100% repeat-y;
     display:block;
     align-items: center;
 
@@ -21,8 +27,6 @@ body {
     display: grid;
 	grid-template-rows: auto 1fr auto;
     margin: auto;
-    width: 70%;
-    background-color: var(--primary-color);
         }
 
 
@@ -48,15 +52,16 @@ header {
     display: flex;
     margin: auto;
     margin-bottom: 10px;
+    justify-content: center;
 }
 
 main{
     text-align: center;
-    margin:auto;
 }
 
 .accueil {
     display: flex;
+    justify-content: center;
 
 }
 
@@ -80,7 +85,7 @@ nav {
 
 .ticket {
         justify-self: center;
-        background-color: var(--ticket-bg-color);
+
         padding: 10px;
         border: solid #ffd700;
         margin: 5px 0px;
@@ -89,12 +94,12 @@ nav {
     }
 
 .review{
-    background-color: var(--review-bg-color);
+
     text-align: justify;
     padding: 10px;
     border: solid #ffd700;
     margin: auto;
-    width: 80%;
+    width: 85%;
     margin-top: 10px;
     border-radius: 20px;
 
@@ -146,12 +151,13 @@ a:hover {
 }
 
 .logout {
+    margin: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: var(--secondary-color);
     border-radius: 20px;
-    width: 100%;
+    width: 80%;
     margin-top: 20px;
     gap: 20px;
     padding: 20px;
@@ -159,13 +165,12 @@ a:hover {
 }
 
 .signup {
-    display: flex;
-    flex-direction: column;
     justify-items: center;
     background-color: var(--secondary-color);
     border-radius: 20px;
     padding: 20px;
     margin: auto;
+    width: 80%;
 }
 
 .form {
@@ -192,7 +197,7 @@ form label {
 }
 
 input {
-    color: var(--primary-color);
+    
     padding: 10px;
     margin: 10px 0;
     border: 1px solid #F1903B;
@@ -209,9 +214,10 @@ textarea{
 }
 
 button {
+    font-weight: bold;
     margin: auto;
     background-color: var(--primary-color);
-    color: #C2FAFF;
+    color: var(--text-color);
     border: none;
     padding: 10px;
     cursor: pointer;
@@ -232,25 +238,23 @@ button:hover {
     padding-top: 20px;
 }
 
+.cover {
+    object-fit: contain;
+    width: 70%;
+}
+
 .img{
     position:relative;
 
 }
-.fond {
-    display: none;
-    min-width: 150px;
-    max-width: 50%;
-    height: auto;
-    z-index: 5;
-}
 
 .follow{
-    margin-block: 10px;
     background-color: var(--secondary-color);
     text-align: justify;
     padding: 10px;
     border: solid #ffd700;
     margin: auto;
+    margin-top: 10px;
     width: 80%;
     display: flex;
     flex-direction: column;
@@ -263,18 +267,14 @@ button:hover {
     width: 85%;
 }
 
-.link {
-    width: 100px;
-}
-
-#id_rating{
-    display: flex;
-    justify-content: space-around;
-}
-
 input[type="radio"]{
     margin-right: 10px;
     display: flex;
+}
+
+#id_rating {
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .rating {
@@ -305,12 +305,6 @@ tr {
     align-items: flex-end;
 }
 
-.user {
-    font-size: 25px;
-    height: 100px;
-    margin-top: 10px;
-}
-
 td {
     text-shadow: -1px 1px 0px lightyellow;
     font-weight: bold;
@@ -335,9 +329,13 @@ td a:hover {
         text-align: start;
         width: 80%;
     }
+    .container{
+        width: 70%;
+        background-color: var(--primary-color);
+    }
 
     .review{
-        width: 90%;
+        width: 80%;
     }
     .grid-1 {
         grid-column: 1;
@@ -359,11 +357,6 @@ td a:hover {
     .grid-4 {
         grid-column: 2/4;
         grid-row: 4;
-    }
-    .cover {
-    margin: auto;
-    width: 45%;
-    object-fit: contain;
     }
 
 }
@@ -396,11 +389,6 @@ td a:hover {
     }
     grid {
         margin: 10px;
-    }
-
-    .cover {
-        object-fit: contain;
-        width: 70%;
     }
 
     .img {

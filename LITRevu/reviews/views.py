@@ -14,19 +14,26 @@ from reviews.forms import ReviewForm, TicketForm, FollowUserForm
 
 @login_required
 def flux(request):
-
+    # list of users who have banned the user
+    banning_users = User.objects.filter(followers__user=request.user,
+                                        followers__banned=True)
+    # list of users banned by the user
+    banned_users = User.objects.filter(following__followed_user=request.user,
+                                       following__banned=True)
+    # list of all users followed by the user
     following_users = UserFollows.objects.filter(
-        user=request.user,
-        banned=False).values_list('followed_user', flat=True)
+        user=request.user).values_list('followed_user', flat=True)
 
     users = chain([request.user], following_users)
     list_users = list(users)
 
+    # list of user reviews and those he follows
     reviews = Review.objects.filter(
         Q(user__in=list_users) |
-        Q(ticket__in=Ticket.objects.filter(user=request.user))
-    )
+        Q(ticket__in=Ticket.objects.filter(user__in=list_users))
+    ).exclude(ticket__user__in=banned_users)
 
+    # list of user’s tickets and those he follows
     tickets = Ticket.objects.filter(user__in=list_users)
 
     reviews_and_tickets = sorted(
@@ -43,6 +50,7 @@ def flux(request):
 
     context = {
         'page_obj': page_obj,
+        'banning_users': banning_users
     }
     return render(request,
                   'reviews/flux.html',
@@ -97,7 +105,8 @@ def modify_review(request, review_id):
 
     return render(request,
                   'reviews/modify_review.html',
-                  {'review_form': review_form, 'review': review, 'ticket': ticket})
+                  {'review_form': review_form, 'review': review,
+                   'ticket': ticket})
 
 
 @login_required
@@ -204,16 +213,18 @@ def delete_ticket(request, ticket_id):
 
 @login_required
 def follow(request):
-
-    banning_users = User.objects.filter(following__followed_user=request.user,
+    banned_users = User.objects.filter(following__followed_user=request.user,
                                         following__banned=True)
 
-    banned_users = User.objects.filter(followers__user=request.user,
+    banning_users = User.objects.filter(followers__user=request.user,
                                        followers__banned=True)
+    print(f'banned_users: {banned_users}')
+    print(f'banning_users: {banning_users}')
+    followers_users = User.objects.filter(
+        following__followed_user=request.user)
 
-    followers_users = User.objects.filter(following__followed_user=request.user)
-
-    following_users = User.objects.filter(followers__user=request.user).exclude(id__in=banned_users)
+    following_users = User.objects.filter(
+        followers__user=request.user).exclude(id__in=banned_users)
 
     if request.method == "POST":
         form = FollowUserForm(request.POST)
@@ -230,15 +241,21 @@ def follow(request):
                                                       user=user_to_follow,
                                                       followed_user=request.user)
                     if user_relation.banned:
-                        messages.error(request, "cet utilisateur vous a bloqué")
+                        messages.error(request,
+                                       "cet utilisateur vous a bloqué")
                         return redirect('follow')
                 if user_to_follow == request.user:
-                    messages.error(request, "Vous ne pouvez pas vous suivre vous-même.")
-                elif UserFollows.objects.filter(user=request.user, followed_user=user_to_follow).exists():
-                    messages.error(request, "Vous suivez déjà cet utilisateur.")
+                    messages.error(request,
+                                   "Vous ne pouvez pas vous suivre vous-même.")
+                elif UserFollows.objects.filter(user=request.user,
+                                                followed_user=user_to_follow).exists():
+                    messages.error(request,
+                                   "Vous suivez déjà cet utilisateur.")
                 else:
-                    UserFollows.objects.create(user=request.user, followed_user=user_to_follow)
-                    return redirect('follow')  # Redirection pour éviter le repost du formulaire
+                    UserFollows.objects.create(user=request.user,
+                                               followed_user=user_to_follow)
+                    return redirect(
+                        'follow')  # Redirection pour éviter le repost du formulaire
 
     else:
         form = FollowUserForm()
@@ -255,7 +272,6 @@ def follow(request):
 
 @login_required
 def unfollow(request, user_id):
-
     user_to_unfollow = get_object_or_404(User, id=user_id)
     follow_relation = UserFollows.objects.filter(user=request.user,
                                                  followed_user=user_to_unfollow)

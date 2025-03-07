@@ -5,8 +5,9 @@
 
 {% block content %}
 {% if user.is_authenticated %}
-
-<h2>Vos Posts</h2>
+<div class="head">
+    <h2>Vos Posts</h2>
+</div>
 {% for instance in reviews_and_tickets %}
     {% if instance|model_type == 'Ticket' %}
         {% include 'reviews/partials/ticket_snippet.html' with ticket=instance %}

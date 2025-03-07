@@ -1,12 +1,12 @@
 {% load reviews_extras %}
 {% load static %}
-<div class="review">
+<div class="review color2">
     <div class="header">
         <p>{% get_user_display review.user %} publié une critique </p>
         <p>{{ review.time_created | get_posted_at_display }}</p>
     </div>
     <div class="rating">
-        <h4>{{ review.headline }}  -   </h4>
+        <h2>{{ review.headline }}  -   </h2>
         <span class="star">
             {% if review.rating >= 1 %}⭐{% else %}☆{% endif %}
             {% if review.rating >= 2 %}⭐{% else %}☆{% endif %}

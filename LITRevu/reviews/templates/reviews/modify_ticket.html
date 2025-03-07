@@ -4,7 +4,7 @@
 {% block content %}
 {% if user.is_authenticated %}
 
-<div class="review">
+<div class="review color1">
     <h2>modifier un ticket</h2>
     <form method="post" action="{% url 'modify_ticket' ticket.id %}" enctype="multipart/form-data">
         {% csrf_token %}

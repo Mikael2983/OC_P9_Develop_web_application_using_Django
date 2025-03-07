@@ -4,15 +4,15 @@
 {% block content %}
 {% if user.is_authenticated %}
 
-    <div class="signup">
-        <h2>modifier un ticket</h2>
+    <div class="logout">
+        <h2>Supprimer un ticket</h2>
         <form method="post" action="{% url 'delete_ticket' ticket.id %}">
             {% csrf_token %}
             <p>Voulez-vous supprimer ce ticket?</p>
-            <div class="button-group">
-                <button type="button" onclick="window.location.href='{% url 'flux' %}'">Retour</button>
-                <button type="submit">Valider</button>
-            </div>
+
+            <button type="button" onclick="window.location.href='{% url 'flux' %}'">Retour</button>
+            <button type="submit">Valider</button>
+
         </form>
     </div>
 {% endif %}
