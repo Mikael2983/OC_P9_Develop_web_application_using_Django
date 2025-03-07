@@ -1,15 +1,13 @@
 # LITReview
 
-The project is a webapp which enables a community of users to publish reviews on books and literature on demand. Moreover, the users can follow or unfollow other users.
+The project is a webapp which enables a community of users to publish reviews on books and literature on demand. Moreover, the user can follow, be followed or block other members.
 
 ## Fonctionnalités de l'application
-The application presents four main use cases:
+The application presents three main use cases:
 
  - The publication of book or article reviews;
  - The request for criticism on a particular book or article;
  - Viewing reviews of members followed.
- - the user can follow, be followed or block other members
-
 
 ## Setup
 ### Prérequis
