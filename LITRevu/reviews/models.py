@@ -7,6 +7,33 @@ from PIL import Image, ImageDraw, ImageFont
 
 
 class Ticket(models.Model):
+    """
+       Model representing a support or review ticket.
+
+       This model stores user-generated tickets with an optional image. If no image
+       is provided, a default one is generated with the ticket's title. Uploaded
+       images are converted to WebP format and resized for optimization.
+
+       Attributes:
+           title (CharField): The title of the ticket.
+           description (TextField): A detailed description of the ticket.
+           user (ForeignKey): The user who created the ticket.
+           picture (ImageField): An optional image associated with the ticket.
+           time_created (DateTimeField): The timestamp when the ticket was created.
+           answered (BooleanField): Whether the ticket has been answered or not.
+           IMAGE_SIZE (tuple): The fixed dimensions for ticket images (141x180).
+
+       Methods:
+           save(*args, **kwargs):
+               Overrides the default save method to handle image conversion and generation.
+           _process_uploaded_image():
+               Converts uploaded images to WebP format and resizes them if needed.
+           _generate_default_image():
+               Creates a default WebP image with the ticket title if no image is provided.
+           __str__():
+               Returns the ticket title as its string representation.
+       """
+
     title = models.CharField(max_length=128)
     description = models.TextField(max_length=2048)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
@@ -77,6 +104,26 @@ class Ticket(models.Model):
 
 
 class Review(models.Model):
+    """
+   Model representing a user review for a ticket.
+
+   This model stores user-generated reviews associated with a specific ticket.
+   Each review includes a rating, headline, and optional body text.
+
+   Attributes:
+       ticket (ForeignKey): The ticket being reviewed, with cascading deletion.
+       rating (PositiveSmallIntegerField): The rating given by the user,
+                                           ranging from 1 to 5 stars.
+       headline (CharField): A brief summary of the review (max 128 characters).
+       body (CharField): The detailed content of the review (optional, max 8192 characters).
+       user (ForeignKey): The user who created the review, with cascading deletion.
+       time_created (DateTimeField): The timestamp when the review was created.
+
+   Methods:
+       __str__():
+           Returns the headline of the review as its string representation.
+   """
+
     ticket = models.ForeignKey(to=Ticket, on_delete=models.CASCADE)
     rating = models.PositiveSmallIntegerField(
         choices=[(i, f"{i} ★") for i in range(1, 6)])
@@ -92,6 +139,22 @@ class Review(models.Model):
 
 
 class UserFollows(models.Model):
+    """
+    Model representing a user following another user.
+
+    This model stores relationships between users to track who follows whom.
+    It also includes a flag to indicate if a user has been banned from interacting.
+
+    Attributes:
+        user (ForeignKey): The user who is following another user.
+        followed_user (ForeignKey): The user being followed.
+        banned (BooleanField): Indicates if the followed user is restricted
+                               from interacting with the follower.
+
+    Meta:
+        unique_together (tuple): Ensures that a user cannot follow the same user multiple times.
+
+    """
     user = models.ForeignKey(to=settings.AUTH_USER_MODEL,
                              on_delete=models.CASCADE,
                              related_name='following')
