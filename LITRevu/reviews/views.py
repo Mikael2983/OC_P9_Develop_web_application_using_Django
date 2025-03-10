@@ -176,7 +176,9 @@ def delete_review(request, review_id):
                       upon deletion.
     """
     review = Review.objects.get(id=review_id)
-    ticket = Ticket.objects.get(id=review.ticket)
+    ticket = Ticket.objects.get(id=review.ticket.id)
+    print(review.ticket.id)
+    print(review.ticket.answered)
 
     if request.user != review.user:
         return redirect(reverse('flux'))
@@ -184,6 +186,7 @@ def delete_review(request, review_id):
     if request.method == 'POST':
         ticket.answered = False
         review.delete()
+        ticket.save(update_fields=["answered"])
         return redirect(reverse('user_posts'))
 
     return render(request,
@@ -328,27 +331,28 @@ def answer_ticket(request, ticket_id):
     """
     if request.method == "POST":
         ticket = Ticket.objects.get(id=ticket_id)
-        review_form = ReviewForm(request.POST, instance=ticket)
+        review_form = ReviewForm(request.POST)
 
         if review_form.is_valid():
             review = review_form.save(commit=False)
             review.user = request.user
-            review.ticket = ticket  # Associer la critique au ticket créé
+            review.ticket = ticket
             ticket.answered = True
 
-            ticket.save()
             review.save()
+            ticket.save(update_fields=["answered"])
 
-            return redirect('flux')  # Redirection après la soumission
+            return redirect('flux')
 
     else:
         review_form = ReviewForm()
         ticket = Ticket.objects.get(id=ticket_id)
+
     context = {
         'ticket': ticket,
         'review_form': review_form
     }
-    return render(request, 'reviews/answer_review.html', context)
+    return render(request, 'reviews/answer_ticket.html', context)
 
 
 @login_required
