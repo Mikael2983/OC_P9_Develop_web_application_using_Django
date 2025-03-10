@@ -65,7 +65,7 @@ source env/bin/acivate
 To install required python packages, copy requirements.txt file and then run following command on terminal:
 
 ```bash
-pip install requirements.txt
+pip install -r requirements.txt
 ```
 then access the project directory
 
