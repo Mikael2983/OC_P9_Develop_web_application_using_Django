@@ -31,12 +31,13 @@ choose and download the version of Git that corresponds to your installation: Ma
 
 ### 1. Clone the Repository
 
-First, clone this repository to your local machine. 
+First, open the command prompt in the folder where you want to drop the clone 
+clone this repository to your local machine. 
 
 ```bash
 git clone https://github.com/Mikael2983/OC_P9_Develop_web_application_using_Django.git
 ```
-Then navigate inside the folder OC_P9_Develop_web_application_using_Django and open command prompt from inside the cloned repository
+Then navigate inside the folder OC_P9_Develop_web_application_using_Django
 
 ```bash
 cd OC_P9_Develop_web_application_using_Django
@@ -48,10 +49,14 @@ To create virtual environment, install virtualenv package of python and activate
 
 ```bash
 python -m venv env
-
-Powershell: env\Scripts\activate
-
-Unix/MacOS: source env/bin/acivate
+```
+for windows:
+```bash
+env\Scripts\activate
+```
+for Unix/MacOS :
+```bash
+source env/bin/acivate
 ```
 
 
