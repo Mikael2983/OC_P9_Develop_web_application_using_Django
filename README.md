@@ -85,4 +85,4 @@ python manage.py runserver
 
 To start the webapp on localhost, enter following URL in the web browser:
 
-https://127.0.0.1:8000/
+http://127.0.0.1:8000/
