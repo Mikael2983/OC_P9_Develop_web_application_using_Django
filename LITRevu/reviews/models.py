@@ -10,33 +10,37 @@ class Ticket(models.Model):
     """
        Model representing a support or review ticket.
 
-       This model stores user-generated tickets with an optional image. If no image
-       is provided, a default one is generated with the ticket's title. Uploaded
-       images are converted to WebP format and resized for optimization.
+       This model stores user-generated tickets with an optional image.
+       If no image is provided, a default one is generated with the
+       ticket's title. Uploaded images are converted to WebP format and
+       resized for optimization.
 
        Attributes:
            title (CharField): The title of the ticket.
            description (TextField): A detailed description of the ticket.
            user (ForeignKey): The user who created the ticket.
            picture (ImageField): An optional image associated with the ticket.
-           time_created (DateTimeField): The timestamp when the ticket was created.
-           answered (BooleanField): Whether the ticket has been answered or not.
-           IMAGE_SIZE (tuple): The fixed dimensions for ticket images (141x180).
+           time_created (DateTimeField): The creation timestamp of the ticket
+           answered (BooleanField): If the ticket has been answered or not.
+           IMAGE_SIZE (tuple): The dimensions for ticket images (141x180).
 
        Methods:
            save(*args, **kwargs):
-               Overrides the default save method to handle image conversion and generation.
+               Overrides the default save method to handle image conversion and
+                generation.
            _process_uploaded_image():
-               Converts uploaded images to WebP format and resizes them if needed.
+               Converts images to WebP format and resizes them if needed.
            _generate_default_image():
-               Creates a default WebP image with the ticket title if no image is provided.
+               Creates a default WebP image with the ticket title.
            __str__():
                Returns the ticket title as its string representation.
        """
 
     title = models.CharField(max_length=128)
     description = models.TextField(max_length=2048)
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL,
+                             on_delete=models.CASCADE
+                             )
     picture = models.ImageField(null=True, blank=True, upload_to='')
     time_created = models.DateTimeField(auto_now_add=True)
     answered = models.BooleanField(default=False)
@@ -44,7 +48,9 @@ class Ticket(models.Model):
     IMAGE_SIZE = (141, 180)
 
     def save(self, *args, **kwargs):
-        """ Sauvegarde l'objet et gère les images (conversion et génération). """
+        """
+        Sauvegarde l'objet et gère les images (conversion et génération).
+        """
 
         super().save(*args, **kwargs)
 
@@ -61,7 +67,9 @@ class Ticket(models.Model):
             self._generate_default_image()
 
     def _process_uploaded_image(self):
-        """Convertit en WebP et redimensionne l’image uniquement si nécessaire."""
+        """
+        Convertit en WebP et redimensionne l’image uniquement si nécessaire.
+        """
         img_path = self.picture.path
         webp_path = os.path.splitext(img_path)[0] + ".webp"
 
@@ -73,14 +81,19 @@ class Ticket(models.Model):
         self.save(update_fields=["picture"])
 
     def _generate_default_image(self):
-        """ Crée une image WebP par défaut avec le titre du ticket. """
+        """
+        Crée une image WebP par défaut avec le titre du ticket.
+        """
         if not self.id:
-            return  # Nécessaire pour éviter les erreurs avant la première sauvegarde
+            return  # évite les erreurs avant la première sauvegarde
 
         webp_path = os.path.join(settings.MEDIA_ROOT,
                                  f'default_{self.id}.webp')
 
-        image = Image.new("RGBA", self.IMAGE_SIZE, (204, 204, 204, 255))
+        image = Image.new("RGBA",
+                          self.IMAGE_SIZE,
+                          (204, 204, 204, 255)
+                          )
         draw = ImageDraw.Draw(image)
         font = ImageFont.load_default()
 
@@ -97,7 +110,7 @@ class Ticket(models.Model):
         image.save(webp_path, "WEBP", lossless=True)
         self.picture.name = f'default_{self.id}.webp'
         self.save(
-            update_fields=["picture"])  # Met à jour uniquement l'image
+            update_fields=["picture"])
 
     def __str__(self):
         return self.title
@@ -114,10 +127,10 @@ class Review(models.Model):
        ticket (ForeignKey): The ticket being reviewed, with cascading deletion.
        rating (PositiveSmallIntegerField): The rating given by the user,
                                            ranging from 1 to 5 stars.
-       headline (CharField): A brief summary of the review (max 128 characters).
-       body (CharField): The detailed content of the review (optional, max 8192 characters).
-       user (ForeignKey): The user who created the review, with cascading deletion.
-       time_created (DateTimeField): The timestamp when the review was created.
+       headline (CharField): A brief summary of the review.
+       body (CharField): The detailed content of the review.
+       user (ForeignKey): The user who created the review.
+       time_created (DateTimeField): The review creation timestamp.
 
    Methods:
        __str__():
@@ -143,7 +156,8 @@ class UserFollows(models.Model):
     Model representing a user following another user.
 
     This model stores relationships between users to track who follows whom.
-    It also includes a flag to indicate if a user has been banned from interacting.
+    It also includes a flag to indicate if a user has been banned from
+    interacting.
 
     Attributes:
         user (ForeignKey): The user who is following another user.
@@ -152,7 +166,8 @@ class UserFollows(models.Model):
                                from interacting with the follower.
 
     Meta:
-        unique_together (tuple): Ensures that a user cannot follow the same user multiple times.
+        unique_together (tuple): Ensures that a user cannot follow the same
+        user multiple times.
 
     """
     user = models.ForeignKey(to=settings.AUTH_USER_MODEL,

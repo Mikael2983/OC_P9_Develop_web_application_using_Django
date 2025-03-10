@@ -18,32 +18,62 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Ticket',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.BigAutoField(auto_created=True,
+                                           primary_key=True,
+                                           serialize=False,
+                                           verbose_name='ID')),
                 ('title', models.CharField(max_length=128)),
                 ('description', models.TextField(max_length=2048)),
                 ('picture', models.URLField(blank=True, null=True)),
                 ('time_created', models.DateTimeField(auto_now_add=True)),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                ('user', models.ForeignKey(
+                    on_delete=django.db.models.deletion.CASCADE,
+                    to=settings.AUTH_USER_MODEL)
+                 ),
             ],
         ),
         migrations.CreateModel(
             name='Review',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('rating', models.PositiveSmallIntegerField(validators=[django.core.validators.MinValueValidator(0), django.core.validators.MaxValueValidator(5)])),
+                ('id', models.BigAutoField(auto_created=True,
+                                           primary_key=True,
+                                           serialize=False,
+                                           verbose_name='ID')
+                 ),
+                ('rating', models.PositiveSmallIntegerField(
+                    validators=[django.core.validators.MinValueValidator(0),
+                                django.core.validators.MaxValueValidator(5)])
+                 ),
                 ('headline', models.CharField(max_length=128)),
                 ('body', models.CharField(blank=True, max_length=8192)),
                 ('time_created', models.DateTimeField(auto_now_add=True)),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
-                ('ticket', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='reviews.ticket')),
+                ('user', models.ForeignKey(
+                    on_delete=django.db.models.deletion.CASCADE,
+                    to=settings.AUTH_USER_MODEL)
+                 ),
+                ('ticket', models.ForeignKey(
+                    on_delete=django.db.models.deletion.CASCADE,
+                    to='reviews.ticket')
+                 ),
             ],
         ),
         migrations.CreateModel(
             name='UserFollows',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('followed_user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='followed_by', to=settings.AUTH_USER_MODEL)),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='following', to=settings.AUTH_USER_MODEL)),
+                ('id', models.BigAutoField(auto_created=True,
+                                           primary_key=True,
+                                           serialize=False,
+                                           verbose_name='ID')),
+                ('followed_user', models.ForeignKey(
+                    on_delete=django.db.models.deletion.CASCADE,
+                    related_name='followed_by',
+                    to=settings.AUTH_USER_MODEL)
+                 ),
+                ('user', models.ForeignKey(
+                    on_delete=django.db.models.deletion.CASCADE,
+                    related_name='following',
+                    to=settings.AUTH_USER_MODEL)
+                 ),
             ],
             options={
                 'unique_together': {('user', 'followed_user')},

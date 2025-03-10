@@ -18,15 +18,16 @@ class CustomLoginView(LoginView):
         """
         Log in the user if the form is valid and redirect to the 'flux' page.
 
-        This method retrieves the authenticated user from the form, logs them in,
-        and redirects them to the main content page.
+        This method retrieves the authenticated user from the form,
+        logs them in and redirects them to the main content page.
 
         Args:
             form (AuthenticationForm): The authentication form containing
                                        the validated user credentials.
 
         Returns:
-            HttpResponseRedirect: A redirect to the 'flux' page upon successful login.
+            HttpResponseRedirect: A redirect to the 'flux' page upon successful
+             login.
         """
         user = form.get_user()
         login(self.request, user)
@@ -91,7 +92,6 @@ def custom_logout(request):
     """
 
     if request.method == 'POST':
-        print('post')
         logout(request)
         return redirect(reverse(
                 'login'))
@@ -144,10 +144,11 @@ def set_new_password(request):
     """
     Display the new password form and handle password reset.
 
-    This view allows a user to set a new password after verifying their identity
-    through a prior step. If the user ID is not found in the session, they are
-    redirected to the reset password page. If the request method is POST, it
-    validates the new password and updates the user's password if both fields match.
+    This view allows a user to set a new password after verifying their
+    identity through a prior step. If the user ID is not found in the session,
+    they are redirected to the reset password page.
+    If both fields match, it validates the new password and updates the user's
+    password.
 
     Args:
         request (HttpRequest): The request object containing metadata
@@ -156,14 +157,14 @@ def set_new_password(request):
     Returns:
         HttpResponseRedirect: A redirect to the 'password_reset_done' page
                               if the password is successfully changed.
-        HttpResponseRedirect: A redirect to 'reset_password' if no user ID is found
-                              in the session.
+        HttpResponseRedirect: A redirect to 'reset_password' if no user ID is
+                              found in the session.
         HttpResponse: A rendered set new password page with an error message
                       if the passwords do not match.
     """
     user_id = request.session.get('reset_user_id')
 
-    if not user_id:  # Si pas d'utilisateur en session, retour à la page de réinitialisation
+    if not user_id:
         return redirect('reset_password')
 
     if request.method == 'POST':
@@ -174,11 +175,11 @@ def set_new_password(request):
             user = User.objects.get(id=user_id)
             user.password = make_password(new_password)
             user.save()
-            del request.session[
-                'reset_user_id']  # Supprime l’ID utilisateur de la session
+            del request.session['reset_user_id']
             return redirect('password_reset_done')
         else:
-            return render(request, 'authentification/set_new_password.html',
+            return render(request,
+                          'authentification/set_new_password.html',
                           {'error': "Les mots de passe ne correspondent pas."})
 
     return render(request, 'authentification/set_new_password.html')

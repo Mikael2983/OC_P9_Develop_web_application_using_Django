@@ -24,7 +24,7 @@ def flux(request):
         request (HttpRequest): The HTTP request object.
 
     Returns:
-        HttpResponse: The rendered feed page with paginated reviews and tickets.
+        HttpResponse: The feed page with paginated reviews and tickets.
     """
     # list of users who have banned the user
     banning_users = User.objects.filter(followers__user=request.user,
@@ -74,12 +74,14 @@ def create_review(request):
     """
     Handle the creation of a review along with an associated ticket.
 
-    This view processes a POST request containing form data for both a `TicketForm`
-    and a `ReviewForm`. If both forms are valid, a new ticket and a new review
-    are created and linked to the requesting user. The ticket is marked as answered.
+    This view processes a POST request containing form data for both a
+    `TicketForm` and a `ReviewForm`. If both forms are valid, a new ticket and
+    a new review are created and linked to the requesting user.
+    The ticket is marked as answered.
 
     Args:
-        request (HttpRequest): The HTTP request object containing user data and form inputs.
+        request (HttpRequest): The HTTP request object containing user data and
+         form inputs.
 
     Returns:
         HttpResponse: The appropriate response after processing the forms.
@@ -118,19 +120,21 @@ def modify_review(request, review_id):
     """
     Handle the modification of an existing review.
 
-    This view retrieves a review by its ID and ensures that the requesting user
-    is the owner of the review. If the user is not the owner, they are redirected
-    to the 'flux' page. If the request method is POST and the form is valid, the
-    review is updated and the user is redirected to 'flux'. Otherwise, the form
-    is displayed for editing.
+    This view retrieves a review by its ID and ensures that the requesting
+    user is the owner of the review. If the user is not the owner, they are
+    redirected to the 'flux' page. If the request method is POST and the form
+    is valid, the review is updated and the user is redirected to 'flux'.
+    Otherwise, the form is displayed for editing.
 
     Args:
-        request (HttpRequest): The HTTP request object containing user data and form inputs.
+        request (HttpRequest): The HTTP request object containing user data and
+                                form inputs.
         review_id (int): The ID of the review to be modified.
 
     Returns:
         HttpResponse: Renders the review modification page with the form,
-                      or redirects to 'flux' if unauthorized or upon successful submission.
+                      or redirects to 'flux' if unauthorized or upon
+                      successful submission.
     """
     review = Review.objects.get(id=review_id)
     if request.user != review.user:
@@ -156,14 +160,15 @@ def create_ticket(request):
     """
     Handle the creation of a new ticket.
 
-    This view processes a POST request containing form data for creating a new ticket.
-    If the form is valid, a ticket is created and associated with the requesting user.
-    The ticket's creation timestamp is set to the current time. Upon success, the user
-    is redirected to the 'flux' page. If the request method is GET, an empty form is
-    displayed for the user.
+    This view processes a POST request containing form data for creating a new
+    ticket. If the form is valid, a ticket is created and associated with the
+    requesting user. The ticket's creation timestamp is set to the current
+    time. Upon success, the user is redirected to the 'flux' page. If the
+    request method is GET, an empty form is displayed for the user.
 
     Args:
-        request (HttpRequest): The HTTP request object containing user data and form inputs.
+        request (HttpRequest): The HTTP request object containing user data and
+                                form inputs.
 
     Returns:
         HttpResponse: Renders the ticket creation page with the form,
@@ -231,19 +236,21 @@ def modify_ticket(request, ticket_id):
     """
     Handle the modification of an existing ticket.
 
-    This view allows a user to modify their own ticket. If the requesting user is
-    not the owner of the ticket, they are redirected to the 'flux' page. If the
-    request method is POST and the form is valid, the ticket is updated and the
-    user is redirected to the 'user_posts' page. Otherwise, the form is displayed
-    pre-filled with the existing ticket data.
+    This view allows a user to modify their own ticket. If the requesting user
+    is not the owner of the ticket, they are redirected to the 'flux' page.
+    If the form is valid, the ticket is updated and the user is redirected to
+    the 'user_posts' page. Otherwise, the form is displayed pre-filled with
+    the existing ticket data.
 
     Args:
-        request (HttpRequest): The HTTP request object containing user data and form inputs.
+        request (HttpRequest): The HTTP request object containing user data and
+         form inputs.
         ticket_id (int): The ID of the ticket to be modified.
 
     Returns:
         HttpResponse: Renders the ticket modification page with the form,
-                      or redirects to 'flux' if unauthorized, or 'user_posts' upon success.
+                      or redirects to 'flux' if unauthorized, or 'user_posts'
+                      upon success.
     """
     ticket = Ticket.objects.get(id=ticket_id)
 
@@ -274,12 +281,14 @@ def answer_ticket(request, ticket_id):
     empty review form is displayed.
 
     Args:
-        request (HttpRequest): The HTTP request object containing user data and form inputs.
-        ticket_id (int): The ID of the ticket being answered.
+        request (HttpRequest): The HTTP request object containing user data and
+         form inputs.
+        ticket_id (int): The ticket ID being answered.
 
     Returns:
-        HttpResponse: Renders the review submission page with the form and ticket details,
-                      or redirects to 'flux' upon successful submission.
+        HttpResponse: Renders the review submission page with the form and
+                      ticket details or redirects to 'flux' upon successful
+                      submission.
     """
     if request.method == "POST":
         ticket = Ticket.objects.get(id=ticket_id)
@@ -323,7 +332,8 @@ def delete_ticket(request, ticket_id):
 
     Returns:
         HttpResponse: Renders the ticket deletion confirmation page,
-                      or redirects to 'flux' if unauthorized, or 'user_tickets' upon deletion.
+                      or redirects to 'flux' if unauthorized, or 'user_tickets'
+                      upon deletion.
     """
     ticket = Ticket.objects.get(id=ticket_id)
 
@@ -354,14 +364,18 @@ def follow(request):
      - Users who have blocked the requesting user.
      - Users that the requesting user has blocked.
      - Users following the requesting user.
-     - Users the requesting user is following, excluding those who have blocked them.
+     - Users the requesting user is following, excluding those who have blocked
+      them.
 
    Args:
-       request (HttpRequest): The HTTP request object containing user data and form inputs.
+       request (HttpRequest): The HTTP request object containing user data and
+        form inputs.
 
    Returns:
-       HttpResponse: Renders the 'follow.html' template with the form and lists of users.
-                     Redirects to 'follow' upon successful submission or an error.
+       HttpResponse: Renders the 'follow.html' template with the form and lists
+                     of users.
+                     Redirects to 'follow' upon successful submission or an
+                     error.
    """
     banned_users = User.objects.filter(following__followed_user=request.user,
                                        following__banned=True)
@@ -384,27 +398,39 @@ def follow(request):
             else:
                 user_to_follow = User.objects.get(username=username)
 
-                if UserFollows.objects.filter(user=user_to_follow,
-                                              followed_user=request.user).exists():
-                    user_relation = get_object_or_404(UserFollows,
-                                                      user=user_to_follow,
-                                                      followed_user=request.user)
+                if UserFollows.objects.filter(
+                        user=user_to_follow,
+                        followed_user=request.user
+                ).exists():
+
+                    user_relation = get_object_or_404(
+                        UserFollows,
+                        user=user_to_follow,
+                        followed_user=request.user
+                    )
                     if user_relation.banned:
                         messages.error(request,
                                        "cet utilisateur vous a bloqué")
                         return redirect('follow')
+
                 if user_to_follow == request.user:
-                    messages.error(request,
-                                   "Vous ne pouvez pas vous suivre vous-même.")
-                elif UserFollows.objects.filter(user=request.user,
-                                                followed_user=user_to_follow).exists():
+                    messages.error(
+                        request,
+                        "Vous ne pouvez pas vous suivre vous-même.")
+
+                elif UserFollows.objects.filter(
+                        user=request.user,
+                        followed_user=user_to_follow
+                ).exists():
+
                     messages.error(request,
                                    "Vous suivez déjà cet utilisateur.")
+
                 else:
                     UserFollows.objects.create(user=request.user,
                                                followed_user=user_to_follow)
                     return redirect(
-                        'follow')  # Redirection pour éviter le repost du formulaire
+                        'follow')
 
     else:
         form = FollowUserForm()
@@ -438,8 +464,10 @@ def unfollow(request, user_id):
         HttpResponseRedirect: Redirects to the 'follow' page after unfollowing.
     """
     user_to_unfollow = get_object_or_404(User, id=user_id)
-    follow_relation = UserFollows.objects.filter(user=request.user,
-                                                 followed_user=user_to_unfollow)
+    follow_relation = UserFollows.objects.filter(
+        user=request.user,
+        followed_user=user_to_unfollow
+    )
     follow_relation.delete()
     return redirect('follow')
 
@@ -451,11 +479,11 @@ def unsubscribe_followers(request, user_id):
 
         This view allows the requesting user to remove a specific follower.
         If the specified user does not exist, a 404 error is raised.
-        If a follow relationship exists, it is deleted, and the user is redirected
-        to the 'follow' page.
+        If a follow relationship exists, it is deleted, and the user is
+        redirected to the 'follow' page.
 
         Args:
-            request (HttpRequest): The HTTP request object containing user data.
+            request (HttpRequest): The request object containing user data.
             user_id (int): The ID of the follower to remove.
 
         Returns:
@@ -484,7 +512,7 @@ def ban_followers(request, user_id):
         user_id (int): The ID of the user to ban.
 
     Returns:
-        HttpResponseRedirect: A redirect to the 'follow' page after banning the user.
+        HttpResponseRedirect: A redirect to the 'follow' page.
     """
     user_to_ban = get_object_or_404(User, id=user_id)
     follow_relation = get_object_or_404(UserFollows,
@@ -509,7 +537,8 @@ def unban_followers(request, user_id):
         user_id (int): The ID of the user to unban.
 
     Returns:
-        HttpResponseRedirect: A redirect to the 'follow' page after updating the status.
+        HttpResponseRedirect: A redirect to the 'follow' page after updating
+                              the status.
     """
     user_to_ban = get_object_or_404(User, id=user_id)
     follow_relation = get_object_or_404(UserFollows,

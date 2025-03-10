@@ -34,8 +34,10 @@ class ReviewForm(forms.ModelForm):
         label="titre",
         max_length=150,
     )
-    rate_choices = ((i, i*f"★")for i in range(1, 6))
-    rating = forms.ChoiceField(choices=rate_choices, widget=forms.RadioSelect())
+    rate_choices = ((i, i*'★')for i in range(1, 6))
+    rating = forms.ChoiceField(choices=rate_choices,
+                               widget=forms.RadioSelect()
+                               )
 
     class Meta:
         model = Review

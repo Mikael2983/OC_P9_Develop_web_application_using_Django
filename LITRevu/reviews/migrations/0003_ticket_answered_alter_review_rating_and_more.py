@@ -21,11 +21,20 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='review',
             name='rating',
-            field=models.PositiveSmallIntegerField(choices=[(1, '1 ★'), (2, '2 ★'), (3, '3 ★'), (4, '4 ★'), (5, '5 ★')]),
+            field=models.PositiveSmallIntegerField(
+                choices=[(1, '1 ★'),
+                         (2, '2 ★'),
+                         (3, '3 ★'),
+                         (4, '4 ★'),
+                         (5, '5 ★')]),
         ),
         migrations.AlterField(
             model_name='userfollows',
             name='followed_user',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='followers', to=settings.AUTH_USER_MODEL),
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name='followers',
+                to=settings.AUTH_USER_MODEL
+            ),
         ),
     ]

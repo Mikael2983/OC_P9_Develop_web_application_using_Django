@@ -28,5 +28,3 @@ def get_user_display(context, user):
     if user == context['user']:
         return 'vous avez'
     return f'{user.username} a'
-
-
