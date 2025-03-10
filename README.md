@@ -31,7 +31,8 @@ choose and download the version of Git that corresponds to your installation: Ma
 
 ### 1. Clone the Repository
 
-First, open the command prompt in the folder where you want to drop the clone 
+First, open the command prompt in the folder where you want to drop the clone.
+
 clone this repository to your local machine. 
 
 ```bash
