@@ -17,8 +17,10 @@
     </div>
     <p>{{ review.body }}</p>
     {% include 'reviews/partials/ticket_snippet.html' with ticket=review.ticket %}
+
     {% if review.user == request.user %}
     <div class="button-group">
+        <button type="button" onclick="window.location.href='{% url 'delete_review' review.id %}'">Supprimer</button>
         <button type="button" onclick="window.location.href='{% url 'modify_review' review.id %}'">Modifier</button>
     </div>
     {% endif %}

@@ -156,6 +156,40 @@ def modify_review(request, review_id):
 
 
 @login_required
+def delete_review(request, review_id):
+    """
+    Handle the deletion of a review.
+
+    This view allows a user to delete their own review. If the requesting user
+    is not the owner of the review, he is redirected to the 'flux' page.
+    If the request method is POST, the review is deleted, and the user is
+    redirected to the 'user_posts' page. Otherwise, a confirmation page
+    is displayed.
+
+    Args:
+        request (HttpRequest): The HTTP request object containing user data.
+        review_id (int): The ID of the review to be deleted.
+
+    Returns:
+        HttpResponse: Renders the review deletion confirmation page,
+                      or redirects to 'flux' if unauthorized, or 'user_posts'
+                      upon deletion.
+    """
+    review = Review.objects.get(id=review_id)
+
+    if request.user != review.user:
+        return redirect(reverse('flux'))
+
+    if request.method == 'POST':
+        review.delete()
+        return redirect(reverse('user_posts'))
+
+    return render(request,
+                  'reviews/delete_review.html',
+                  {'review': review})
+
+
+@login_required
 def create_ticket(request):
     """
     Handle the creation of a new ticket.
@@ -342,7 +376,7 @@ def delete_ticket(request, ticket_id):
 
     if request.method == 'POST':
         ticket.delete()
-        return redirect(reverse('user_tickets'))
+        return redirect(reverse('user_posts'))
 
     return render(request,
                   'reviews/delete_ticket.html',

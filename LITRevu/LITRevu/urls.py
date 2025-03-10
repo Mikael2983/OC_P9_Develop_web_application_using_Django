@@ -58,19 +58,27 @@ urlpatterns = [
     path('reviews/create-review/',
          r_views.create_review,
          name='create_review'),
+
     path('reviews/<int:review_id>/modify-review/',
          r_views.modify_review,
          name='modify_review'),
 
+    path('reviews/<int:review_id>/delete-review/',
+         r_views.delete_review,
+         name='delete_review'),
+
     path('tickets/create-ticket/',
          r_views.create_ticket,
          name='create_ticket'),
+
     path('tickets/<int:ticket_id>/modify-ticket/',
          r_views.modify_ticket,
          name='modify_ticket'),
+
     path('tickets/<int:ticket_id>/delete-ticket/',
          r_views.delete_ticket,
          name='delete_ticket'),
+
     path('tickets/<int:ticket_id>/answer-ticket/',
          r_views.answer_ticket,
          name='answer_ticket'),
