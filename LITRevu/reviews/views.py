@@ -176,11 +176,13 @@ def delete_review(request, review_id):
                       upon deletion.
     """
     review = Review.objects.get(id=review_id)
+    ticket = Ticket.objects.get(id=review.ticket)
 
     if request.user != review.user:
         return redirect(reverse('flux'))
 
     if request.method == 'POST':
+        ticket.answered = False
         review.delete()
         return redirect(reverse('user_posts'))
 
