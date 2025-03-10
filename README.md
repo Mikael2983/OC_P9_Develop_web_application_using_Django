@@ -27,15 +27,15 @@ You will also need Git to clone the application on your computer. Check your ins
 ```bash
 git --version Otherwise
 ```
-choose and download the version of Git that corresponds to your installation: MacOS, Windows or Linux/Unix by clicking on the following link: [télécharger git](https://git-scm.com/downloads) Then run the file you just downloaded. Press Next at each window and then Install. During installation, leave all the default options as they work well. Git Bash is the interface for using Git on the command line.
+choose and download the version of Git that corresponds to your installation: MacOS, Windows or Linux/Unix by clicking on the following link: [Download git](https://git-scm.com/downloads) Then run the file you just downloaded. Press Next at each window and then Install. During installation, leave all the default options as they work well. Git Bash is the interface for using Git on the command line.
 
 ### 1. Clone the Repository
 
-First, clone this repository to your local machine. Then navigate inside the folder litreview and open command prompt from inside the cloned repository
+First, clone this repository to your local machine. 
 ```bash
-git clone https://github.com/Mikael2983/LITRevu.git
+git clone https://github.com/Mikael2983/OC_P9_Develop_web_application_using_Django.git
 ```
-
+Then navigate inside the folder OC_P9_Develop_web_application_using_Django and open command prompt from inside the cloned repository
 ### 2. Create Virtual Environment
 
 To create virtual environment, install virtualenv package of python and activate it by following command on terminal:
