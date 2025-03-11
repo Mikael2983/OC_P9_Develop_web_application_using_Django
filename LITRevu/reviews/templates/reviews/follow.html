@@ -18,16 +18,18 @@
     <div class="follow">
         <table>
             {% for user in following_users %}
-            {% if user not in banning_users %}
             <tr>
                 <td class="col1">
                     {{ user.username }}
                 </td>
                 <td class="col2">
+                    {% if user not in banning_users %}
                     <a role="button" href="{% url 'unfollow' user.id %}">Désabonner</a>
+                    {% else %}
+                    <p>vous a bloqué.</p>
+                    {% endif %}
                 </td>
             </tr>
-            {% endif %}
             {% endfor %}
         </table>
 

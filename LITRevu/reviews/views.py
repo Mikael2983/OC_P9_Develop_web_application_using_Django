@@ -41,10 +41,10 @@ def flux(request):
     list_users = list(users)
 
     # list of reviews of the user and those he follows
-    reviews = Review.objects.filter(
+    reviews = Review.objects.select_related("user", "ticket").filter(
         Q(user__in=list_users) |
-        Q(ticket__in=Ticket.objects.filter(user__in=list_users))
-    ).exclude(ticket__user__in=banned_users)
+        Q(ticket__user__in=list_users)
+    ).exclude(user__in=banned_users).exclude(ticket__user__in=banned_users)
 
     # list of tickets of the user and those he follows
     tickets = Ticket.objects.filter(user__in=list_users)
@@ -502,12 +502,19 @@ def unfollow(request, user_id):
     Returns:
         HttpResponseRedirect: Redirects to the 'follow' page after unfollowing.
     """
+    # list of members who have banned the user.
+    banning_users = User.objects.filter(followers__user=request.user,
+                                        followers__banned=True)
     user_to_unfollow = get_object_or_404(User, id=user_id)
-    follow_relation = UserFollows.objects.filter(
-        user=request.user,
-        followed_user=user_to_unfollow
-    )
-    follow_relation.delete()
+
+    # if the user to unsubscribe is not in the list
+    if not banning_users.filter(id=user_to_unfollow.id).exists():
+        follow_relation = UserFollows.objects.filter(
+            user=request.user,
+            followed_user=user_to_unfollow
+        )
+        follow_relation.delete()
+
     return redirect('follow')
 
 
