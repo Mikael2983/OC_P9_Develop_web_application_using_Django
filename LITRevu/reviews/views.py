@@ -15,7 +15,8 @@ from reviews.forms import ReviewForm, TicketForm, FollowUserForm
 @login_required
 def flux(request):
     """
-    Display the main feed with user reviews and tickets.
+    Display the main feed with the reviews and the tickets of the user and his
+    following users.
 
     This view retrieves and paginates reviews and tickets from the user and
     the users he follows, while excluding content from banned users.
@@ -177,8 +178,6 @@ def delete_review(request, review_id):
     """
     review = Review.objects.get(id=review_id)
     ticket = Ticket.objects.get(id=review.ticket.id)
-    print(review.ticket.id)
-    print(review.ticket.answered)
 
     if request.user != review.user:
         return redirect(reverse('flux'))
