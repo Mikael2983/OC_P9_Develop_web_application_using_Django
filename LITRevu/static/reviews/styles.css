@@ -294,22 +294,21 @@ footer {
 
 table {
     width: inherit;
-    margin: auto;
-    border: none;
-    border-collapse: collapse;
-    display: flex;
-    justify-content: center;
-}
 
+}
+tbody {
+    width: 100%;
+}
 tr {
+    padding: 3px;
     display: flex;
-    align-items: flex-end;
 }
 
 td {
-    text-shadow: -1px 1px 0px lightyellow;
+    margin: auto;
     font-weight: bold;
     width: 33%;
+    text-align: center;
 }
 
 td a {
@@ -317,7 +316,7 @@ td a {
 }
 
 td a:hover {
-    color : white;
+    color: var(--highlight-color);
 }
 
 .col2 {
