@@ -13,17 +13,16 @@
     <div class="grid-3">
         <img class="cover" src="{{ ticket.picture.url }}" alt="{{ ticket.title }}">
     </div>
-    {% if ticket.user == request.user %}
     <div class="button-group grid-4">
-        {% if not ticket.answered  %}
+        {% if ticket.user == request.user %}
+            {% if not ticket.answered  %}
             <button type="button" onclick="window.location.href='{% url 'modify_ticket' ticket.id %}'">Modifier</button>
+            {% endif %}
+            <button type="button" onclick="window.location.href='{% url 'delete_ticket' ticket.id %}'">Supprimer</button>
         {% endif %}
-        <button type="button" onclick="window.location.href='{% url 'delete_ticket' ticket.id %}'">Supprimer</button>
-    </div>
-    {% elif not ticket.answered and ticket.user != request.user and ticket.user not in banning_users %}
-    <div class="button-group grid-4">
-        <button type="button" onclick="window.location.href='{% url 'answer_ticket' ticket.id %}'">Donner un avis</button>
-    </div>
-    {% endif %}
+        {% if not ticket.answered and ticket.user not in banning_users %}
+            <button type="button" onclick="window.location.href='{% url 'answer_ticket' ticket.id %}'">Donner un avis</button>
+        {% endif %}
+     </div>
 </div>
 
