@@ -26,5 +26,5 @@ def get_posted_at_display(posted_at):
 @register.simple_tag(takes_context=True)
 def get_user_display(context, user):
     if user == context['user']:
-        return 'vous avez'
+        return 'Vous avez'
     return f'{user.username} a'
