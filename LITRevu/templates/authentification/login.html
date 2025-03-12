@@ -16,9 +16,9 @@
                 <input type="password" name="password" placeholder="Mot de passe" required>
 
                 <span class="error">{{ form.non_field_errors.0 }}</span>
-                <a href="{% url 'reset_password' %}">mot de passe oublié?</a>
                 <button type="submit">Se connecter</button>
             </form>
+            <a href="{% url 'password_reset' %}">mot de passe oublié?</a>
         </div>
     </section>
 {% endblock %}

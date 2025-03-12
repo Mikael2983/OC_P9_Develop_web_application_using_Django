@@ -69,10 +69,23 @@ nav {
     padding: 0 20px;
     display: flex;
     justify-content: end;
-    font-size: 12px;
+    font-size: 14px;
     gap: 10px;
 }
-
+nav input {
+    font-family: inherit;
+    font-size: inherit;
+    text-decoration: underline;
+    color: var(--text-color);
+    border: none;
+    background: none;
+    padding: inherit;
+    margin: inherit;
+    cursor: pointer;
+}
+nav input:hover {
+    color: var(--highlight-color);
+}
 .nav {
     display: flex;
     padding: 15px;

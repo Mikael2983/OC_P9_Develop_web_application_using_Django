@@ -15,30 +15,54 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.contrib.auth.views import LogoutView, PasswordResetCompleteView, \
+    PasswordResetConfirmView, PasswordResetDoneView, PasswordResetView, \
+    PasswordChangeDoneView, PasswordChangeView
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-from authentification.views import reset_password, set_new_password, \
-    password_reset_done, CustomLoginView, custom_logout, signup_page
+from authentification.views import CustomLoginView, CustomSignUpView, \
+    UserUpdateView
 
 from reviews import views as r_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-    path('login/', CustomLoginView.as_view(
+    path("login", CustomLoginView.as_view(
         template_name='authentification/login.html'),
-        name='login'),
-    path('logout/', custom_logout, name='logout'),
+         name="login"
+         ),
+    path("logout", LogoutView.as_view(), name="logout"),
 
-    path('signup/', signup_page, name='signup'),
+    path('signup/', CustomSignUpView.as_view(
+        template_name="authentification/signup.html"),
+         name='signup'),
 
-    path('password-reset/', reset_password, name='reset_password'),
-    path('password-reset/new/', set_new_password, name='set_new_password'),
-    path('password-reset/done/', password_reset_done,
-         name='password_reset_done'),
+    path("password_change/", PasswordChangeView.as_view(
+        template_name="authentification/password_change.html",
+        success_url="/password_change/done/"),
+         name="password_change"),
+    path("password_change/done/", PasswordChangeDoneView.as_view(
+        template_name="authentification/password_change_done.html"),
+         name="password_change_done"),
+
+    path("password_reset/", PasswordResetView.as_view(
+        template_name="authentification/password_reset_form.html"),
+         name="password_reset"),
+    path("password_reset/done/", PasswordResetDoneView.as_view(
+        template_name="authentification/password_reset_done.html"),
+         name="password_reset_done"),
+    path("reset/<uidb64>/<token>/",
+         PasswordResetConfirmView.as_view(
+             template_name="authentification/password_reset_confirm.html"),
+         name="password_reset_confirm"),
+    path("reset/done/", PasswordResetCompleteView.as_view(
+        template_name="authentification/password_reset_complete.html"),
+         name="password_reset_complete"),
 
     path('', r_views.flux, name='flux'),
+
     path('follow/', r_views.follow, name='follow'),
     path('follow/<int:user_id>/unfollow',
          r_views.unfollow,
@@ -53,6 +77,7 @@ urlpatterns = [
          r_views.unban_followers,
          name='unban_followers'),
 
+    path('account/', UserUpdateView.as_view(), name='account'),
     path('posts/', r_views.user_posts, name='user_posts'),
 
     path('reviews/create-review/',
