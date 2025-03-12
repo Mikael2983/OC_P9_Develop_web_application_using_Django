@@ -27,18 +27,31 @@ def flux(request):
     Returns:
         HttpResponse: The feed page with paginated reviews and tickets.
     """
-    # list of users who have banned the user
-    banning_users = User.objects.filter(followers__user=request.user,
-                                        followers__banned=True)
-    # list of users banned by the user
-    banned_users = User.objects.filter(following__followed_user=request.user,
-                                       following__banned=True)
-    # list of all users followed by the user
-    following_users = UserFollows.objects.filter(
-        user=request.user).values_list('followed_user', flat=True)
+
+    # those who have banned the user
+    banning_users = User.objects.filter(following__followed_user=request.user,
+                                        following__banned=True)
+
+    # those that the user has banned
+    banned_users = User.objects.filter(followers__user=request.user,
+                                       followers__banned=True)
+
+    # those that the user follows less those who have banned him and those
+    # that the user has banned
+    following_users = User.objects.filter(
+        followers__user=request.user).exclude(
+        id__in=banning_users).exclude(
+        id__in=banned_users)
 
     users = chain([request.user], following_users)
     list_users = list(users)
+
+    # liste des tickets de l'utilisateur qui ont eu une critique
+    user_answered_tickets = Ticket.objects.filter(review__isnull=False,
+                                                  user=request.user).distinct()
+
+    # liste des tickets qui ont une critique de l'utilisateur
+    user_review_tickets = Ticket.objects.filter(review__user=request.user).distinct()
 
     # list of reviews of the user and those he follows
     reviews = Review.objects.select_related("user", "ticket").filter(
@@ -63,6 +76,8 @@ def flux(request):
 
     context = {
         'page_obj': page_obj,
+        'user_answered_tickets': user_answered_tickets,
+        'user_review_tickets': user_review_tickets,
         'banning_users': banning_users
     }
     return render(request,
@@ -98,7 +113,6 @@ def create_review(request):
             review = review_form.save(commit=False)
             review.user = request.user
             review.ticket = ticket
-            ticket.answered = True
 
             ticket.save()
             review.save()
@@ -177,15 +191,12 @@ def delete_review(request, review_id):
                       upon deletion.
     """
     review = Review.objects.get(id=review_id)
-    ticket = Ticket.objects.get(id=review.ticket.id)
 
     if request.user != review.user:
         return redirect(reverse('flux'))
 
     if request.method == 'POST':
-        ticket.answered = False
         review.delete()
-        ticket.save(update_fields=["answered"])
         return redirect(reverse('user_posts'))
 
     return render(request,
@@ -336,10 +347,8 @@ def answer_ticket(request, ticket_id):
             review = review_form.save(commit=False)
             review.user = request.user
             review.ticket = ticket
-            ticket.answered = True
 
             review.save()
-            ticket.save(update_fields=["answered"])
 
             return redirect('flux')
 
@@ -416,17 +425,24 @@ def follow(request):
                      Redirects to 'follow' upon successful submission or an
                      error.
    """
-    banned_users = User.objects.filter(following__followed_user=request.user,
-                                       following__banned=True)
+    # those who have banned the user
+    banning_users = User.objects.filter(following__followed_user=request.user,
+                                        following__banned=True)
 
-    banning_users = User.objects.filter(followers__user=request.user,
-                                        followers__banned=True)
+    # those that the user has banned
+    banned_users = User.objects.filter(followers__user=request.user,
+                                       followers__banned=True)
 
+    # those who follow the user less those who have banned it
     followers_users = User.objects.filter(
-        following__followed_user=request.user)
+        following__followed_user=request.user).exclude(id__in=banning_users)
 
+    # those that the user follows less those who have banned him and those
+    # that the user has banned
     following_users = User.objects.filter(
-        followers__user=request.user).exclude(id__in=banned_users)
+        followers__user=request.user).exclude(
+        id__in=banning_users).exclude(
+        id__in=banned_users)
 
     if request.method == "POST":
         form = FollowUserForm(request.POST)
@@ -503,8 +519,9 @@ def unfollow(request, user_id):
         HttpResponseRedirect: Redirects to the 'follow' page after unfollowing.
     """
     # list of members who have banned the user.
-    banning_users = User.objects.filter(followers__user=request.user,
+    banning_users = User.objects.filter(following__user=request.user,
                                         followers__banned=True)
+
     user_to_unfollow = get_object_or_404(User, id=user_id)
 
     # if the user to unsubscribe is not in the list
@@ -561,11 +578,25 @@ def ban_followers(request, user_id):
         HttpResponseRedirect: A redirect to the 'follow' page.
     """
     user_to_ban = get_object_or_404(User, id=user_id)
-    follow_relation = get_object_or_404(UserFollows,
-                                        user=user_to_ban,
-                                        followed_user=request.user)
-    follow_relation.banned = True
-    follow_relation.save()
+
+    if UserFollows.objects.filter(
+            user=request.user,
+            followed_user=user_to_ban
+    ).exists():
+
+        user_relation = get_object_or_404(
+            UserFollows,
+            user=request.user,
+            followed_user=user_to_ban
+        )
+        user_relation.banned = True
+    else:
+        user_relation = UserFollows.objects.create(
+            user=request.user,
+            followed_user=user_to_ban,
+            banned=True)
+
+    user_relation.save()
     return redirect('follow')
 
 
@@ -586,10 +617,38 @@ def unban_followers(request, user_id):
         HttpResponseRedirect: A redirect to the 'follow' page after updating
                               the status.
     """
-    user_to_ban = get_object_or_404(User, id=user_id)
+    user_to_unban = get_object_or_404(User, id=user_id)
     follow_relation = get_object_or_404(UserFollows,
-                                        user=user_to_ban,
-                                        followed_user=request.user)
-    follow_relation.banned = False
-    follow_relation.save()
+                                        user=request.user,
+                                        followed_user=user_to_unban)
+    follow_relation.delete()
+
     return redirect('follow')
+
+
+def test(request):
+    # ceux qui ont banni l'utilisateur
+    banning_users = User.objects.filter(following__followed_user=request.user,
+                                        following__banned=True)
+
+    # ceux que l'utilisateur a bannis
+    banned_users = User.objects.filter(followers__user=request.user,
+                                       followers__banned=True)
+
+    # ceux qui suivent l'utilisateur moins ceux qui l'ont banni
+    followers_users = User.objects.filter(
+        following__followed_user=request.user).exclude(id__in=banning_users)
+
+    # ceux que l'utilisateur suit moins ceux qui l'ont banni et ceux que l'utilisateur a bannis
+    following_users = User.objects.filter(
+        followers__user=request.user).exclude(id__in=banning_users).exclude(
+        id__in=banned_users)
+
+    return render(request,
+                  'reviews/test.html',
+                  {
+                      'followers_users': followers_users,
+                      'following_users': following_users,
+                      'banned_users': banned_users,
+                      'banning_users': banning_users,
+                  })

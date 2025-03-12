@@ -8,7 +8,6 @@ class TicketAdmin(ModelAdmin):
     list_display = ["id",
                     "title",
                     "user",
-                    "answered",
                     "picture",
                     "time_created"
                     ]
