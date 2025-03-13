@@ -166,7 +166,8 @@ def modify_review(request, review_id):
 
     return render(request,
                   'reviews/modify_review.html',
-                  {'review_form': review_form, 'review': review,
+                  {'review_form': review_form,
+                   'review': review,
                    'ticket': ticket})
 
 
@@ -262,6 +263,16 @@ def user_posts(request):
         HttpResponse: Renders the 'user_posts.html' template with the sorted
                       reviews and tickets.
     """
+    banning_users = User.objects.filter(following__followed_user=request.user,
+                                        following__banned=True)
+    # liste des tickets de l'utilisateur qui ont eu une critique
+    user_answered_tickets = Ticket.objects.filter(review__isnull=False,
+                                                  user=request.user).distinct()
+
+    # liste des tickets qui ont une critique de l'utilisateur
+    user_review_tickets = Ticket.objects.filter(
+        review__user=request.user).distinct()
+
     reviews = Review.objects.filter(
         Q(user=request.user) |
         Q(ticket__user=request.user)
@@ -277,7 +288,10 @@ def user_posts(request):
 
     return render(request,
                   'reviews/user_posts.html',
-                  {'reviews_and_tickets': reviews_and_tickets})
+                  {'reviews_and_tickets': reviews_and_tickets,
+                   'user_answered_tickets': user_answered_tickets,
+                   'user_review_tickets': user_review_tickets,
+                   'banning_users': banning_users})
 
 
 @login_required
@@ -624,31 +638,3 @@ def unban_followers(request, user_id):
     follow_relation.delete()
 
     return redirect('follow')
-
-
-def test(request):
-    # ceux qui ont banni l'utilisateur
-    banning_users = User.objects.filter(following__followed_user=request.user,
-                                        following__banned=True)
-
-    # ceux que l'utilisateur a bannis
-    banned_users = User.objects.filter(followers__user=request.user,
-                                       followers__banned=True)
-
-    # ceux qui suivent l'utilisateur moins ceux qui l'ont banni
-    followers_users = User.objects.filter(
-        following__followed_user=request.user).exclude(id__in=banning_users)
-
-    # ceux que l'utilisateur suit moins ceux qui l'ont banni et ceux que l'utilisateur a bannis
-    following_users = User.objects.filter(
-        followers__user=request.user).exclude(id__in=banning_users).exclude(
-        id__in=banned_users)
-
-    return render(request,
-                  'reviews/test.html',
-                  {
-                      'followers_users': followers_users,
-                      'following_users': following_users,
-                      'banned_users': banned_users,
-                      'banning_users': banning_users,
-                  })
