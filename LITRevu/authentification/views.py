@@ -1,11 +1,10 @@
-from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, UpdateView
 
 from authentification.models import User
-from .forms import UserUpdateForm
+from .forms import UserUpdateForm, SignupForm
 
 
 class CustomLoginView(LoginView):
@@ -21,7 +20,7 @@ class CustomLoginView(LoginView):
 
 
 class CustomSignUpView(CreateView):
-    form_class = UserCreationForm
+    form_class = SignupForm
     success_url = reverse_lazy("login")
 
 

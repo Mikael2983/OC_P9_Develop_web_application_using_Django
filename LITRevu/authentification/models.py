@@ -11,4 +11,5 @@ class User(AbstractUser):
        Attributes:
            profile_photo: An imagefield for storing the user's profile picture.
     """
-    profile_photo = models.ImageField(verbose_name='Photo de profil')
+
+    email = models.EmailField(unique=True)
