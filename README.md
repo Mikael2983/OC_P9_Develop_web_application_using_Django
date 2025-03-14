@@ -68,7 +68,7 @@ To install required python packages, copy requirements.txt file and then run fol
 ```bash
 pip install -r requirements.txt
 ```
-### 4. initalise database
+### 4. initalize database
 
 To initialize the database, start by applying migrations. 
 
