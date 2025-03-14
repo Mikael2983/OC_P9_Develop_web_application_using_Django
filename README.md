@@ -68,13 +68,20 @@ To install required python packages, copy requirements.txt file and then run fol
 ```bash
 pip install -r requirements.txt
 ```
-then access the project directory
+### 4. initalise database
+
+To initialize the database, start by applying migrations. 
 
 ```bash
-cd LITRevu
+python manage.py migrate
+```
+To properly view application functionality load data from dump_140325.json file 
+
+```bash
+python manage.py loaddata dump_140325.json
 ```
 
-### 4. Start Server
+### 5. Start Server
 
 On the terminal enter following command to start the server:
 
@@ -82,7 +89,7 @@ On the terminal enter following command to start the server:
 python manage.py runserver
 ```
 
-### 5. Start the Webapp
+### 6. Start the Webapp
 
 To start the webapp on localhost, enter following URL in the web browser:
 
