@@ -57,7 +57,8 @@ def flux(request):
     reviews = Review.objects.select_related("user", "ticket").filter(
         Q(user__in=list_users) |
         Q(ticket__user__in=list_users)
-    ).exclude(user__in=banned_users).exclude(ticket__user__in=banned_users)
+    ).exclude(user__in=banned_users).exclude(ticket__user__in=banned_users).
+    exclude(user__in=banning_users).exclude(ticket__user__in=banning_users)
 
     # list of tickets of the user and those he follows
     tickets = Ticket.objects.filter(user__in=list_users)
