@@ -1,0 +1,411 @@
+:root {
+    --primary-color: #F1903B;
+    --secondary-color: rgba(194, 250, 255);
+    --highlight-color: #ffd700;
+    --ticket-bg-color: rgba(189, 233, 184);
+    --review-bg-color: rgba(194, 250, 255);
+    --text-color: #562336;
+}
+
+.color1 {
+    background-color: var(--ticket-bg-color);
+}
+.color2{
+    background-color: var(--review-bg-color);
+}
+body {
+    margin: auto;
+    min-height: 100vh;
+    background: url(images/image_de_fond.webp) top center / 100% repeat-y;
+    display:block;
+    align-items: center;
+
+}
+
+.container {
+    min-height: 100vh;
+    display: grid;
+	grid-template-rows: auto 1fr auto;
+    margin: auto;
+        }
+
+
+header {
+    margin: auto;
+    background-color: var(--secondary-color);
+    padding: 10px 0;
+    font-size: 24px;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.header p {
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+}
+
+.head{
+    background-color: var(--secondary-color);
+    padding: 20px;
+    border-radius: 20px;
+    width: 80%;
+    display: flex;
+    margin: auto;
+    margin-bottom: 10px;
+    justify-content: center;
+}
+
+main{
+    text-align: center;
+}
+
+.accueil {
+    display: flex;
+    justify-content: center;
+
+}
+
+nav {
+    padding: 0 20px;
+    display: flex;
+    justify-content: end;
+    font-size: 14px;
+    gap: 10px;
+}
+nav input {
+    font-family: inherit;
+    font-size: inherit;
+    text-decoration: underline;
+    color: var(--text-color);
+    border: none;
+    background: none;
+    padding: inherit;
+    margin: inherit;
+    cursor: pointer;
+}
+nav input:hover {
+    color: var(--highlight-color);
+}
+.nav {
+    display: flex;
+    padding: 15px;
+    justify-self: center;
+}
+
+.grid-container {
+    display: grid;
+}
+
+.ticket {
+        justify-self: center;
+
+        padding: 10px;
+        border: solid #ffd700;
+        margin: 5px 0px;
+        display: inline-grid;
+        border-radius: 20px;
+    }
+
+.review{
+
+    text-align: justify;
+    padding: 10px;
+    border: solid #ffd700;
+    margin: auto;
+    width: 85%;
+    margin-top: 10px;
+    border-radius: 20px;
+
+}
+
+.grid {
+    background-color: var(--secondary-color);
+    height: 240px;
+    margin: 20px;
+    padding: 40px 20px 80px 20px;
+    border-radius: 10px;
+    width: 300px;
+}
+
+.plus {
+    width: 70%;
+}
+
+h1 {
+    margin: 0;
+    text-align: center;
+    font-size: 28px;
+}
+
+h2 {
+    font-size: 22px
+}
+
+h4{
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+}
+
+a {
+    color: var(--text-color);
+}
+
+a:hover {
+    color: var(--highlight-color);
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    border-radius: 20px;
+    margin-top: 30px;
+    gap: 10px;
+}
+
+.logout {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--secondary-color);
+    border-radius: 20px;
+    width: 80%;
+    margin-top: 20px;
+    gap: 20px;
+    padding: 20px;
+
+}
+
+.signup {
+    justify-items: center;
+    background-color: var(--secondary-color);
+    border-radius: 20px;
+    padding: 20px;
+    margin: auto;
+    width: 80%;
+}
+
+.form {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding: 5px;
+    gap:20px;
+}
+
+form p{
+    display:grid;
+}
+
+form label {
+    font-size: 18px;
+    display: flex;
+    align-items: anchor-center;
+}
+
+.error{
+    color:red;
+    font-size: smaller;
+}
+
+input {
+    
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #F1903B;
+    border-radius: 5px;
+    display: grid;
+}
+
+textarea{
+    color: var(--primary-color);
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid var(--primary-color);
+    border-radius: 5px;
+}
+
+button {
+    font-weight: bold;
+    margin: auto;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: var(--highlight-color);
+}
+
+.button-group{
+    padding-right: 10px;
+    text-align: end;
+    padding-top: 10px;
+}
+
+.submit {
+    padding-top: 20px;
+}
+
+.cover {
+    max-width: 180px;
+    object-fit: contain;
+    width: 70%;
+}
+
+.img{
+    position:relative;
+
+}
+
+.follow{
+    background-color: var(--secondary-color);
+    text-align: justify;
+    padding: 10px;
+    border: solid #ffd700;
+    margin: auto;
+    margin-top: 10px;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    max-width: 800px;
+    align-items: center;
+}
+.follow img {
+    margin: auto;
+    width: 85%;
+}
+
+input[type="radio"]{
+    margin-right: 10px;
+    display: flex;
+}
+
+#id_rating {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.rating {
+display: flex;
+align-items: center;
+}
+
+.star {
+   margin-left: 5px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+}
+
+table {
+    width: inherit;
+
+}
+tbody {
+    width: 100%;
+}
+tr {
+    padding: 3px;
+    display: flex;
+}
+
+td {
+    margin: auto;
+    font-weight: bold;
+    width: 33%;
+    text-align: center;
+}
+
+td a {
+    color: black;
+}
+
+td a:hover {
+    color: var(--highlight-color);
+}
+
+.col2 {
+    margin: 0 20px;
+}
+
+@media screen and (min-width: 430px) {
+    .ticket {
+        grid-template-columns: repeat(3, 1fr);
+        text-align: start;
+        width: 80%;
+    }
+    .container{
+        width: 70%;
+        background-color: var(--primary-color);
+    }
+
+    .review{
+        width: 80%;
+    }
+    .grid-1 {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .grid-2 {
+        grid-column: 1;
+        grid-row: 2/5;
+    }
+
+    .grid-3 {
+        text-align: center;
+        grid-column: 2/4;
+        grid-row: 1/4;
+
+    }
+
+    .grid-4 {
+        grid-column: 2/4;
+        grid-row: 4;
+    }
+
+}
+
+@media screen and (max-width: 430px) {
+
+    body {
+        background-size: 100%;
+        width: 100%;
+    }
+
+    header {
+        padding: 5px;
+    }
+
+    .head {
+        padding: 10px;
+        width: 100%;
+        margin-block: 5px;
+    }
+
+    .ticket {
+        width: 80%;
+    }
+
+    .review{
+        width: 80%;
+
+
+    }
+    grid {
+        margin: 10px;
+    }
+
+    .img {
+        display: flex;
+        justify-content: center;
+    }
+}

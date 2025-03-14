@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="community site for literary criticism.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LITRevu</title>
+    <link rel="stylesheet" href="{% static 'reviews/styles.css' %}">
+</head>
+
+<body >
+    <section class="container">
+        <header>
+            <h1>LITReview</h1>
+            {% if request.user.is_authenticated %}
+                <nav>
+                    <a href="{% url 'account' %}" >{{user.username}}</a>
+                    <a href="{% url 'flux' %}" >Flux</a>
+                    <a href="{% url 'user_posts' %}" >Posts</a>
+                    <a href="{% url 'follow' %}" >Abonnements</a>
+                    <form method="post" action="{% url 'logout' %}">
+                        {% csrf_token %}
+                        <input type="submit" value="Logout" />
+                    </form>
+                </nav>
+            {% endif %}
+        </header>
+
+        <main>
+            {% block content %}{% endblock content %}
+        </main>
+
+        <footer>
+            &copy; 2025 LITReview - Tous droits réservés.
+        </footer>
+
+    </section>
+</body>
+</html>

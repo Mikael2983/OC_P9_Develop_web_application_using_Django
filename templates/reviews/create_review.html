@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if user.is_authenticated %}
+
+<div class="review color2">
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <h2>Créer un Ticket</h2>
+        {{ ticket_form.as_p }}
+
+        <h2>Créer une Critique</h2>
+        {{ review_form.as_p }}
+
+        <div class="button-group">
+            <button type="button" onclick="window.location.href='{% url 'flux' %}'">Retour</button>
+            <button type="submit">Valider</button>
+        </div>
+    </form>
+</div>
+{% endif %}
+{% endblock %}

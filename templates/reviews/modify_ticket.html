@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% if user.is_authenticated %}
+
+<div class="review color1">
+    <h2>modifier un ticket</h2>
+    <form method="post" action="{% url 'modify_ticket' ticket.id %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <div class="button-group">
+            <button type="button" onclick="window.location.href='{% url 'flux' %}'">Retour</button>
+            <button type="submit">Valider</button>
+        </div>
+    </form>
+</div>
+{% endif %}
+{% endblock %}
