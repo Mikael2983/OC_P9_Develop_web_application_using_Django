@@ -46,11 +46,11 @@ def flux(request):
     users = chain([request.user], following_users)
     list_users = list(users)
 
-    # liste des tickets de l'utilisateur qui ont eu une critique
+    # list of user tickets that have had a review
     user_answered_tickets = Ticket.objects.filter(review__isnull=False,
                                                   user=request.user).distinct()
 
-    # liste des tickets qui ont une critique de l'utilisateur
+    # list of tickets that have a user review
     user_review_tickets = Ticket.objects.filter(
         review__user=request.user).distinct()
 
@@ -324,7 +324,7 @@ def modify_ticket(request, ticket_id):
         return redirect(reverse('flux'))
 
     if request.method == 'POST':
-        form = TicketForm(request.POST, instance=ticket)
+        form = TicketForm(request.POST, request.FILES, instance=ticket)
         if form.is_valid():
             form.save()
             return redirect(reverse('user_posts'))
@@ -464,18 +464,16 @@ def follow(request):
     if request.method == "POST":
         form = FollowUserForm(request.POST)
         if form.is_valid():
-            user_to_follow = form.cleaned_data['user']  # Déjà un objet User
+            user_to_follow = form.cleaned_data['user']
 
-            # Empêcher de suivre soi-même
             if user_to_follow == request.user:
                 messages.error(request,
                                "Vous ne pouvez pas vous suivre vous-même.")
                 return redirect('follow')
 
-            # Vérifier si la relation existe déjà
             if UserFollows.objects.filter(user=request.user,
                                           followed_user=user_to_follow).exists():
-                # Vérifier si l'utilisateur est bloqué
+
                 user_relation = UserFollows.objects.filter(
                     user=user_to_follow,
                     followed_user=request.user).first()
