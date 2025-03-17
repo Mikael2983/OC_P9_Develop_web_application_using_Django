@@ -6,10 +6,10 @@
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
 
-        <h2>Créer un Ticket</h2>
+        <h2>Créer un billet</h2>
         {{ ticket_form.as_p }}
 
-        <h2>Créer une Critique</h2>
+        <h2>Créer une critique</h2>
         {{ review_form.as_p }}
 
         <div class="button-group">

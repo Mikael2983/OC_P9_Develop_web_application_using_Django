@@ -5,10 +5,10 @@
 {% if user.is_authenticated %}
 
     <div class="logout">
-        <h2>Supprimer un ticket</h2>
+        <h2>Supprimer un billet</h2>
         <form method="post" action="{% url 'delete_ticket' ticket.id %}">
             {% csrf_token %}
-            <p>Voulez-vous supprimer ce ticket?</p>
+            <p>Voulez-vous supprimer ce billet?</p>
 
             <button type="button" onclick="window.location.href='{% url 'flux' %}'">Retour</button>
             <button type="submit">Valider</button>

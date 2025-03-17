@@ -3,8 +3,8 @@
 {% block content %}
 {% if user.is_authenticated %}
     <div class="head">
-        <button type="button" onclick="window.location.href='{% url 'create_review' %}'">créer une critique</button>
-        <button type="button" onclick="window.location.href='{% url 'create_ticket' %}'">demander une critique</button>
+        <button type="button" onclick="window.location.href='{% url 'create_review' %}'">Créer une critique</button>
+        <button type="button" onclick="window.location.href='{% url 'create_ticket' %}'">Créer un billet</button>
     </div>
 
     {% for instance in page_obj %}
