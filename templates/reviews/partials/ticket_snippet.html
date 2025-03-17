@@ -14,14 +14,16 @@
         <img class="cover" src="{{ ticket.picture.url }}" alt="{{ ticket.title }}">
     </div>
     <div class="button-group grid-4">
-        {% if ticket.user == request.user %}
-            {% if ticket not in user_answered_tickets  %}
-            <button type="button" onclick="window.location.href='{% url 'modify_ticket' ticket.id %}'">Modifier</button>
+         {% if not in_review %}
+            {% if ticket.user == request.user %}
+                {% if ticket not in user_answered_tickets  %}
+                <button type="button" onclick="window.location.href='{% url 'modify_ticket' ticket.id %}'">Modifier</button>
+                {% endif %}
+                <button type="button" onclick="window.location.href='{% url 'delete_ticket' ticket.id %}'">Supprimer</button>
             {% endif %}
-            <button type="button" onclick="window.location.href='{% url 'delete_ticket' ticket.id %}'">Supprimer</button>
-        {% endif %}
-        {% if ticket.user not in banning_users and ticket not in user_review_tickets %}
-            <button type="button" onclick="window.location.href='{% url 'answer_ticket' ticket.id %}'">Donner un avis</button>
+            {% if ticket.user not in banning_users and ticket not in user_review_tickets %}
+                <button type="button" onclick="window.location.href='{% url 'answer_ticket' ticket.id %}'">Donner un avis</button>
+            {% endif %}
         {% endif %}
      </div>
 </div>

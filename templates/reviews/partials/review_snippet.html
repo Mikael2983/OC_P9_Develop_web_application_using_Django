@@ -16,7 +16,7 @@
         </span>
     </div>
     <p>{{ review.body }}</p>
-    {% include 'reviews/partials/ticket_snippet.html' with ticket=review.ticket %}
+    {% include 'reviews/partials/ticket_snippet.html' with ticket=review.ticket in_review=True %}
 
     {% if review.user == request.user %}
     <div class="button-group">
