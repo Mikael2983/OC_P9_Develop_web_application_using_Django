@@ -19,10 +19,10 @@
         <table>
             {% for user in following_users %}
             <tr>
-                <td class="col1">
+                <td>
                     {{ user.username }}
                 </td>
-                <td class="col2">
+                <td>
                     {% if user not in banning_users %}
                     <a role="button" href="{% url 'unfollow' user.id %}">Désabonner</a>
                     {% else %}
@@ -40,13 +40,10 @@
         <table>
             {% for user in followers_users %}
             <tr>
-                <td class="col1">
+                <td>
                     {{ user.username }}
                 </td>
-                <td class="col2">
-                    <a role="button" href="{% url 'unsubscribe_followers' user.id %}">Désabonner</a>
-                </td>
-                <td class="col3">
+                <td>
                 {% if user in banned_users %}
                     <a role="button" href="{% url 'unban_followers' user.id %}">Débloquer</a>
                 {% else %}

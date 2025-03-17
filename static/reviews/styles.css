@@ -105,7 +105,6 @@ nav input:hover {
     }
 
 .review{
-
     text-align: justify;
     padding: 10px;
     border: solid #ffd700;
@@ -208,7 +207,6 @@ form label {
 }
 
 input {
-    
     padding: 10px;
     margin: 10px 0;
     border: 1px solid #F1903B;
@@ -217,7 +215,6 @@ input {
 }
 
 textarea{
-    color: var(--primary-color);
     padding: 10px;
     margin: 10px 0;
     border: 1px solid var(--primary-color);
@@ -274,6 +271,7 @@ button:hover {
     max-width: 800px;
     align-items: center;
 }
+
 .follow img {
     margin: auto;
     width: 85%;
@@ -307,9 +305,11 @@ table {
     width: inherit;
 
 }
+
 tbody {
     width: 100%;
 }
+
 tr {
     padding: 3px;
     display: flex;
@@ -330,16 +330,13 @@ td a:hover {
     color: var(--highlight-color);
 }
 
-.col2 {
-    margin: 0 20px;
-}
-
 @media screen and (min-width: 430px) {
     .ticket {
         grid-template-columns: repeat(3, 1fr);
         text-align: start;
         width: 80%;
     }
+
     .container{
         width: 70%;
         background-color: var(--primary-color);
@@ -348,6 +345,7 @@ td a:hover {
     .review{
         width: 80%;
     }
+
     .grid-1 {
         grid-column: 1;
         grid-row: 1;
@@ -395,9 +393,8 @@ td a:hover {
 
     .review{
         width: 80%;
-
-
     }
+
     grid {
         margin: 10px;
     }
