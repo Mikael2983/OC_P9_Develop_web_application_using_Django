@@ -51,14 +51,16 @@ def flux(request):
                                                   user=request.user).distinct()
 
     # liste des tickets qui ont une critique de l'utilisateur
-    user_review_tickets = Ticket.objects.filter(review__user=request.user).distinct()
+    user_review_tickets = Ticket.objects.filter(
+        review__user=request.user).distinct()
 
     # list of reviews of the user and those he follows
-    reviews = Review.objects.select_related("user", "ticket").filter(
+    reviews = (Review.objects.select_related("user", "ticket").filter(
         Q(user__in=list_users) |
         Q(ticket__user__in=list_users)
-    ).exclude(user__in=banned_users).exclude(ticket__user__in=banned_users).
-    exclude(user__in=banning_users).exclude(ticket__user__in=banning_users)
+    ).exclude(user__in=banned_users).exclude(ticket__user__in=banned_users)
+               .exclude(user__in=banning_users)
+               .exclude(ticket__user__in=banning_users))
 
     # list of tickets of the user and those he follows
     tickets = Ticket.objects.filter(user__in=list_users)
@@ -462,45 +464,43 @@ def follow(request):
     if request.method == "POST":
         form = FollowUserForm(request.POST)
         if form.is_valid():
-            username = form.cleaned_data['username']
-            if not User.objects.filter(username=username).exists():
-                messages.error(request, "cet utilisateur n'existe pas")
-            else:
-                user_to_follow = User.objects.get(username=username)
+            user_to_follow = form.cleaned_data['user']  # Déjà un objet User
 
-                if UserFollows.objects.filter(
-                        user=user_to_follow,
-                        followed_user=request.user
-                ).exists():
+            # Empêcher de suivre soi-même
+            if user_to_follow == request.user:
+                messages.error(request,
+                               "Vous ne pouvez pas vous suivre vous-même.")
+                return redirect('follow')
 
-                    user_relation = get_object_or_404(
-                        UserFollows,
-                        user=user_to_follow,
-                        followed_user=request.user
-                    )
-                    if user_relation.banned:
-                        messages.error(request,
-                                       "cet utilisateur vous a bloqué")
-                        return redirect('follow')
+            # Vérifier si la relation existe déjà
+            if UserFollows.objects.filter(user=request.user,
+                                          followed_user=user_to_follow).exists():
+                # Vérifier si l'utilisateur est bloqué
+                user_relation = UserFollows.objects.filter(
+                    user=user_to_follow,
+                    followed_user=request.user).first()
 
-                if user_to_follow == request.user:
-                    messages.error(
-                        request,
-                        "Vous ne pouvez pas vous suivre vous-même.")
-
-                elif UserFollows.objects.filter(
-                        user=request.user,
-                        followed_user=user_to_follow
-                ).exists():
-
-                    messages.error(request,
-                                   "Vous suivez déjà cet utilisateur.")
-
+                if user_relation and user_relation.banned:
+                    messages.error(request, "Cet utilisateur vous a bloqué.")
+                    return redirect('follow')
                 else:
-                    UserFollows.objects.create(user=request.user,
-                                               followed_user=user_to_follow)
-                    return redirect(
-                        'follow')
+                    user_relation = UserFollows.objects.filter(
+                        user=request.user,
+                        followed_user=user_to_follow).first()
+                    if user_relation and user_relation.banned:
+                        messages.error(request,
+                                       "Vous avez bloqué cet utilisateur.")
+                    else:
+                        messages.error(request,
+                                       "Vous suivez déjà cet utilisateur.")
+                    return redirect('follow')
+
+            # Création du suivi
+            UserFollows.objects.create(user=request.user,
+                                       followed_user=user_to_follow)
+            messages.success(request,
+                             f"Vous suivez maintenant {user_to_follow.username}.")
+            return redirect('follow')
 
     else:
         form = FollowUserForm()

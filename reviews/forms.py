@@ -1,4 +1,6 @@
 from django import forms
+
+from authentification.models import User
 from reviews.models import Ticket, Review
 
 
@@ -48,16 +50,14 @@ class FollowUserForm(forms.Form):
     """
     Form for following another user.
 
-    This form allows users to search for and follow another user by entering
-    their username.
+    This form allows users to search for and follow another user by selecting
+    their username from a dropdown list.
 
     Attributes:
-        username (CharField): A text input field for the username,
-                              with a maximum length of 150 characters.
+        user (ModelChoiceField): A dropdown field to select a user.
     """
-    username = forms.CharField(
-        label="Nom d'utilisateur",
-        max_length=150,
-        widget=forms.TextInput(
-            attrs={'placeholder': 'Entrez un nom d’utilisateur'})
+    user = forms.ModelChoiceField(
+        queryset=User.objects.exclude(username="admin"),
+        label="Sélectionner un utilisateur",
+        widget=forms.Select(attrs={'class': 'form-control'})
     )
