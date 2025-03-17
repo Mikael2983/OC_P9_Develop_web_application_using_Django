@@ -19,6 +19,11 @@ class TicketForm(forms.ModelForm):
     class Meta:
         model = Ticket
         fields = ['title', 'description', 'picture']
+        labels = {
+            'title': "Titre",
+            'description': "Description",
+            'picture': "Image (optionnelle)",
+        }
 
 
 class ReviewForm(forms.ModelForm):
@@ -33,17 +38,21 @@ class ReviewForm(forms.ModelForm):
         fields (list): Specifies the fields to include in the form.
     """
     headline = forms.CharField(
-        label="titre",
+        label="Titre",
         max_length=150,
     )
     rate_choices = ((i, i*'★')for i in range(1, 6))
     rating = forms.ChoiceField(choices=rate_choices,
-                               widget=forms.RadioSelect()
+                               widget=forms.RadioSelect(),
+                               label="Note"
                                )
 
     class Meta:
         model = Review
-        fields = ['headline', 'body', 'rating']
+        fields = ['headline', 'rating', 'body']
+        labels = {
+            'body': "Commentaire"
+        }
 
 
 class FollowUserForm(forms.Form):
