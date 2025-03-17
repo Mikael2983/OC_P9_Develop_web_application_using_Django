@@ -5,7 +5,7 @@
     <div class="logout">
         {% if user.is_authenticated %}
             <p>Êtes-vous sûr de vouloir vous déconnecter ?</p>
-            <form method="post" action="{% url 'logout' %}" >
+            <form method="post">
                 {% csrf_token %}
                 <button type="button" onclick="history.back()">Retour</button>
                 <button type="submit" >Se déconnecter</button>

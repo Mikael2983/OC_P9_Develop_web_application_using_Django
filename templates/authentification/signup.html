@@ -6,7 +6,9 @@
       <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
+        <button type="button" onclick="window.location.href='{% url 'login' %}'">Retour</button>
         <button type="submit">S'inscrire</button>
+
       </form>
       <p>Déjà un compte ? <a href="{% url 'login' %}">Se connecter</a></p>
 
