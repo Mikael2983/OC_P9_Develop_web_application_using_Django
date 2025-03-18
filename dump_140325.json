@@ -1,1721 +1,1806 @@
-[
-{
-    "model": "admin.logentry",
-    "pk": 1,
-    "fields": {
-        "action_time": "2025-03-13T12:50:32.482Z",
-        "user": 1,
-        "content_type": 6,
-        "object_id": "1",
-        "object_repr": "exemple de titre",
-        "action_flag": 1,
-        "change_message": "[{\"added\": {}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 2,
-    "fields": {
-        "action_time": "2025-03-13T12:53:36.601Z",
-        "user": 1,
-        "content_type": 6,
-        "object_id": "2",
-        "object_repr": "Discours de la methode",
-        "action_flag": 1,
-        "change_message": "[{\"added\": {}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 3,
-    "fields": {
-        "action_time": "2025-03-13T12:54:44.282Z",
-        "user": 1,
-        "content_type": 6,
-        "object_id": "3",
-        "object_repr": "Une bréve histoire du temps",
-        "action_flag": 1,
-        "change_message": "[{\"added\": {}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 4,
-    "fields": {
-        "action_time": "2025-03-13T13:19:24.843Z",
-        "user": 1,
-        "content_type": 6,
-        "object_id": "4",
-        "object_repr": "The Origin of species",
-        "action_flag": 1,
-        "change_message": "[{\"added\": {}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 5,
-    "fields": {
-        "action_time": "2025-03-13T13:19:56.898Z",
-        "user": 1,
-        "content_type": 6,
-        "object_id": "5",
-        "object_repr": "Les misérables",
-        "action_flag": 1,
-        "change_message": "[{\"added\": {}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 6,
-    "fields": {
-        "action_time": "2025-03-13T13:20:28.577Z",
-        "user": 1,
-        "content_type": 6,
-        "object_id": "6",
-        "object_repr": "Le malade Imaginaire",
-        "action_flag": 1,
-        "change_message": "[{\"added\": {}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 7,
-    "fields": {
-        "action_time": "2025-03-13T13:21:18.428Z",
-        "user": 1,
-        "content_type": 6,
-        "object_id": "5",
-        "object_repr": "Les misérables",
-        "action_flag": 2,
-        "change_message": "[{\"changed\": {\"fields\": [\"Picture\"]}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 8,
-    "fields": {
-        "action_time": "2025-03-13T13:22:07.544Z",
-        "user": 1,
-        "content_type": 6,
-        "object_id": "7",
-        "object_repr": "Les Fourmis",
-        "action_flag": 1,
-        "change_message": "[{\"added\": {}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 9,
-    "fields": {
-        "action_time": "2025-03-13T13:22:39.911Z",
-        "user": 1,
-        "content_type": 6,
-        "object_id": "8",
-        "object_repr": "L'étranger",
-        "action_flag": 1,
-        "change_message": "[{\"added\": {}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 10,
-    "fields": {
-        "action_time": "2025-03-13T13:23:06.815Z",
-        "user": 1,
-        "content_type": 6,
-        "object_id": "9",
-        "object_repr": "1884",
-        "action_flag": 1,
-        "change_message": "[{\"added\": {}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 11,
-    "fields": {
-        "action_time": "2025-03-13T13:23:40.912Z",
-        "user": 1,
-        "content_type": 6,
-        "object_id": "10",
-        "object_repr": "Le Comte de Monte-Cristo",
-        "action_flag": 1,
-        "change_message": "[{\"added\": {}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 12,
-    "fields": {
-        "action_time": "2025-03-13T13:24:23.512Z",
-        "user": 1,
-        "content_type": 6,
-        "object_id": "11",
-        "object_repr": "Orgueil et Préjugés",
-        "action_flag": 1,
-        "change_message": "[{\"added\": {}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 13,
-    "fields": {
-        "action_time": "2025-03-13T13:24:53.985Z",
-        "user": 1,
-        "content_type": 6,
-        "object_id": "12",
-        "object_repr": "Le Seigneur des Anneaux",
-        "action_flag": 1,
-        "change_message": "[{\"added\": {}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 14,
-    "fields": {
-        "action_time": "2025-03-13T13:25:19.715Z",
-        "user": 1,
-        "content_type": 6,
-        "object_id": "13",
-        "object_repr": "Crime et Châtiment",
-        "action_flag": 1,
-        "change_message": "[{\"added\": {}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 15,
-    "fields": {
-        "action_time": "2025-03-13T13:26:01.100Z",
-        "user": 1,
-        "content_type": 6,
-        "object_id": "14",
-        "object_repr": "Harry Potter à l'école des sorciers",
-        "action_flag": 1,
-        "change_message": "[{\"added\": {}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 16,
-    "fields": {
-        "action_time": "2025-03-13T13:26:30.797Z",
-        "user": 1,
-        "content_type": 6,
-        "object_id": "15",
-        "object_repr": "Fondation",
-        "action_flag": 1,
-        "change_message": "[{\"added\": {}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 17,
-    "fields": {
-        "action_time": "2025-03-13T13:26:54.709Z",
-        "user": 1,
-        "content_type": 6,
-        "object_id": "16",
-        "object_repr": "Dune",
-        "action_flag": 1,
-        "change_message": "[{\"added\": {}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 18,
-    "fields": {
-        "action_time": "2025-03-13T13:27:24.030Z",
-        "user": 1,
-        "content_type": 6,
-        "object_id": "17",
-        "object_repr": "└ la recherche du temps perdu",
-        "action_flag": 1,
-        "change_message": "[{\"added\": {}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 19,
-    "fields": {
-        "action_time": "2025-03-13T13:29:03.377Z",
-        "user": 1,
-        "content_type": 6,
-        "object_id": "9",
-        "object_repr": "1884",
-        "action_flag": 2,
-        "change_message": "[{\"changed\": {\"fields\": [\"Picture\"]}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 20,
-    "fields": {
-        "action_time": "2025-03-13T13:32:12.057Z",
-        "user": 1,
-        "content_type": 7,
-        "object_id": "1",
-        "object_repr": "Véritablement révolutionnaire",
-        "action_flag": 1,
-        "change_message": "[{\"added\": {}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 21,
-    "fields": {
-        "action_time": "2025-03-13T13:32:45.469Z",
-        "user": 1,
-        "content_type": 7,
-        "object_id": "2",
-        "object_repr": "Excellent",
-        "action_flag": 1,
-        "change_message": "[{\"added\": {}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 22,
-    "fields": {
-        "action_time": "2025-03-13T13:33:48.843Z",
-        "user": 1,
-        "content_type": 7,
-        "object_id": "3",
-        "object_repr": "Un grand Classique",
-        "action_flag": 1,
-        "change_message": "[{\"added\": {}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 23,
-    "fields": {
-        "action_time": "2025-03-13T13:34:16.987Z",
-        "user": 1,
-        "content_type": 7,
-        "object_id": "4",
-        "object_repr": "Le Génie",
-        "action_flag": 1,
-        "change_message": "[{\"added\": {}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 24,
-    "fields": {
-        "action_time": "2025-03-13T13:34:41.289Z",
-        "user": 1,
-        "content_type": 7,
-        "object_id": "5",
-        "object_repr": "Quelle Histoire!!!",
-        "action_flag": 1,
-        "change_message": "[{\"added\": {}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 25,
-    "fields": {
-        "action_time": "2025-03-13T13:35:08.351Z",
-        "user": 1,
-        "content_type": 7,
-        "object_id": "6",
-        "object_repr": "Trop long",
-        "action_flag": 1,
-        "change_message": "[{\"added\": {}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 26,
-    "fields": {
-        "action_time": "2025-03-13T13:35:32.501Z",
-        "user": 1,
-        "content_type": 7,
-        "object_id": "7",
-        "object_repr": "époustouflant.",
-        "action_flag": 1,
-        "change_message": "[{\"added\": {}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 27,
-    "fields": {
-        "action_time": "2025-03-13T13:35:57.154Z",
-        "user": 1,
-        "content_type": 7,
-        "object_id": "8",
-        "object_repr": "La prophétie était vrai !!!",
-        "action_flag": 1,
-        "change_message": "[{\"added\": {}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 28,
-    "fields": {
-        "action_time": "2025-03-13T13:36:28.048Z",
-        "user": 1,
-        "content_type": 7,
-        "object_id": "9",
-        "object_repr": "Quel roman-fleuve !!!",
-        "action_flag": 1,
-        "change_message": "[{\"added\": {}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 29,
-    "fields": {
-        "action_time": "2025-03-13T13:36:54.314Z",
-        "user": 1,
-        "content_type": 7,
-        "object_id": "10",
-        "object_repr": "A lire",
-        "action_flag": 1,
-        "change_message": "[{\"added\": {}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 30,
-    "fields": {
-        "action_time": "2025-03-13T13:37:26.184Z",
-        "user": 1,
-        "content_type": 7,
-        "object_id": "11",
-        "object_repr": "pas mon truc...",
-        "action_flag": 1,
-        "change_message": "[{\"added\": {}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 31,
-    "fields": {
-        "action_time": "2025-03-13T13:37:49.505Z",
-        "user": 1,
-        "content_type": 7,
-        "object_id": "12",
-        "object_repr": "Trop Trop",
-        "action_flag": 1,
-        "change_message": "[{\"added\": {}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 32,
-    "fields": {
-        "action_time": "2025-03-13T13:38:14.998Z",
-        "user": 1,
-        "content_type": 7,
-        "object_id": "13",
-        "object_repr": "Jeunesse",
-        "action_flag": 1,
-        "change_message": "[{\"added\": {}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 33,
-    "fields": {
-        "action_time": "2025-03-13T13:38:38.741Z",
-        "user": 1,
-        "content_type": 7,
-        "object_id": "14",
-        "object_repr": "Le must en matière de sf",
-        "action_flag": 1,
-        "change_message": "[{\"added\": {}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 34,
-    "fields": {
-        "action_time": "2025-03-13T13:39:04.181Z",
-        "user": 1,
-        "content_type": 7,
-        "object_id": "15",
-        "object_repr": "Excellent",
-        "action_flag": 1,
-        "change_message": "[{\"added\": {}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 35,
-    "fields": {
-        "action_time": "2025-03-13T13:39:22.304Z",
-        "user": 1,
-        "content_type": 8,
-        "object_id": "1",
-        "object_repr": "UserFollows object (1)",
-        "action_flag": 1,
-        "change_message": "[{\"added\": {}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 36,
-    "fields": {
-        "action_time": "2025-03-13T13:39:31.601Z",
-        "user": 1,
-        "content_type": 8,
-        "object_id": "2",
-        "object_repr": "UserFollows object (2)",
-        "action_flag": 1,
-        "change_message": "[{\"added\": {}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 37,
-    "fields": {
-        "action_time": "2025-03-13T13:39:45.541Z",
-        "user": 1,
-        "content_type": 8,
-        "object_id": "3",
-        "object_repr": "UserFollows object (3)",
-        "action_flag": 1,
-        "change_message": "[{\"added\": {}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 38,
-    "fields": {
-        "action_time": "2025-03-13T13:39:53.940Z",
-        "user": 1,
-        "content_type": 8,
-        "object_id": "4",
-        "object_repr": "UserFollows object (4)",
-        "action_flag": 1,
-        "change_message": "[{\"added\": {}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 39,
-    "fields": {
-        "action_time": "2025-03-13T13:40:03.477Z",
-        "user": 1,
-        "content_type": 8,
-        "object_id": "5",
-        "object_repr": "UserFollows object (5)",
-        "action_flag": 1,
-        "change_message": "[{\"added\": {}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 40,
-    "fields": {
-        "action_time": "2025-03-13T13:40:11.950Z",
-        "user": 1,
-        "content_type": 8,
-        "object_id": "6",
-        "object_repr": "UserFollows object (6)",
-        "action_flag": 1,
-        "change_message": "[{\"added\": {}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 41,
-    "fields": {
-        "action_time": "2025-03-13T13:40:24.715Z",
-        "user": 1,
-        "content_type": 8,
-        "object_id": "7",
-        "object_repr": "UserFollows object (7)",
-        "action_flag": 1,
-        "change_message": "[{\"added\": {}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 42,
-    "fields": {
-        "action_time": "2025-03-13T13:40:30.304Z",
-        "user": 1,
-        "content_type": 8,
-        "object_id": "8",
-        "object_repr": "UserFollows object (8)",
-        "action_flag": 1,
-        "change_message": "[{\"added\": {}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 43,
-    "fields": {
-        "action_time": "2025-03-13T13:40:36.890Z",
-        "user": 1,
-        "content_type": 8,
-        "object_id": "9",
-        "object_repr": "UserFollows object (9)",
-        "action_flag": 1,
-        "change_message": "[{\"added\": {}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 44,
-    "fields": {
-        "action_time": "2025-03-13T13:40:43.201Z",
-        "user": 1,
-        "content_type": 8,
-        "object_id": "10",
-        "object_repr": "UserFollows object (10)",
-        "action_flag": 1,
-        "change_message": "[{\"added\": {}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 45,
-    "fields": {
-        "action_time": "2025-03-13T13:40:50.132Z",
-        "user": 1,
-        "content_type": 8,
-        "object_id": "11",
-        "object_repr": "UserFollows object (11)",
-        "action_flag": 1,
-        "change_message": "[{\"added\": {}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 46,
-    "fields": {
-        "action_time": "2025-03-13T13:40:56.154Z",
-        "user": 1,
-        "content_type": 8,
-        "object_id": "12",
-        "object_repr": "UserFollows object (12)",
-        "action_flag": 1,
-        "change_message": "[{\"added\": {}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 47,
-    "fields": {
-        "action_time": "2025-03-13T13:41:02.206Z",
-        "user": 1,
-        "content_type": 8,
-        "object_id": "13",
-        "object_repr": "UserFollows object (13)",
-        "action_flag": 1,
-        "change_message": "[{\"added\": {}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 48,
-    "fields": {
-        "action_time": "2025-03-13T13:41:09.936Z",
-        "user": 1,
-        "content_type": 8,
-        "object_id": "14",
-        "object_repr": "UserFollows object (14)",
-        "action_flag": 1,
-        "change_message": "[{\"added\": {}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 49,
-    "fields": {
-        "action_time": "2025-03-13T13:41:14.593Z",
-        "user": 1,
-        "content_type": 8,
-        "object_id": "15",
-        "object_repr": "UserFollows object (15)",
-        "action_flag": 1,
-        "change_message": "[{\"added\": {}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 50,
-    "fields": {
-        "action_time": "2025-03-13T13:41:21.441Z",
-        "user": 1,
-        "content_type": 8,
-        "object_id": "16",
-        "object_repr": "UserFollows object (16)",
-        "action_flag": 1,
-        "change_message": "[{\"added\": {}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 51,
-    "fields": {
-        "action_time": "2025-03-13T13:41:28.147Z",
-        "user": 1,
-        "content_type": 8,
-        "object_id": "17",
-        "object_repr": "UserFollows object (17)",
-        "action_flag": 1,
-        "change_message": "[{\"added\": {}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 52,
-    "fields": {
-        "action_time": "2025-03-13T13:41:36.698Z",
-        "user": 1,
-        "content_type": 8,
-        "object_id": "18",
-        "object_repr": "UserFollows object (18)",
-        "action_flag": 1,
-        "change_message": "[{\"added\": {}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 53,
-    "fields": {
-        "action_time": "2025-03-13T13:41:52.223Z",
-        "user": 1,
-        "content_type": 8,
-        "object_id": "1",
-        "object_repr": "UserFollows object (1)",
-        "action_flag": 2,
-        "change_message": "[{\"changed\": {\"fields\": [\"Banned\"]}}]"
-    }
-},
-{
-    "model": "auth.permission",
-    "pk": 1,
-    "fields": {
-        "name": "Can add log entry",
-        "content_type": 1,
-        "codename": "add_logentry"
-    }
-},
-{
-    "model": "auth.permission",
-    "pk": 2,
-    "fields": {
-        "name": "Can change log entry",
-        "content_type": 1,
-        "codename": "change_logentry"
-    }
-},
-{
-    "model": "auth.permission",
-    "pk": 3,
-    "fields": {
-        "name": "Can delete log entry",
-        "content_type": 1,
-        "codename": "delete_logentry"
-    }
-},
-{
-    "model": "auth.permission",
-    "pk": 4,
-    "fields": {
-        "name": "Can view log entry",
-        "content_type": 1,
-        "codename": "view_logentry"
-    }
-},
-{
-    "model": "auth.permission",
-    "pk": 5,
-    "fields": {
-        "name": "Can add permission",
-        "content_type": 2,
-        "codename": "add_permission"
-    }
-},
-{
-    "model": "auth.permission",
-    "pk": 6,
-    "fields": {
-        "name": "Can change permission",
-        "content_type": 2,
-        "codename": "change_permission"
-    }
-},
-{
-    "model": "auth.permission",
-    "pk": 7,
-    "fields": {
-        "name": "Can delete permission",
-        "content_type": 2,
-        "codename": "delete_permission"
-    }
-},
-{
-    "model": "auth.permission",
-    "pk": 8,
-    "fields": {
-        "name": "Can view permission",
-        "content_type": 2,
-        "codename": "view_permission"
-    }
-},
-{
-    "model": "auth.permission",
-    "pk": 9,
-    "fields": {
-        "name": "Can add group",
-        "content_type": 3,
-        "codename": "add_group"
-    }
-},
-{
-    "model": "auth.permission",
-    "pk": 10,
-    "fields": {
-        "name": "Can change group",
-        "content_type": 3,
-        "codename": "change_group"
-    }
-},
-{
-    "model": "auth.permission",
-    "pk": 11,
-    "fields": {
-        "name": "Can delete group",
-        "content_type": 3,
-        "codename": "delete_group"
-    }
-},
-{
-    "model": "auth.permission",
-    "pk": 12,
-    "fields": {
-        "name": "Can view group",
-        "content_type": 3,
-        "codename": "view_group"
-    }
-},
-{
-    "model": "auth.permission",
-    "pk": 13,
-    "fields": {
-        "name": "Can add content type",
-        "content_type": 4,
-        "codename": "add_contenttype"
-    }
-},
-{
-    "model": "auth.permission",
-    "pk": 14,
-    "fields": {
-        "name": "Can change content type",
-        "content_type": 4,
-        "codename": "change_contenttype"
-    }
-},
-{
-    "model": "auth.permission",
-    "pk": 15,
-    "fields": {
-        "name": "Can delete content type",
-        "content_type": 4,
-        "codename": "delete_contenttype"
-    }
-},
-{
-    "model": "auth.permission",
-    "pk": 16,
-    "fields": {
-        "name": "Can view content type",
-        "content_type": 4,
-        "codename": "view_contenttype"
-    }
-},
-{
-    "model": "auth.permission",
-    "pk": 17,
-    "fields": {
-        "name": "Can add session",
-        "content_type": 5,
-        "codename": "add_session"
-    }
-},
-{
-    "model": "auth.permission",
-    "pk": 18,
-    "fields": {
-        "name": "Can change session",
-        "content_type": 5,
-        "codename": "change_session"
-    }
-},
-{
-    "model": "auth.permission",
-    "pk": 19,
-    "fields": {
-        "name": "Can delete session",
-        "content_type": 5,
-        "codename": "delete_session"
-    }
-},
-{
-    "model": "auth.permission",
-    "pk": 20,
-    "fields": {
-        "name": "Can view session",
-        "content_type": 5,
-        "codename": "view_session"
-    }
-},
-{
-    "model": "auth.permission",
-    "pk": 21,
-    "fields": {
-        "name": "Can add ticket",
-        "content_type": 6,
-        "codename": "add_ticket"
-    }
-},
-{
-    "model": "auth.permission",
-    "pk": 22,
-    "fields": {
-        "name": "Can change ticket",
-        "content_type": 6,
-        "codename": "change_ticket"
-    }
-},
-{
-    "model": "auth.permission",
-    "pk": 23,
-    "fields": {
-        "name": "Can delete ticket",
-        "content_type": 6,
-        "codename": "delete_ticket"
-    }
-},
-{
-    "model": "auth.permission",
-    "pk": 24,
-    "fields": {
-        "name": "Can view ticket",
-        "content_type": 6,
-        "codename": "view_ticket"
-    }
-},
-{
-    "model": "auth.permission",
-    "pk": 25,
-    "fields": {
-        "name": "Can add review",
-        "content_type": 7,
-        "codename": "add_review"
-    }
-},
-{
-    "model": "auth.permission",
-    "pk": 26,
-    "fields": {
-        "name": "Can change review",
-        "content_type": 7,
-        "codename": "change_review"
-    }
-},
-{
-    "model": "auth.permission",
-    "pk": 27,
-    "fields": {
-        "name": "Can delete review",
-        "content_type": 7,
-        "codename": "delete_review"
-    }
-},
-{
-    "model": "auth.permission",
-    "pk": 28,
-    "fields": {
-        "name": "Can view review",
-        "content_type": 7,
-        "codename": "view_review"
-    }
-},
-{
-    "model": "auth.permission",
-    "pk": 29,
-    "fields": {
-        "name": "Can add user follows",
-        "content_type": 8,
-        "codename": "add_userfollows"
-    }
-},
-{
-    "model": "auth.permission",
-    "pk": 30,
-    "fields": {
-        "name": "Can change user follows",
-        "content_type": 8,
-        "codename": "change_userfollows"
-    }
-},
-{
-    "model": "auth.permission",
-    "pk": 31,
-    "fields": {
-        "name": "Can delete user follows",
-        "content_type": 8,
-        "codename": "delete_userfollows"
-    }
-},
-{
-    "model": "auth.permission",
-    "pk": 32,
-    "fields": {
-        "name": "Can view user follows",
-        "content_type": 8,
-        "codename": "view_userfollows"
-    }
-},
-{
-    "model": "auth.permission",
-    "pk": 33,
-    "fields": {
-        "name": "Can add user",
-        "content_type": 9,
-        "codename": "add_user"
-    }
-},
-{
-    "model": "auth.permission",
-    "pk": 34,
-    "fields": {
-        "name": "Can change user",
-        "content_type": 9,
-        "codename": "change_user"
-    }
-},
-{
-    "model": "auth.permission",
-    "pk": 35,
-    "fields": {
-        "name": "Can delete user",
-        "content_type": 9,
-        "codename": "delete_user"
-    }
-},
-{
-    "model": "auth.permission",
-    "pk": 36,
-    "fields": {
-        "name": "Can view user",
-        "content_type": 9,
-        "codename": "view_user"
-    }
-},
-{
-    "model": "sessions.session",
-    "pk": "hgpusi7swaz6ilti0h52x8kei8jrpgcd",
-    "fields": {
-        "session_data": ".eJxVjDEOAiEQRe9CbQgIDGhp7xnIwAyyaiBZdivj3XWTLbT9773_EhHXpcZ18BwnEmcB4vC7JcwPbhugO7Zbl7m3ZZ6S3BS50yGvnfh52d2_g4qjfmtNjOQcK2-DhmKJsJBmo53Fkn0mw-wB8ASZjxwM2pDAOAwKlTNWifcHDC04Xw:1tt1TE:r5UQbzjkrS7aMGBmqbIHhqOsleS_413_5qLNAeKr7Fc",
-        "expire_date": "2025-03-28T09:36:48.741Z"
-    }
-},
-{
-    "model": "sessions.session",
-    "pk": "o4o4r8z0rmh0s0fskqs3tzr44xe5g8k5",
-    "fields": {
-        "session_data": ".eJxVjDsOwjAQBe_iGlnr-E9Jzxms3XiNA8iW8qkQd4dIKaB9M_NeIuG21rQtPKcpi7NQ4vS7EY4PbjvId2y3Lsfe1nkiuSvyoIu89szPy-H-HVRc6rc2FLzmyEEHiqBBBSJGKmoYYrbgvB4YgB0oU1yJEY22zhlDYKyPyOL9AchDNug:1tsoRL:2-vdZ-dE5S4qTM0qpjCNasEKTSjayWcMbBJD8vZs9ac",
-        "expire_date": "2025-03-27T19:41:59.427Z"
-    }
-},
-{
-    "model": "sessions.session",
-    "pk": "v83jqiwferu4y6xr45vo1h0yudp2fphn",
-    "fields": {
-        "session_data": ".eJxVjDEOAiEQRe9CbQgIDGhp7xnIwAyyaiBZdivj3XWTLbT9773_EhHXpcZ18BwnEmcB4vC7JcwPbhugO7Zbl7m3ZZ6S3BS50yGvnfh52d2_g4qjfmtNjOQcK2-DhmKJsJBmo53Fkn0mw-wB8ASZjxwM2pDAOAwKlTNWifcHDC04Xw:1tsiqZ:kPqYYDBgP-xau6ymi61l6YJ6TiHhZ-7PBpAy2D6iRss",
-        "expire_date": "2025-03-27T13:43:39.417Z"
-    }
-},
-{
-    "model": "reviews.ticket",
-    "pk": 1,
-    "fields": {
-        "title": "exemple de titre",
-        "description": "ceci est un test d'affichage de l'image par défaut",
-        "user": 6,
-        "picture": "default_1.webp",
-        "time_created": "2025-03-13T12:50:32.111Z"
-    }
-},
-{
-    "model": "reviews.ticket",
-    "pk": 2,
-    "fields": {
-        "title": "Discours de la methode",
-        "description": "Le Discours de la méthode, dont le titre complet est Discours de la méthode pour bien conduire sa raison et chercher la vérité dans les sciences, est un texte philosophique publié anonymement par René Descartes à Leyde le 8 juin 1637 chez le libraire et imprimeur Jan Maire.",
-        "user": 6,
-        "picture": "discours_methode.webp",
-        "time_created": "2025-03-13T12:53:36.597Z"
-    }
-},
-{
-    "model": "reviews.ticket",
-    "pk": 3,
-    "fields": {
-        "title": "Une brève histoire du temps",
-        "description": "Stephen Hawking\r\nun ouvrage de vulgarisation scientifique qui traite de cosmologie, la science des lois qui gouvernent lÆunivers, écrit par lÆastrophysicien britannique Stephen Hawking. Publié pour la première fois en 1988, il sÆadresse à un public profane.",
-        "user": 8,
-        "picture": "histoire_du_temps.webp",
-        "time_created": "2025-03-13T12:54:44.279Z"
-    }
-},
-{
-    "model": "reviews.ticket",
-    "pk": 4,
-    "fields": {
-        "title": "The Origin of species",
-        "description": "un ouvrage scientifique de Charles Darwin, publié le 24 novembre 1859 pour sa première édition anglaise sous le titre L'origine des espèces au moyen de la sélection naturelle ou la préservation des races favorisées dans la lutte pour la survie.",
-        "user": 6,
-        "picture": "origin_species.webp",
-        "time_created": "2025-03-13T13:19:24.840Z"
-    }
-},
-{
-    "model": "reviews.ticket",
-    "pk": 5,
-    "fields": {
-        "title": "Les misérables",
-        "description": "un roman de Victor Hugo publié en 1862, l'un des plus vastes et des plus notables de la littérature du XIX e siècle. \r\nvotre avis?",
-        "user": 6,
-        "picture": "les_miserables.webp",
-        "time_created": "2025-03-13T13:19:56.888Z"
-    }
-},
-{
-    "model": "reviews.ticket",
-    "pk": 6,
-    "fields": {
-        "title": "Le malade Imaginaire",
-        "description": "Pièce de théâtre de Molière",
-        "user": 3,
-        "picture": "le-malade-imaginaire.webp",
-        "time_created": "2025-03-13T13:20:28.567Z"
-    }
-},
-{
-    "model": "reviews.ticket",
-    "pk": 7,
-    "fields": {
-        "title": "Les Fourmis",
-        "description": "1er tome de la saga de Bernard Werber",
-        "user": 6,
-        "picture": "fourmis.webp",
-        "time_created": "2025-03-13T13:22:07.536Z"
-    }
-},
-{
-    "model": "reviews.ticket",
-    "pk": 8,
-    "fields": {
-        "title": "L'étranger",
-        "description": "L'étranger est le premier roman publié d'Albert Camus, paru en 1942.",
-        "user": 2,
-        "picture": "L-Etranger.webp",
-        "time_created": "2025-03-13T13:22:39.903Z"
-    }
-},
-{
-    "model": "reviews.ticket",
-    "pk": 9,
-    "fields": {
-        "title": "1884",
-        "description": "1984 ou en toutes lettres Mil neuf cent quatre-vingt-quatre1 (titre original : Nineteen Eighty-Four), est un roman dystopique de l'écrivain britannique George Orwell. Publié le 8 juin 1949.",
-        "user": 3,
-        "picture": "1984.webp",
-        "time_created": "2025-03-13T13:23:06.800Z"
-    }
-},
-{
-    "model": "reviews.ticket",
-    "pk": 10,
-    "fields": {
-        "title": "Le Comte de Monte-Cristo",
-        "description": "Le Comte de Monte-Cristo est un roman d'Alexandre Dumas, écrit avec la collaboration d'Auguste Maquet et dont la publication commence pendant l'été 1844.",
-        "user": 4,
-        "picture": "montecristo.webp",
-        "time_created": "2025-03-13T13:23:40.902Z"
-    }
-},
-{
-    "model": "reviews.ticket",
-    "pk": 11,
-    "fields": {
-        "title": "Orgueil et Préjugés",
-        "description": "Orgueil et Préjugés est un roman de la femme de lettres anglaise Jane Austen paru en 1813.",
-        "user": 5,
-        "picture": "orgueiletprejuge.webp",
-        "time_created": "2025-03-13T13:24:23.502Z"
-    }
-},
-{
-    "model": "reviews.ticket",
-    "pk": 12,
-    "fields": {
-        "title": "Le Seigneur des Anneaux",
-        "description": "Le Seigneur des anneaux est un roman de J. R. R. Tolkien paru en trois volumes en 1954 et en 1955.",
-        "user": 7,
-        "picture": "seigneur_anneau.webp",
-        "time_created": "2025-03-13T13:24:53.983Z"
-    }
-},
-{
-    "model": "reviews.ticket",
-    "pk": 13,
-    "fields": {
-        "title": "Crime et Châtiment",
-        "description": "Archétype du roman psychologique, il est considéré comme l'une des plus grandes oeuvres littéraires de l'Histoire.",
-        "user": 8,
-        "picture": "crimechatiment.webp",
-        "time_created": "2025-03-13T13:25:19.706Z"
-    }
-},
-{
-    "model": "reviews.ticket",
-    "pk": 14,
-    "fields": {
-        "title": "Harry Potter à l'école des sorciers",
-        "description": "Harry Potter à l'école des sorciers est le premier roman de la série littéraire centrée sur le personnage de Harry Potter, créé par J. K. Rowling.",
-        "user": 2,
-        "picture": "harry_potter.webp",
-        "time_created": "2025-03-13T13:26:01.090Z"
-    }
-},
-{
-    "model": "reviews.ticket",
-    "pk": 15,
-    "fields": {
-        "title": "Fondation",
-        "description": "Fondation est un roman de science-fiction rédigé par Isaac Asimov et composé de cinq nouvelles,",
-        "user": 4,
-        "picture": "fondation.webp",
-        "time_created": "2025-03-13T13:26:30.786Z"
-    }
-},
-{
-    "model": "reviews.ticket",
-    "pk": 16,
-    "fields": {
-        "title": "Dune",
-        "description": "Dune (Frank Herbert). L'histoire se déroule dans un empire interstellaire féodal, o¨ plusieurs maisons s'affrontent pour le contrôle de la planète Arrakis,",
-        "user": 5,
-        "picture": "dune.webp",
-        "time_created": "2025-03-13T13:26:54.705Z"
-    }
-},
-{
-    "model": "reviews.ticket",
-    "pk": 17,
-    "fields": {
-        "title": "└ la recherche du temps perdu",
-        "description": "└ la recherche du temps perdu, couramment évoqué plus simplement sous le titre La Recherche, est un roman de Marcel Proust, écrit de 1906 à 1922 et publié de 1913 à 1927 en sept tomes.",
-        "user": 7,
-        "picture": "temps_perdu.webp",
-        "time_created": "2025-03-13T13:27:24.028Z"
-    }
-},
-{
-    "model": "reviews.review",
-    "pk": 1,
-    "fields": {
-        "ticket": 4,
-        "rating": 5,
-        "headline": "Véritablement révolutionnaire",
-        "body": "Une excellente lecture et je vous recommande vivement !",
-        "user": 3,
-        "time_created": "2025-03-13T13:32:12.055Z"
-    }
-},
-{
-    "model": "reviews.review",
-    "pk": 2,
-    "fields": {
-        "ticket": 2,
-        "rating": 4,
-        "headline": "Excellent",
-        "body": "",
-        "user": 8,
-        "time_created": "2025-03-13T13:32:45.468Z"
-    }
-},
-{
-    "model": "reviews.review",
-    "pk": 3,
-    "fields": {
-        "ticket": 5,
-        "rating": 5,
-        "headline": "Un grand Classique",
-        "body": "C'est un livre qui marque et qu'il faut avoir lu. Il montre la misère dans ce qu'elle a de plus ignoble mais aussi de plus émouvant. On ne peut que s'attacher aux personnages principaux, mais aussi à ce pauvre Gavroche qui a eu le malheur de na¯tre dans une famille dépravée. Quels affreux personnages que ces Thénardier. Mais tout le livre est passionnant et donne aussi une leþon de courage. A lire absolument.",
-        "user": 8,
-        "time_created": "2025-03-13T13:33:48.840Z"
-    }
-},
-{
-    "model": "reviews.review",
-    "pk": 4,
-    "fields": {
-        "ticket": 3,
-        "rating": 4,
-        "headline": "Le Génie",
-        "body": "je dirai bien que Stephen est le mythe du siècle ! son histoire elle même est une source de motivation et détermination . une vraie légende !",
-        "user": 6,
-        "time_created": "2025-03-13T13:34:16.985Z"
-    }
-},
-{
-    "model": "reviews.review",
-    "pk": 5,
-    "fields": {
-        "ticket": 6,
-        "rating": 3,
-        "headline": "Quelle Histoire!!!",
-        "body": "J'aime cette histoire!!! Alors oui je sais ca datte du XVIIe siecle, donc la langue est un peu trop soutenu mais n'empêche l'Histoire reste formidable, intéressantes, les personnages aussi tres intéressant!!! Toinette, Argan ainsi que Louison, en plus des autres personnages, sont TRES TRES RIGOLO!!! haha ! Du moins si vous imaginez la scene dans votre tête!",
-        "user": 2,
-        "time_created": "2025-03-13T13:34:41.287Z"
-    }
-},
-{
-    "model": "reviews.review",
-    "pk": 6,
-    "fields": {
-        "ticket": 7,
-        "rating": 2,
-        "headline": "Trop long",
-        "body": "Roman qui est très dure à lire à cause du manque d'action et des longues interventions sur la vie des fourmis. C'est comme si vous étiez entrain de lire un long reportage animal très détaillé sur la vie des fourmis. Ce n'est pas vraiment intéressant. Puis, il est très difficile à lire à cause des deux histoires qu'on y retrouve. L'auteur change d'histoire sans prévenir le lecteur ce qui est extrêmement mélangeant.",
-        "user": 4,
-        "time_created": "2025-03-13T13:35:08.349Z"
-    }
-},
-{
-    "model": "reviews.review",
-    "pk": 7,
-    "fields": {
-        "ticket": 8,
-        "rating": 5,
-        "headline": "époustouflant.",
-        "body": "Le genre de livre qui provoque une longue réflexion après lÆavoir achevé, sur lÆhistoire, le personnage, la vie. Une fin à couper le souffle, le livre est très perturbant mais dans le bon sens, pour une première oeuvre, Camus a frappé fort.  Il mérite totalement son prix Nobel et restera parmi mes favoris.",
-        "user": 5,
-        "time_created": "2025-03-13T13:35:32.498Z"
-    }
-},
-{
-    "model": "reviews.review",
-    "pk": 8,
-    "fields": {
-        "ticket": 9,
-        "rating": 5,
-        "headline": "La prophétie était vrai !!!",
-        "body": "Le monde n'a plus jamais été le même. Orwell, tu avais raison, nous aurions du faire plus à l'époque Mais que pouvions nous faire vraiment, nous n'étions que des gamins insouciants et n'avions aucune idée de notre réel pouvoir ou de ce qui était réellement en jeu. L'avenir, voila ce qu'il y avait en jeu !",
-        "user": 7,
-        "time_created": "2025-03-13T13:35:57.152Z"
-    }
-},
-{
-    "model": "reviews.review",
-    "pk": 9,
-    "fields": {
-        "ticket": 10,
-        "rating": 5,
-        "headline": "Quel roman-fleuve !!!",
-        "body": "En terminant ce livre, j'ai ressenti un manque, une tristesse. Tous ces compagnons qui luttent, combattent, aiment ou se vengent, dont j'ai suivi pas à pas et avec impatience toutes les aventures, les grands malheurs, les grands bonheurs, allaient me manquer.",
-        "user": 5,
-        "time_created": "2025-03-13T13:36:28.046Z"
-    }
-},
-{
-    "model": "reviews.review",
-    "pk": 10,
-    "fields": {
-        "ticket": 11,
-        "rating": 4,
-        "headline": "A lire",
-        "body": "franchement c'est carré j'ai bien aimé en plus le livre est écrit par une femme et ne parle pas de cuisine , c'est innovant.",
-        "user": 2,
-        "time_created": "2025-03-13T13:36:54.311Z"
-    }
-},
-{
-    "model": "reviews.review",
-    "pk": 11,
-    "fields": {
-        "ticket": 12,
-        "rating": 1,
-        "headline": "pas mon truc...",
-        "body": "J'ai honte de le dire, vu le succès de cette saga, mais j'ai DETESTE!! on me l'a offert quand j'avais une dizaine d'années, je me suis forcée à le lire sans jamais accrocher. j'ai refermé le livre au milieu dans les 300 pages. et depuis les 3 tomes dorment dans ma bibliothèque.",
-        "user": 4,
-        "time_created": "2025-03-13T13:37:26.182Z"
-    }
-},
-{
-    "model": "reviews.review",
-    "pk": 12,
-    "fields": {
-        "ticket": 13,
-        "rating": 2,
-        "headline": "Trop Trop",
-        "body": "Le livre est trop long trop ennuyeux sans intérêt avec plein de détail qui ne servent a rien dans l'histoire a part a embrouiller le lecteur",
-        "user": 7,
-        "time_created": "2025-03-13T13:37:49.503Z"
-    }
-},
-{
-    "model": "reviews.review",
-    "pk": 13,
-    "fields": {
-        "ticket": 14,
-        "rating": 3,
-        "headline": "Jeunesse",
-        "body": "Saga magique très prenante et agréable à lire. Elle n'est plus à conseiller tant sa renommée est faite. Pourtant, il faudrait convaincre tous les fans des films de se plonger dans les romans tant ils sont supérieurs.",
-        "user": 3,
-        "time_created": "2025-03-13T13:38:14.996Z"
-    }
-},
-{
-    "model": "reviews.review",
-    "pk": 14,
-    "fields": {
-        "ticket": 15,
-        "rating": 5,
-        "headline": "Le must en matière de sf",
-        "body": "La base de tout ....þa m a impressionné pendant longtemps et puis je me suis lancé et un régal sans égal.....tout viens de là star wars, star trek j en passe et des meilleurs allez y plongez la tete la premiere...pour un voyage à travers le temps et l espace..........mais toujours à hauteur d homme.",
-        "user": 6,
-        "time_created": "2025-03-13T13:38:38.739Z"
-    }
-},
-{
-    "model": "reviews.review",
-    "pk": 15,
-    "fields": {
-        "ticket": 7,
-        "rating": 5,
-        "headline": "Excellent",
-        "body": "étonnant roman mêlant fiction et faits scientifiques sur les fourmis et leur organisation. Facile à lire mme si l'écriture peut décontenancer de prime abord. Une oeuvre tout à fait originale qui maintien un certain suspens jusqu'au bout. └ la fin de cette première lecture, on a envie de lire toutes les oeoeuvres de Bernard Werber.",
-        "user": 2,
-        "time_created": "2025-03-13T13:39:04.179Z"
-    }
-},
-{
-    "model": "reviews.userfollows",
-    "pk": 3,
-    "fields": {
-        "user": 5,
-        "followed_user": 6,
-        "banned": true
-    }
-},
-{
-    "model": "reviews.userfollows",
-    "pk": 4,
-    "fields": {
-        "user": 7,
-        "followed_user": 6,
-        "banned": false
-    }
-},
-{
-    "model": "reviews.userfollows",
-    "pk": 5,
-    "fields": {
-        "user": 6,
-        "followed_user": 5,
-        "banned": false
-    }
-},
-{
-    "model": "reviews.userfollows",
-    "pk": 6,
-    "fields": {
-        "user": 7,
-        "followed_user": 3,
-        "banned": false
-    }
-},
-{
-    "model": "reviews.userfollows",
-    "pk": 7,
-    "fields": {
-        "user": 7,
-        "followed_user": 8,
-        "banned": false
-    }
-},
-{
-    "model": "reviews.userfollows",
-    "pk": 8,
-    "fields": {
-        "user": 5,
-        "followed_user": 2,
-        "banned": false
-    }
-},
-{
-    "model": "reviews.userfollows",
-    "pk": 9,
-    "fields": {
-        "user": 5,
-        "followed_user": 4,
-        "banned": false
-    }
-},
-{
-    "model": "reviews.userfollows",
-    "pk": 10,
-    "fields": {
-        "user": 4,
-        "followed_user": 6,
-        "banned": false
-    }
-},
-{
-    "model": "reviews.userfollows",
-    "pk": 11,
-    "fields": {
-        "user": 4,
-        "followed_user": 7,
-        "banned": false
-    }
-},
-{
-    "model": "reviews.userfollows",
-    "pk": 12,
-    "fields": {
-        "user": 3,
-        "followed_user": 6,
-        "banned": false
-    }
-},
-{
-    "model": "reviews.userfollows",
-    "pk": 13,
-    "fields": {
-        "user": 3,
-        "followed_user": 2,
-        "banned": false
-    }
-},
-{
-    "model": "reviews.userfollows",
-    "pk": 14,
-    "fields": {
-        "user": 2,
-        "followed_user": 3,
-        "banned": false
-    }
-},
-{
-    "model": "reviews.userfollows",
-    "pk": 15,
-    "fields": {
-        "user": 2,
-        "followed_user": 5,
-        "banned": false
-    }
-},
-{
-    "model": "reviews.userfollows",
-    "pk": 16,
-    "fields": {
-        "user": 6,
-        "followed_user": 8,
-        "banned": false
-    }
-},
-{
-    "model": "reviews.userfollows",
-    "pk": 17,
-    "fields": {
-        "user": 6,
-        "followed_user": 4,
-        "banned": false
-    }
-},
-{
-    "model": "reviews.userfollows",
-    "pk": 18,
-    "fields": {
-        "user": 8,
-        "followed_user": 6,
-        "banned": false
-    }
-},
-{
-    "model": "reviews.userfollows",
-    "pk": 19,
-    "fields": {
-        "user": 6,
-        "followed_user": 7,
-        "banned": true
-    }
-},
-{
-    "model": "authentification.user",
-    "pk": 1,
-    "fields": {
-        "password": "pbkdf2_sha256$870000$nTxfYiC2pqevWFyMh4jwT2$zSlRPF4LAxh5FmHaFChWfXVXq8+ZS8OtrM/3oGpY5Hs=",
-        "last_login": "2025-03-13T19:41:59.423Z",
-        "is_superuser": true,
-        "username": "admin",
-        "first_name": "",
-        "last_name": "",
-        "is_staff": true,
-        "is_active": true,
-        "date_joined": "2025-03-13T09:51:16.239Z",
-        "email": "admin@gmail.com",
-        "groups": [],
-        "user_permissions": []
-    }
-},
-{
-    "model": "authentification.user",
-    "pk": 2,
-    "fields": {
-        "password": "pbkdf2_sha256$870000$YI5UQLKyxO8nV2ty8P486u$iUCyT/tJtWWpfCosnRI7SgS9EoaQ7tQoWFztuX7KCss=",
-        "last_login": null,
-        "is_superuser": false,
-        "username": "danièle",
-        "first_name": "",
-        "last_name": "",
-        "is_staff": false,
-        "is_active": true,
-        "date_joined": "2025-03-13T12:45:27.798Z",
-        "email": "daniele@gmail.com",
-        "groups": [],
-        "user_permissions": []
-    }
-},
-{
-    "model": "authentification.user",
-    "pk": 3,
-    "fields": {
-        "password": "pbkdf2_sha256$870000$pJnQNe853Dn2WbgcJIseRw$m7SCDV442PGpO4kjI7+kvVKvbnDHeOXB6VHgl+KNC/s=",
-        "last_login": null,
-        "is_superuser": false,
-        "username": "jacques",
-        "first_name": "",
-        "last_name": "",
-        "is_staff": false,
-        "is_active": true,
-        "date_joined": "2025-03-13T12:45:59.757Z",
-        "email": "jacques@gmail.com",
-        "groups": [],
-        "user_permissions": []
-    }
-},
-{
-    "model": "authentification.user",
-    "pk": 4,
-    "fields": {
-        "password": "pbkdf2_sha256$870000$c0rVEeAh8sLrOurL16FESp$X9ya4+4Iwd83E1JCkJ/fN8J3TL2FHm2PS9fyNT8C2gc=",
-        "last_login": null,
-        "is_superuser": false,
-        "username": "jean",
-        "first_name": "",
-        "last_name": "",
-        "is_staff": false,
-        "is_active": true,
-        "date_joined": "2025-03-13T12:46:18.525Z",
-        "email": "jean@gmail.com",
-        "groups": [],
-        "user_permissions": []
-    }
-},
-{
-    "model": "authentification.user",
-    "pk": 5,
-    "fields": {
-        "password": "pbkdf2_sha256$870000$I2pztZnk36RGQAi3EbaXBC$mNpekc5af3vXJEMW0arvWZskLWUZeHOedlsWj1KK9oY=",
-        "last_login": null,
-        "is_superuser": false,
-        "username": "michèle",
-        "first_name": "",
-        "last_name": "",
-        "is_staff": false,
-        "is_active": true,
-        "date_joined": "2025-03-13T12:46:44.567Z",
-        "email": "michele@gmail.com",
-        "groups": [],
-        "user_permissions": []
-    }
-},
-{
-    "model": "authentification.user",
-    "pk": 6,
-    "fields": {
-        "password": "pbkdf2_sha256$870000$Q4wt9RuEmcZrZLe9cidPXY$MRR+QPCivmiJoZ4qj5mSzaIj3+1qul5FD2faIDvo31Q=",
-        "last_login": "2025-03-14T09:36:48.736Z",
-        "is_superuser": false,
-        "username": "mikael",
-        "first_name": "",
-        "last_name": "",
-        "is_staff": false,
-        "is_active": true,
-        "date_joined": "2025-03-13T12:47:56.408Z",
-        "email": "mikael@gmail.com",
-        "groups": [],
-        "user_permissions": []
-    }
-},
-{
-    "model": "authentification.user",
-    "pk": 7,
-    "fields": {
-        "password": "pbkdf2_sha256$870000$KthDOSwncglpUwGjWTTtYt$4AYzH+gmLhn4cRxbGMH6AuBt2WdhNbRddKq1gAfaEYw=",
-        "last_login": null,
-        "is_superuser": false,
-        "username": "paul",
-        "first_name": "",
-        "last_name": "",
-        "is_staff": false,
-        "is_active": true,
-        "date_joined": "2025-03-13T12:48:14.278Z",
-        "email": "paul@gmail.com",
-        "groups": [],
-        "user_permissions": []
-    }
-},
-{
-    "model": "authentification.user",
-    "pk": 8,
-    "fields": {
-        "password": "pbkdf2_sha256$870000$k155Ema4L0Y1YUPoYjWtvW$GKC0q0Pt+8kySQsYxI8dJnOQSkTwF8SfyemUr/oP6wg=",
-        "last_login": null,
-        "is_superuser": false,
-        "username": "pierre",
-        "first_name": "",
-        "last_name": "",
-        "is_staff": false,
-        "is_active": true,
-        "date_joined": "2025-03-13T12:48:43.513Z",
-        "email": "pierre@gmail.com",
-        "groups": [],
-        "user_permissions": []
-    }
-},
-{
-    "model": "authentification.user",
-    "pk": 9,
-    "fields": {
-        "password": "pbkdf2_sha256$870000$Pnpra1ovg2E3G6XfJ3SpYs$HW3EcD2PTXOPaRYYImrDl+Gtmr6dZPSTbAaBqMUV95Y=",
-        "last_login": null,
-        "is_superuser": false,
-        "username": "raymond",
-        "first_name": "",
-        "last_name": "",
-        "is_staff": false,
-        "is_active": true,
-        "date_joined": "2025-03-13T12:49:11.601Z",
-        "email": "raymond@gmail.com",
-        "groups": [],
-        "user_permissions": []
-    }
-}
-]
+﻿[
+    {
+        "model": "admin.logentry",
+        "pk": 1,
+        "fields": {
+            "action_time": "2025-03-13T12:50:32.482Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "1",
+            "object_repr": "exemple de titre",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 2,
+        "fields": {
+            "action_time": "2025-03-13T12:53:36.601Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "2",
+            "object_repr": "Discours de la methode",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 3,
+        "fields": {
+            "action_time": "2025-03-13T12:54:44.282Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "3",
+            "object_repr": "Une bréve histoire du temps",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 4,
+        "fields": {
+            "action_time": "2025-03-13T13:19:24.843Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "4",
+            "object_repr": "The Origin of species",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 5,
+        "fields": {
+            "action_time": "2025-03-13T13:19:56.898Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "5",
+            "object_repr": "Les misérables",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 6,
+        "fields": {
+            "action_time": "2025-03-13T13:20:28.577Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "6",
+            "object_repr": "Le malade Imaginaire",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 7,
+        "fields": {
+            "action_time": "2025-03-13T13:21:18.428Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "5",
+            "object_repr": "Les misérables",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Picture\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 8,
+        "fields": {
+            "action_time": "2025-03-13T13:22:07.544Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "7",
+            "object_repr": "Les Fourmis",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 9,
+        "fields": {
+            "action_time": "2025-03-13T13:22:39.911Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "8",
+            "object_repr": "L'étranger",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 10,
+        "fields": {
+            "action_time": "2025-03-13T13:23:06.815Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "9",
+            "object_repr": "1884",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 11,
+        "fields": {
+            "action_time": "2025-03-13T13:23:40.912Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "10",
+            "object_repr": "Le Comte de Monte-Cristo",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 12,
+        "fields": {
+            "action_time": "2025-03-13T13:24:23.512Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "11",
+            "object_repr": "Orgueil et Préjugés",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 13,
+        "fields": {
+            "action_time": "2025-03-13T13:24:53.985Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "12",
+            "object_repr": "Le Seigneur des Anneaux",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 14,
+        "fields": {
+            "action_time": "2025-03-13T13:25:19.715Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "13",
+            "object_repr": "Crime et Châtiment",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 15,
+        "fields": {
+            "action_time": "2025-03-13T13:26:01.100Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "14",
+            "object_repr": "Harry Potter à l'école des sorciers",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 16,
+        "fields": {
+            "action_time": "2025-03-13T13:26:30.797Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "15",
+            "object_repr": "Fondation",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 17,
+        "fields": {
+            "action_time": "2025-03-13T13:26:54.709Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "16",
+            "object_repr": "Dune",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 18,
+        "fields": {
+            "action_time": "2025-03-13T13:27:24.030Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "17",
+            "object_repr": "└ la recherche du temps perdu",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 19,
+        "fields": {
+            "action_time": "2025-03-13T13:29:03.377Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "9",
+            "object_repr": "1884",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Picture\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 20,
+        "fields": {
+            "action_time": "2025-03-13T13:32:12.057Z",
+            "user": 1,
+            "content_type": 7,
+            "object_id": "1",
+            "object_repr": "Véritablement révolutionnaire",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 21,
+        "fields": {
+            "action_time": "2025-03-13T13:32:45.469Z",
+            "user": 1,
+            "content_type": 7,
+            "object_id": "2",
+            "object_repr": "Excellent",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 22,
+        "fields": {
+            "action_time": "2025-03-13T13:33:48.843Z",
+            "user": 1,
+            "content_type": 7,
+            "object_id": "3",
+            "object_repr": "Un grand Classique",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 23,
+        "fields": {
+            "action_time": "2025-03-13T13:34:16.987Z",
+            "user": 1,
+            "content_type": 7,
+            "object_id": "4",
+            "object_repr": "Le Génie",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 24,
+        "fields": {
+            "action_time": "2025-03-13T13:34:41.289Z",
+            "user": 1,
+            "content_type": 7,
+            "object_id": "5",
+            "object_repr": "Quelle Histoire!!!",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 25,
+        "fields": {
+            "action_time": "2025-03-13T13:35:08.351Z",
+            "user": 1,
+            "content_type": 7,
+            "object_id": "6",
+            "object_repr": "Trop long",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 26,
+        "fields": {
+            "action_time": "2025-03-13T13:35:32.501Z",
+            "user": 1,
+            "content_type": 7,
+            "object_id": "7",
+            "object_repr": "époustouflant.",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 27,
+        "fields": {
+            "action_time": "2025-03-13T13:35:57.154Z",
+            "user": 1,
+            "content_type": 7,
+            "object_id": "8",
+            "object_repr": "La prophétie était vrai !!!",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 28,
+        "fields": {
+            "action_time": "2025-03-13T13:36:28.048Z",
+            "user": 1,
+            "content_type": 7,
+            "object_id": "9",
+            "object_repr": "Quel roman-fleuve !!!",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 29,
+        "fields": {
+            "action_time": "2025-03-13T13:36:54.314Z",
+            "user": 1,
+            "content_type": 7,
+            "object_id": "10",
+            "object_repr": "A lire",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 30,
+        "fields": {
+            "action_time": "2025-03-13T13:37:26.184Z",
+            "user": 1,
+            "content_type": 7,
+            "object_id": "11",
+            "object_repr": "pas mon truc...",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 31,
+        "fields": {
+            "action_time": "2025-03-13T13:37:49.505Z",
+            "user": 1,
+            "content_type": 7,
+            "object_id": "12",
+            "object_repr": "Trop Trop",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 32,
+        "fields": {
+            "action_time": "2025-03-13T13:38:14.998Z",
+            "user": 1,
+            "content_type": 7,
+            "object_id": "13",
+            "object_repr": "Jeunesse",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 33,
+        "fields": {
+            "action_time": "2025-03-13T13:38:38.741Z",
+            "user": 1,
+            "content_type": 7,
+            "object_id": "14",
+            "object_repr": "Le must en matière de sf",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 34,
+        "fields": {
+            "action_time": "2025-03-13T13:39:04.181Z",
+            "user": 1,
+            "content_type": 7,
+            "object_id": "15",
+            "object_repr": "Excellent",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 35,
+        "fields": {
+            "action_time": "2025-03-13T13:39:22.304Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "1",
+            "object_repr": "UserFollows object (1)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 36,
+        "fields": {
+            "action_time": "2025-03-13T13:39:31.601Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "2",
+            "object_repr": "UserFollows object (2)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 37,
+        "fields": {
+            "action_time": "2025-03-13T13:39:45.541Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "3",
+            "object_repr": "UserFollows object (3)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 38,
+        "fields": {
+            "action_time": "2025-03-13T13:39:53.940Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "4",
+            "object_repr": "UserFollows object (4)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 39,
+        "fields": {
+            "action_time": "2025-03-13T13:40:03.477Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "5",
+            "object_repr": "UserFollows object (5)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 40,
+        "fields": {
+            "action_time": "2025-03-13T13:40:11.950Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "6",
+            "object_repr": "UserFollows object (6)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 41,
+        "fields": {
+            "action_time": "2025-03-13T13:40:24.715Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "7",
+            "object_repr": "UserFollows object (7)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 42,
+        "fields": {
+            "action_time": "2025-03-13T13:40:30.304Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "8",
+            "object_repr": "UserFollows object (8)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 43,
+        "fields": {
+            "action_time": "2025-03-13T13:40:36.890Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "9",
+            "object_repr": "UserFollows object (9)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 44,
+        "fields": {
+            "action_time": "2025-03-13T13:40:43.201Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "10",
+            "object_repr": "UserFollows object (10)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 45,
+        "fields": {
+            "action_time": "2025-03-13T13:40:50.132Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "11",
+            "object_repr": "UserFollows object (11)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 46,
+        "fields": {
+            "action_time": "2025-03-13T13:40:56.154Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "12",
+            "object_repr": "UserFollows object (12)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 47,
+        "fields": {
+            "action_time": "2025-03-13T13:41:02.206Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "13",
+            "object_repr": "UserFollows object (13)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 48,
+        "fields": {
+            "action_time": "2025-03-13T13:41:09.936Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "14",
+            "object_repr": "UserFollows object (14)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 49,
+        "fields": {
+            "action_time": "2025-03-13T13:41:14.593Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "15",
+            "object_repr": "UserFollows object (15)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 50,
+        "fields": {
+            "action_time": "2025-03-13T13:41:21.441Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "16",
+            "object_repr": "UserFollows object (16)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 51,
+        "fields": {
+            "action_time": "2025-03-13T13:41:28.147Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "17",
+            "object_repr": "UserFollows object (17)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 52,
+        "fields": {
+            "action_time": "2025-03-13T13:41:36.698Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "18",
+            "object_repr": "UserFollows object (18)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 53,
+        "fields": {
+            "action_time": "2025-03-13T13:41:52.223Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "1",
+            "object_repr": "UserFollows object (1)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Banned\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 54,
+        "fields": {
+            "action_time": "2025-03-14T14:54:38.532Z",
+            "user": 1,
+            "content_type": 9,
+            "object_id": "9",
+            "object_repr": "raymond",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 55,
+        "fields": {
+            "action_time": "2025-03-14T14:55:00.621Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "2",
+            "object_repr": "Discours de la methode",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"User\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 56,
+        "fields": {
+            "action_time": "2025-03-14T15:02:19.667Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "20",
+            "object_repr": "UserFollows object (20)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 57,
+        "fields": {
+            "action_time": "2025-03-14T15:02:38.107Z",
+            "user": 1,
+            "content_type": 9,
+            "object_id": "6",
+            "object_repr": "mikael",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Superuser status\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 58,
+        "fields": {
+            "action_time": "2025-03-14T15:04:35.604Z",
+            "user": 1,
+            "content_type": 9,
+            "object_id": "6",
+            "object_repr": "mikael",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Staff status\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 59,
+        "fields": {
+            "action_time": "2025-03-18T10:04:38.345Z",
+            "user": 6,
+            "content_type": 7,
+            "object_id": "4",
+            "object_repr": "Le Génie",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"User\"]}}]"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 1,
+        "fields": {
+            "name": "Can add log entry",
+            "content_type": 1,
+            "codename": "add_logentry"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 2,
+        "fields": {
+            "name": "Can change log entry",
+            "content_type": 1,
+            "codename": "change_logentry"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 3,
+        "fields": {
+            "name": "Can delete log entry",
+            "content_type": 1,
+            "codename": "delete_logentry"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 4,
+        "fields": {
+            "name": "Can view log entry",
+            "content_type": 1,
+            "codename": "view_logentry"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 5,
+        "fields": {
+            "name": "Can add permission",
+            "content_type": 2,
+            "codename": "add_permission"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 6,
+        "fields": {
+            "name": "Can change permission",
+            "content_type": 2,
+            "codename": "change_permission"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 7,
+        "fields": {
+            "name": "Can delete permission",
+            "content_type": 2,
+            "codename": "delete_permission"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 8,
+        "fields": {
+            "name": "Can view permission",
+            "content_type": 2,
+            "codename": "view_permission"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 9,
+        "fields": {
+            "name": "Can add group",
+            "content_type": 3,
+            "codename": "add_group"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 10,
+        "fields": {
+            "name": "Can change group",
+            "content_type": 3,
+            "codename": "change_group"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 11,
+        "fields": {
+            "name": "Can delete group",
+            "content_type": 3,
+            "codename": "delete_group"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 12,
+        "fields": {
+            "name": "Can view group",
+            "content_type": 3,
+            "codename": "view_group"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 13,
+        "fields": {
+            "name": "Can add content type",
+            "content_type": 4,
+            "codename": "add_contenttype"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 14,
+        "fields": {
+            "name": "Can change content type",
+            "content_type": 4,
+            "codename": "change_contenttype"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 15,
+        "fields": {
+            "name": "Can delete content type",
+            "content_type": 4,
+            "codename": "delete_contenttype"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 16,
+        "fields": {
+            "name": "Can view content type",
+            "content_type": 4,
+            "codename": "view_contenttype"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 17,
+        "fields": {
+            "name": "Can add session",
+            "content_type": 5,
+            "codename": "add_session"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 18,
+        "fields": {
+            "name": "Can change session",
+            "content_type": 5,
+            "codename": "change_session"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 19,
+        "fields": {
+            "name": "Can delete session",
+            "content_type": 5,
+            "codename": "delete_session"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 20,
+        "fields": {
+            "name": "Can view session",
+            "content_type": 5,
+            "codename": "view_session"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 21,
+        "fields": {
+            "name": "Can add ticket",
+            "content_type": 6,
+            "codename": "add_ticket"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 22,
+        "fields": {
+            "name": "Can change ticket",
+            "content_type": 6,
+            "codename": "change_ticket"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 23,
+        "fields": {
+            "name": "Can delete ticket",
+            "content_type": 6,
+            "codename": "delete_ticket"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 24,
+        "fields": {
+            "name": "Can view ticket",
+            "content_type": 6,
+            "codename": "view_ticket"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 25,
+        "fields": {
+            "name": "Can add review",
+            "content_type": 7,
+            "codename": "add_review"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 26,
+        "fields": {
+            "name": "Can change review",
+            "content_type": 7,
+            "codename": "change_review"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 27,
+        "fields": {
+            "name": "Can delete review",
+            "content_type": 7,
+            "codename": "delete_review"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 28,
+        "fields": {
+            "name": "Can view review",
+            "content_type": 7,
+            "codename": "view_review"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 29,
+        "fields": {
+            "name": "Can add user follows",
+            "content_type": 8,
+            "codename": "add_userfollows"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 30,
+        "fields": {
+            "name": "Can change user follows",
+            "content_type": 8,
+            "codename": "change_userfollows"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 31,
+        "fields": {
+            "name": "Can delete user follows",
+            "content_type": 8,
+            "codename": "delete_userfollows"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 32,
+        "fields": {
+            "name": "Can view user follows",
+            "content_type": 8,
+            "codename": "view_userfollows"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 33,
+        "fields": {
+            "name": "Can add user",
+            "content_type": 9,
+            "codename": "add_user"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 34,
+        "fields": {
+            "name": "Can change user",
+            "content_type": 9,
+            "codename": "change_user"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 35,
+        "fields": {
+            "name": "Can delete user",
+            "content_type": 9,
+            "codename": "delete_user"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 36,
+        "fields": {
+            "name": "Can view user",
+            "content_type": 9,
+            "codename": "view_user"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "4hjg46i7fz87mceqo7dhk6fs1z6zntv5",
+        "fields": {
+            "session_data": ".eJxVjDEOAiEQRe9CbQgIDGhp7xnIwAyyaiBZdivj3XWTLbT9773_EhHXpcZ18BwnEmcB4vC7JcwPbhugO7Zbl7m3ZZ6S3BS50yGvnfh52d2_g4qjfmtNjOQcK2-DhmKJsJBmo53Fkn0mw-wB8ASZjxwM2pDAOAwKlTNWifcHDC04Xw:1tuTla:5hijgaJSSFeis6zSwT1sVsATlkgQEOcavBFFupxk8Mk",
+            "expire_date": "2025-04-01T10:01:46.352Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "d2byopch6dwo2vpj7r73sxs68j6jeeyo",
+        "fields": {
+            "session_data": ".eJxVjDEOAiEQRe9CbQgIDGhp7xnIwAyyaiBZdivj3XWTLbT9773_EhHXpcZ18BwnEmcB4vC7JcwPbhugO7Zbl7m3ZZ6S3BS50yGvnfh52d2_g4qjfmtNjOQcK2-DhmKJsJBmo53Fkn0mw-wB8ASZjxwM2pDAOAwKlTNWifcHDC04Xw:1tu8uV:ILTN6KVWHzVGx6ElaWR_kwzAaQU2lCm_kN4gpyX4Y3g",
+            "expire_date": "2025-03-31T11:45:35.806Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "hgpusi7swaz6ilti0h52x8kei8jrpgcd",
+        "fields": {
+            "session_data": ".eJxVjDEOAiEQRe9CbQgIDGhp7xnIwAyyaiBZdivj3XWTLbT9773_EhHXpcZ18BwnEmcB4vC7JcwPbhugO7Zbl7m3ZZ6S3BS50yGvnfh52d2_g4qjfmtNjOQcK2-DhmKJsJBmo53Fkn0mw-wB8ASZjxwM2pDAOAwKlTNWifcHDC04Xw:1tt1TE:r5UQbzjkrS7aMGBmqbIHhqOsleS_413_5qLNAeKr7Fc",
+            "expire_date": "2025-03-28T09:36:48.741Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "o4o4r8z0rmh0s0fskqs3tzr44xe5g8k5",
+        "fields": {
+            "session_data": ".eJxVjDsOwjAQBe_iGlnr-E9Jzxms3XiNA8iW8qkQd4dIKaB9M_NeIuG21rQtPKcpi7NQ4vS7EY4PbjvId2y3Lsfe1nkiuSvyoIu89szPy-H-HVRc6rc2FLzmyEEHiqBBBSJGKmoYYrbgvB4YgB0oU1yJEY22zhlDYKyPyOL9AchDNug:1tsoRL:2-vdZ-dE5S4qTM0qpjCNasEKTSjayWcMbBJD8vZs9ac",
+            "expire_date": "2025-03-27T19:41:59.427Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "v83jqiwferu4y6xr45vo1h0yudp2fphn",
+        "fields": {
+            "session_data": ".eJxVjDEOAiEQRe9CbQgIDGhp7xnIwAyyaiBZdivj3XWTLbT9773_EhHXpcZ18BwnEmcB4vC7JcwPbhugO7Zbl7m3ZZ6S3BS50yGvnfh52d2_g4qjfmtNjOQcK2-DhmKJsJBmo53Fkn0mw-wB8ASZjxwM2pDAOAwKlTNWifcHDC04Xw:1tsiqZ:kPqYYDBgP-xau6ymi61l6YJ6TiHhZ-7PBpAy2D6iRss",
+            "expire_date": "2025-03-27T13:43:39.417Z"
+        }
+    },
+    {
+        "model": "reviews.ticket",
+        "pk": 1,
+        "fields": {
+            "title": "exemple de titre",
+            "description": "ceci est un test d'affichage de l'image par défaut",
+            "user": 6,
+            "picture": "default_1.webp",
+            "time_created": "2025-03-13T12:50:32.111Z"
+        }
+    },
+    {
+        "model": "reviews.ticket",
+        "pk": 2,
+        "fields": {
+            "title": "Discours de la methode",
+            "description": "Le Discours de la méthode, dont le titre complet est Discours de la méthode pour bien conduire sa raison et chercher la vérité dans les sciences, est un texte philosophique publié anonymement par René Descartes à Leyde le 8 juin 1637 chez le libraire et imprimeur Jan Maire.",
+            "user": 2,
+            "picture": "discours_methode.webp",
+            "time_created": "2025-03-13T12:53:36.597Z"
+        }
+    },
+    {
+        "model": "reviews.ticket",
+        "pk": 3,
+        "fields": {
+            "title": "Une brève histoire du temps",
+            "description": "Stephen Hawking\r\nun ouvrage de vulgarisation scientifique qui traite de cosmologie, la science des lois qui gouvernent lÆunivers, écrit par lÆastrophysicien britannique Stephen Hawking. Publié pour la première fois en 1988, il sÆadresse à un public profane.",
+            "user": 8,
+            "picture": "histoire_du_temps.webp",
+            "time_created": "2025-03-13T12:54:44.279Z"
+        }
+    },
+    {
+        "model": "reviews.ticket",
+        "pk": 4,
+        "fields": {
+            "title": "The Origin of species",
+            "description": "un ouvrage scientifique de Charles Darwin, publié le 24 novembre 1859 pour sa première édition anglaise sous le titre L'origine des espèces au moyen de la sélection naturelle ou la préservation des races favorisées dans la lutte pour la survie.",
+            "user": 6,
+            "picture": "origin_species.webp",
+            "time_created": "2025-03-13T13:19:24.840Z"
+        }
+    },
+    {
+        "model": "reviews.ticket",
+        "pk": 5,
+        "fields": {
+            "title": "Les misérables",
+            "description": "un roman de Victor Hugo publié en 1862, l'un des plus vastes et des plus notables de la littérature du XIX e siècle. \r\nvotre avis?",
+            "user": 6,
+            "picture": "les_miserables.webp",
+            "time_created": "2025-03-13T13:19:56.888Z"
+        }
+    },
+    {
+        "model": "reviews.ticket",
+        "pk": 6,
+        "fields": {
+            "title": "Le malade Imaginaire",
+            "description": "Pièce de théâtre de Molière",
+            "user": 3,
+            "picture": "le-malade-imaginaire.webp",
+            "time_created": "2025-03-13T13:20:28.567Z"
+        }
+    },
+    {
+        "model": "reviews.ticket",
+        "pk": 7,
+        "fields": {
+            "title": "Les Fourmis",
+            "description": "1er tome de la saga de Bernard Werber",
+            "user": 6,
+            "picture": "fourmis.webp",
+            "time_created": "2025-03-13T13:22:07.536Z"
+        }
+    },
+    {
+        "model": "reviews.ticket",
+        "pk": 8,
+        "fields": {
+            "title": "L'étranger",
+            "description": "L'étranger est le premier roman publié d'Albert Camus, paru en 1942.",
+            "user": 2,
+            "picture": "L-Etranger.webp",
+            "time_created": "2025-03-13T13:22:39.903Z"
+        }
+    },
+    {
+        "model": "reviews.ticket",
+        "pk": 9,
+        "fields": {
+            "title": "1884",
+            "description": "1984 ou en toutes lettres Mil neuf cent quatre-vingt-quatre1 (titre original : Nineteen Eighty-Four), est un roman dystopique de l'écrivain britannique George Orwell. Publié le 8 juin 1949.",
+            "user": 3,
+            "picture": "1984.webp",
+            "time_created": "2025-03-13T13:23:06.800Z"
+        }
+    },
+    {
+        "model": "reviews.ticket",
+        "pk": 10,
+        "fields": {
+            "title": "Le Comte de Monte-Cristo",
+            "description": "Le Comte de Monte-Cristo est un roman d'Alexandre Dumas, écrit avec la collaboration d'Auguste Maquet et dont la publication commence pendant l'été 1844.",
+            "user": 4,
+            "picture": "montecristo.webp",
+            "time_created": "2025-03-13T13:23:40.902Z"
+        }
+    },
+    {
+        "model": "reviews.ticket",
+        "pk": 11,
+        "fields": {
+            "title": "Orgueil et Préjugés",
+            "description": "Orgueil et Préjugés est un roman de la femme de lettres anglaise Jane Austen paru en 1813.",
+            "user": 5,
+            "picture": "orgueiletprejuge.webp",
+            "time_created": "2025-03-13T13:24:23.502Z"
+        }
+    },
+    {
+        "model": "reviews.ticket",
+        "pk": 12,
+        "fields": {
+            "title": "Le Seigneur des Anneaux",
+            "description": "Le Seigneur des anneaux est un roman de J. R. R. Tolkien paru en trois volumes en 1954 et en 1955.",
+            "user": 7,
+            "picture": "seigneur_anneau.webp",
+            "time_created": "2025-03-13T13:24:53.983Z"
+        }
+    },
+    {
+        "model": "reviews.ticket",
+        "pk": 13,
+        "fields": {
+            "title": "Crime et Châtiment",
+            "description": "Archétype du roman psychologique, il est considéré comme l'une des plus grandes oeuvres littéraires de l'Histoire.",
+            "user": 8,
+            "picture": "crimechatiment.webp",
+            "time_created": "2025-03-13T13:25:19.706Z"
+        }
+    },
+    {
+        "model": "reviews.ticket",
+        "pk": 14,
+        "fields": {
+            "title": "Harry Potter à l'école des sorciers",
+            "description": "Harry Potter à l'école des sorciers est le premier roman de la série littéraire centrée sur le personnage de Harry Potter, créé par J. K. Rowling.",
+            "user": 2,
+            "picture": "harry_potter.webp",
+            "time_created": "2025-03-13T13:26:01.090Z"
+        }
+    },
+    {
+        "model": "reviews.ticket",
+        "pk": 15,
+        "fields": {
+            "title": "Fondation",
+            "description": "Fondation est un roman de science-fiction rédigé par Isaac Asimov et composé de cinq nouvelles,",
+            "user": 4,
+            "picture": "fondation.webp",
+            "time_created": "2025-03-13T13:26:30.786Z"
+        }
+    },
+    {
+        "model": "reviews.ticket",
+        "pk": 16,
+        "fields": {
+            "title": "Dune",
+            "description": "Dune (Frank Herbert). L'histoire se déroule dans un empire interstellaire féodal, o¨ plusieurs maisons s'affrontent pour le contrôle de la planète Arrakis,",
+            "user": 5,
+            "picture": "dune.webp",
+            "time_created": "2025-03-13T13:26:54.705Z"
+        }
+    },
+    {
+        "model": "reviews.ticket",
+        "pk": 17,
+        "fields": {
+            "title": "└ la recherche du temps perdu",
+            "description": "└ la recherche du temps perdu, couramment évoqué plus simplement sous le titre La Recherche, est un roman de Marcel Proust, écrit de 1906 à 1922 et publié de 1913 à 1927 en sept tomes.",
+            "user": 7,
+            "picture": "temps_perdu.webp",
+            "time_created": "2025-03-13T13:27:24.028Z"
+        }
+    },
+    {
+        "model": "reviews.review",
+        "pk": 1,
+        "fields": {
+            "ticket": 4,
+            "rating": 5,
+            "headline": "Véritablement révolutionnaire",
+            "body": "Une excellente lecture et je vous recommande vivement !",
+            "user": 3,
+            "time_created": "2025-03-13T13:32:12.055Z"
+        }
+    },
+    {
+        "model": "reviews.review",
+        "pk": 2,
+        "fields": {
+            "ticket": 2,
+            "rating": 4,
+            "headline": "Excellent",
+            "body": "",
+            "user": 8,
+            "time_created": "2025-03-13T13:32:45.468Z"
+        }
+    },
+    {
+        "model": "reviews.review",
+        "pk": 3,
+        "fields": {
+            "ticket": 5,
+            "rating": 5,
+            "headline": "Un grand Classique",
+            "body": "C'est un livre qui marque et qu'il faut avoir lu. Il montre la misère dans ce qu'elle a de plus ignoble mais aussi de plus émouvant. On ne peut que s'attacher aux personnages principaux, mais aussi à ce pauvre Gavroche qui a eu le malheur de na¯tre dans une famille dépravée. Quels affreux personnages que ces Thénardier. Mais tout le livre est passionnant et donne aussi une leþon de courage. A lire absolument.",
+            "user": 8,
+            "time_created": "2025-03-13T13:33:48.840Z"
+        }
+    },
+    {
+        "model": "reviews.review",
+        "pk": 4,
+        "fields": {
+            "ticket": 3,
+            "rating": 4,
+            "headline": "Le Génie",
+            "body": "je dirai bien que Stephen est le mythe du siècle ! son histoire elle même est une source de motivation et détermination . une vraie légende !",
+            "user": 2,
+            "time_created": "2025-03-13T13:34:16.985Z"
+        }
+    },
+    {
+        "model": "reviews.review",
+        "pk": 5,
+        "fields": {
+            "ticket": 6,
+            "rating": 3,
+            "headline": "Quelle Histoire!!!",
+            "body": "J'aime cette histoire!!! Alors oui je sais ca datte du XVIIe siecle, donc la langue est un peu trop soutenu mais n'empêche l'Histoire reste formidable, intéressantes, les personnages aussi tres intéressant!!! Toinette, Argan ainsi que Louison, en plus des autres personnages, sont TRES TRES RIGOLO!!! haha ! Du moins si vous imaginez la scene dans votre tête!",
+            "user": 2,
+            "time_created": "2025-03-13T13:34:41.287Z"
+        }
+    },
+    {
+        "model": "reviews.review",
+        "pk": 6,
+        "fields": {
+            "ticket": 7,
+            "rating": 2,
+            "headline": "Trop long",
+            "body": "Roman qui est très dure à lire à cause du manque d'action et des longues interventions sur la vie des fourmis. C'est comme si vous étiez entrain de lire un long reportage animal très détaillé sur la vie des fourmis. Ce n'est pas vraiment intéressant. Puis, il est très difficile à lire à cause des deux histoires qu'on y retrouve. L'auteur change d'histoire sans prévenir le lecteur ce qui est extrêmement mélangeant.",
+            "user": 4,
+            "time_created": "2025-03-13T13:35:08.349Z"
+        }
+    },
+    {
+        "model": "reviews.review",
+        "pk": 7,
+        "fields": {
+            "ticket": 8,
+            "rating": 5,
+            "headline": "époustouflant.",
+            "body": "Le genre de livre qui provoque une longue réflexion après lÆavoir achevé, sur lÆhistoire, le personnage, la vie. Une fin à couper le souffle, le livre est très perturbant mais dans le bon sens, pour une première oeuvre, Camus a frappé fort.  Il mérite totalement son prix Nobel et restera parmi mes favoris.",
+            "user": 5,
+            "time_created": "2025-03-13T13:35:32.498Z"
+        }
+    },
+    {
+        "model": "reviews.review",
+        "pk": 8,
+        "fields": {
+            "ticket": 9,
+            "rating": 5,
+            "headline": "La prophétie était vrai !!!",
+            "body": "Le monde n'a plus jamais été le même. Orwell, tu avais raison, nous aurions du faire plus à l'époque Mais que pouvions nous faire vraiment, nous n'étions que des gamins insouciants et n'avions aucune idée de notre réel pouvoir ou de ce qui était réellement en jeu. L'avenir, voila ce qu'il y avait en jeu !",
+            "user": 7,
+            "time_created": "2025-03-13T13:35:57.152Z"
+        }
+    },
+    {
+        "model": "reviews.review",
+        "pk": 9,
+        "fields": {
+            "ticket": 10,
+            "rating": 5,
+            "headline": "Quel roman-fleuve !!!",
+            "body": "En terminant ce livre, j'ai ressenti un manque, une tristesse. Tous ces compagnons qui luttent, combattent, aiment ou se vengent, dont j'ai suivi pas à pas et avec impatience toutes les aventures, les grands malheurs, les grands bonheurs, allaient me manquer.",
+            "user": 5,
+            "time_created": "2025-03-13T13:36:28.046Z"
+        }
+    },
+    {
+        "model": "reviews.review",
+        "pk": 10,
+        "fields": {
+            "ticket": 11,
+            "rating": 4,
+            "headline": "A lire",
+            "body": "franchement c'est carré j'ai bien aimé en plus le livre est écrit par une femme et ne parle pas de cuisine , c'est innovant.",
+            "user": 2,
+            "time_created": "2025-03-13T13:36:54.311Z"
+        }
+    },
+    {
+        "model": "reviews.review",
+        "pk": 11,
+        "fields": {
+            "ticket": 12,
+            "rating": 1,
+            "headline": "pas mon truc...",
+            "body": "J'ai honte de le dire, vu le succès de cette saga, mais j'ai DETESTE!! on me l'a offert quand j'avais une dizaine d'années, je me suis forcée à le lire sans jamais accrocher. j'ai refermé le livre au milieu dans les 300 pages. et depuis les 3 tomes dorment dans ma bibliothèque.",
+            "user": 4,
+            "time_created": "2025-03-13T13:37:26.182Z"
+        }
+    },
+    {
+        "model": "reviews.review",
+        "pk": 12,
+        "fields": {
+            "ticket": 13,
+            "rating": 2,
+            "headline": "Trop Trop",
+            "body": "Le livre est trop long trop ennuyeux sans intérêt avec plein de détail qui ne servent a rien dans l'histoire a part a embrouiller le lecteur",
+            "user": 7,
+            "time_created": "2025-03-13T13:37:49.503Z"
+        }
+    },
+    {
+        "model": "reviews.review",
+        "pk": 13,
+        "fields": {
+            "ticket": 14,
+            "rating": 3,
+            "headline": "Jeunesse",
+            "body": "Saga magique très prenante et agréable à lire. Elle n'est plus à conseiller tant sa renommée est faite. Pourtant, il faudrait convaincre tous les fans des films de se plonger dans les romans tant ils sont supérieurs.",
+            "user": 3,
+            "time_created": "2025-03-13T13:38:14.996Z"
+        }
+    },
+    {
+        "model": "reviews.review",
+        "pk": 15,
+        "fields": {
+            "ticket": 7,
+            "rating": 5,
+            "headline": "Excellent",
+            "body": "étonnant roman mêlant fiction et faits scientifiques sur les fourmis et leur organisation. Facile à lire mme si l'écriture peut décontenancer de prime abord. Une oeuvre tout à fait originale qui maintien un certain suspens jusqu'au bout. └ la fin de cette première lecture, on a envie de lire toutes les oeoeuvres de Bernard Werber.",
+            "user": 2,
+            "time_created": "2025-03-13T13:39:04.179Z"
+        }
+    },
+    {
+        "model": "reviews.review",
+        "pk": 17,
+        "fields": {
+            "ticket": 15,
+            "rating": 5,
+            "headline": "Le must en matière de sf",
+            "body": "La base de tout... Ça m'a impressionné pendant longtemps, et puis je me suis lancé, et un régal sans égal... Tout vient de là : Star Wars, Star Trek, j'en passe et des meilleurs. Allez-y, plongez la tête la première... pour un voyage à travers le temps et l'espace... mais toujours à hauteur d'homme.",
+            "user": 6,
+            "time_created": "2025-03-17T15:35:30.772Z"
+        }
+    },
+    {
+        "model": "reviews.userfollows",
+        "pk": 3,
+        "fields": {
+            "user": 5,
+            "followed_user": 6,
+            "banned": true
+        }
+    },
+    {
+        "model": "reviews.userfollows",
+        "pk": 4,
+        "fields": {
+            "user": 7,
+            "followed_user": 6,
+            "banned": false
+        }
+    },
+    {
+        "model": "reviews.userfollows",
+        "pk": 5,
+        "fields": {
+            "user": 6,
+            "followed_user": 5,
+            "banned": false
+        }
+    },
+    {
+        "model": "reviews.userfollows",
+        "pk": 6,
+        "fields": {
+            "user": 7,
+            "followed_user": 3,
+            "banned": false
+        }
+    },
+    {
+        "model": "reviews.userfollows",
+        "pk": 7,
+        "fields": {
+            "user": 7,
+            "followed_user": 8,
+            "banned": false
+        }
+    },
+    {
+        "model": "reviews.userfollows",
+        "pk": 8,
+        "fields": {
+            "user": 5,
+            "followed_user": 2,
+            "banned": false
+        }
+    },
+    {
+        "model": "reviews.userfollows",
+        "pk": 9,
+        "fields": {
+            "user": 5,
+            "followed_user": 4,
+            "banned": false
+        }
+    },
+    {
+        "model": "reviews.userfollows",
+        "pk": 10,
+        "fields": {
+            "user": 4,
+            "followed_user": 6,
+            "banned": false
+        }
+    },
+    {
+        "model": "reviews.userfollows",
+        "pk": 11,
+        "fields": {
+            "user": 4,
+            "followed_user": 7,
+            "banned": false
+        }
+    },
+    {
+        "model": "reviews.userfollows",
+        "pk": 12,
+        "fields": {
+            "user": 3,
+            "followed_user": 6,
+            "banned": false
+        }
+    },
+    {
+        "model": "reviews.userfollows",
+        "pk": 13,
+        "fields": {
+            "user": 3,
+            "followed_user": 2,
+            "banned": false
+        }
+    },
+    {
+        "model": "reviews.userfollows",
+        "pk": 14,
+        "fields": {
+            "user": 2,
+            "followed_user": 3,
+            "banned": false
+        }
+    },
+    {
+        "model": "reviews.userfollows",
+        "pk": 15,
+        "fields": {
+            "user": 2,
+            "followed_user": 5,
+            "banned": false
+        }
+    },
+    {
+        "model": "reviews.userfollows",
+        "pk": 16,
+        "fields": {
+            "user": 6,
+            "followed_user": 8,
+            "banned": false
+        }
+    },
+    {
+        "model": "reviews.userfollows",
+        "pk": 18,
+        "fields": {
+            "user": 8,
+            "followed_user": 6,
+            "banned": false
+        }
+    },
+    {
+        "model": "reviews.userfollows",
+        "pk": 20,
+        "fields": {
+            "user": 2,
+            "followed_user": 6,
+            "banned": false
+        }
+    },
+    {
+        "model": "reviews.userfollows",
+        "pk": 25,
+        "fields": {
+            "user": 6,
+            "followed_user": 4,
+            "banned": false
+        }
+    },
+    {
+        "model": "reviews.userfollows",
+        "pk": 30,
+        "fields": {
+            "user": 6,
+            "followed_user": 7,
+            "banned": true
+        }
+    },
+    {
+        "model": "authentification.user",
+        "pk": 1,
+        "fields": {
+            "password": "pbkdf2_sha256$870000$nTxfYiC2pqevWFyMh4jwT2$zSlRPF4LAxh5FmHaFChWfXVXq8+ZS8OtrM/3oGpY5Hs=",
+            "last_login": "2025-03-14T15:04:01.951Z",
+            "is_superuser": true,
+            "username": "admin",
+            "first_name": "",
+            "last_name": "",
+            "is_staff": true,
+            "is_active": true,
+            "date_joined": "2025-03-13T09:51:16.239Z",
+            "email": "admin@gmail.com",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "authentification.user",
+        "pk": 2,
+        "fields": {
+            "password": "pbkdf2_sha256$870000$YI5UQLKyxO8nV2ty8P486u$iUCyT/tJtWWpfCosnRI7SgS9EoaQ7tQoWFztuX7KCss=",
+            "last_login": null,
+            "is_superuser": false,
+            "username": "danièle",
+            "first_name": "",
+            "last_name": "",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2025-03-13T12:45:27.798Z",
+            "email": "daniele@gmail.com",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "authentification.user",
+        "pk": 3,
+        "fields": {
+            "password": "pbkdf2_sha256$870000$pJnQNe853Dn2WbgcJIseRw$m7SCDV442PGpO4kjI7+kvVKvbnDHeOXB6VHgl+KNC/s=",
+            "last_login": null,
+            "is_superuser": false,
+            "username": "jacques",
+            "first_name": "",
+            "last_name": "",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2025-03-13T12:45:59.757Z",
+            "email": "jacques@gmail.com",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "authentification.user",
+        "pk": 4,
+        "fields": {
+            "password": "pbkdf2_sha256$870000$c0rVEeAh8sLrOurL16FESp$X9ya4+4Iwd83E1JCkJ/fN8J3TL2FHm2PS9fyNT8C2gc=",
+            "last_login": null,
+            "is_superuser": false,
+            "username": "jean",
+            "first_name": "",
+            "last_name": "",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2025-03-13T12:46:18.525Z",
+            "email": "jean@gmail.com",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "authentification.user",
+        "pk": 5,
+        "fields": {
+            "password": "pbkdf2_sha256$870000$I2pztZnk36RGQAi3EbaXBC$mNpekc5af3vXJEMW0arvWZskLWUZeHOedlsWj1KK9oY=",
+            "last_login": null,
+            "is_superuser": false,
+            "username": "michèle",
+            "first_name": "",
+            "last_name": "",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2025-03-13T12:46:44.567Z",
+            "email": "michele@gmail.com",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "authentification.user",
+        "pk": 6,
+        "fields": {
+            "password": "pbkdf2_sha256$870000$Q4wt9RuEmcZrZLe9cidPXY$MRR+QPCivmiJoZ4qj5mSzaIj3+1qul5FD2faIDvo31Q=",
+            "last_login": "2025-03-18T10:01:46.343Z",
+            "is_superuser": true,
+            "username": "mikael",
+            "first_name": "",
+            "last_name": "",
+            "is_staff": true,
+            "is_active": true,
+            "date_joined": "2025-03-13T12:47:56Z",
+            "email": "mikael@gmail.com",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "authentification.user",
+        "pk": 7,
+        "fields": {
+            "password": "pbkdf2_sha256$870000$KthDOSwncglpUwGjWTTtYt$4AYzH+gmLhn4cRxbGMH6AuBt2WdhNbRddKq1gAfaEYw=",
+            "last_login": null,
+            "is_superuser": false,
+            "username": "paul",
+            "first_name": "",
+            "last_name": "",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2025-03-13T12:48:14.278Z",
+            "email": "paul@gmail.com",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "authentification.user",
+        "pk": 8,
+        "fields": {
+            "password": "pbkdf2_sha256$870000$k155Ema4L0Y1YUPoYjWtvW$GKC0q0Pt+8kySQsYxI8dJnOQSkTwF8SfyemUr/oP6wg=",
+            "last_login": null,
+            "is_superuser": false,
+            "username": "pierre",
+            "first_name": "",
+            "last_name": "",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2025-03-13T12:48:43.513Z",
+            "email": "pierre@gmail.com",
+            "groups": [],
+            "user_permissions": []
+        }
+    }
+    ]
