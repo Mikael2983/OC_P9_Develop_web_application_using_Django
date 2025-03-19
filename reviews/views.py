@@ -6,86 +6,227 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.utils.timezone import now
 from django.urls import reverse
 from django.core.paginator import Paginator
-from django.db.models import Q
+from django.db.models import Q, QuerySet
 from authentification.models import User
 from reviews.models import Review, Ticket, UserFollows
 from reviews.forms import ReviewForm, TicketForm, FollowUserForm
 
 
-@login_required
-def flux(request):
+def get_banning_users(user: User) -> QuerySet:
     """
-    Display the main feed with the reviews and the tickets of the user and his
-    following users.
-
-    This view retrieves and paginates reviews and tickets from the user and
-    the users he follows, while excluding content from banned users.
+    Retrieves users who have banned the given user.
 
     Args:
-        request (HttpRequest): The HTTP request object.
+        user (User): The user for whom we want to find blockers.
 
     Returns:
-        HttpResponse: The feed page with paginated reviews and tickets.
+        QuerySet: A list of users who have banned the given user.
     """
+    return User.objects.filter(
+        following__followed_user=user,
+        following__banned=True
+    )
 
-    # those who have banned the user
-    banning_users = User.objects.filter(following__followed_user=request.user,
-                                        following__banned=True)
 
-    # those that the user has banned
-    banned_users = User.objects.filter(followers__user=request.user,
-                                       followers__banned=True)
+def get_banned_users(user: User) -> QuerySet:
+    """
+    Retrieves the users that the given user has banned.
 
-    # those that the user follows less those who have banned him and those
-    # that the user has banned
-    following_users = User.objects.filter(
-        followers__user=request.user).exclude(
+    Args:
+        user (User): The user who has banned other users.
+
+    Returns:
+        QuerySet: A list of users who have been banned by the given user.
+    """
+    return User.objects.filter(
+        followers__user=user,
+        followers__banned=True
+    )
+
+
+def get_followers(user: User) -> QuerySet:
+    """
+    Retrieves the users who follow the given user, excluding those who have
+    banned them.
+
+    Args:
+        user (User): The user whose followers we want to retrieve.
+
+    Returns:
+        QuerySet: A list of users following the given user, excluding those who
+         have banned them.
+    """
+    banning_users = get_banning_users(user)
+    return User.objects.filter(
+        following__followed_user=user
+    ).exclude(id__in=banning_users)
+
+
+def get_followings(user: User) -> QuerySet:
+    """
+    those that the user follows less those who have banned him and those that
+    the user has banned
+    """
+    banning_users = get_banning_users(user)
+    banned_users = get_banned_users(user)
+    return User.objects.filter(
+        followers__user=user).exclude(
         id__in=banning_users).exclude(
         id__in=banned_users)
 
-    users = chain([request.user], following_users)
-    list_users = list(users)
 
-    # list of user tickets that have had a review
-    user_answered_tickets = Ticket.objects.filter(review__isnull=False,
-                                                  user=request.user).distinct()
+@login_required
+def create_ticket(request):
+    """
+    Handle the creation of a new ticket.
 
-    # list of tickets that have a user review
-    user_review_tickets = Ticket.objects.filter(
-        review__user=request.user).distinct()
+    This view processes a POST request containing form data for creating a new
+    ticket. If the form is valid, a ticket is created and associated with the
+    requesting user. The ticket's creation timestamp is set to the current
+    time. Upon success, the user is redirected to the 'flux' page. If the
+    request method is GET, an empty form is displayed for the user.
 
-    # list of reviews of the user and those he follows
-    reviews = (Review.objects.select_related("user", "ticket").filter(
-        Q(user__in=list_users) |
-        Q(ticket__user__in=list_users)
-    ).exclude(user__in=banned_users).exclude(ticket__user__in=banned_users)
-               .exclude(user__in=banning_users)
-               .exclude(ticket__user__in=banning_users))
+    Args:
+        request (HttpRequest): The HTTP request object containing user data and
+                                form inputs.
 
-    # list of tickets of the user and those he follows
-    tickets = Ticket.objects.filter(user__in=list_users)
+    Returns:
+        HttpResponse: Renders the ticket creation page with the form,
+                      or redirects to 'flux' upon successful submission.
+    """
+    if request.method == 'POST':
+        form = TicketForm(request.POST, request.FILES)
+        if form.is_valid():
+            ticket = form.save(commit=False)
+            ticket.user = request.user
+            ticket.time_created = now()
+            ticket.save()
+            return redirect(reverse('flux'), {'form': form})
+        else:
+            print(form.errors)
+    else:
+        form = TicketForm()
 
-    reviews_and_tickets = sorted(
-        chain(reviews, tickets),
-        key=lambda instance: instance.time_created,
-        reverse=True
-    )
+    return render(request,
+                  'reviews/create_ticket.html',
+                  {'form': form})
 
-    paginator = Paginator(reviews_and_tickets, 6)
 
-    page_number = request.GET.get('page')
+@login_required
+def modify_ticket(request, ticket_id):
+    """
+    Handle the modification of an existing ticket.
 
-    page_obj = paginator.get_page(page_number)
+    This view allows a user to modify their own ticket. If the requesting user
+    is not the owner of the ticket, they are redirected to the 'flux' page.
+    If the form is valid, the ticket is updated and the user is redirected to
+    the 'user_posts' page. Otherwise, the form is displayed pre-filled with
+    the existing ticket data.
+
+    Args:
+        request (HttpRequest): The HTTP request object containing user data and
+         form inputs.
+        ticket_id (int): The ID of the ticket to be modified.
+
+    Returns:
+        HttpResponse: Renders the ticket modification page with the form,
+                      or redirects to 'flux' if unauthorized, or 'user_posts'
+                      upon success.
+    """
+    ticket = Ticket.objects.get(id=ticket_id)
+
+    if request.user != ticket.user:
+        return redirect(reverse('flux'))
+
+    if request.method == 'POST':
+        form = TicketForm(request.POST, request.FILES, instance=ticket)
+        if form.is_valid():
+            form.save()
+            return redirect(reverse('flux'))
+    else:
+        form = TicketForm(instance=ticket)
+
+    return render(request,
+                  'reviews/modify_ticket.html',
+                  {'form': form, 'ticket': ticket})
+
+
+def answer_ticket(request, ticket_id):
+    """
+    Handle the creation of a review in response to a ticket.
+
+    This view allows a user to respond to a ticket by submitting a review.
+    If the request method is POST and the review form is valid, the review is
+    associated with the ticket, and the ticket is marked as answered. The user
+    is then redirected to the 'flux' page. If the request method is GET, an
+    empty review form is displayed.
+
+    Args:
+        request (HttpRequest): The HTTP request object containing user data and
+         form inputs.
+        ticket_id (int): The ticket ID being answered.
+
+    Returns:
+        HttpResponse: Renders the review submission page with the form and
+                      ticket details or redirects to 'flux' upon successful
+                      submission.
+    """
+    if request.method == "POST":
+        ticket = Ticket.objects.get(id=ticket_id)
+        review_form = ReviewForm(request.POST)
+
+        if review_form.is_valid():
+            review = review_form.save(commit=False)
+            review.user = request.user
+            review.ticket = ticket
+
+            review.save()
+
+            return redirect('flux')
+
+    else:
+        review_form = ReviewForm()
+        ticket = Ticket.objects.get(id=ticket_id)
 
     context = {
-        'page_obj': page_obj,
-        'user_answered_tickets': user_answered_tickets,
-        'user_review_tickets': user_review_tickets,
-        'banning_users': banning_users
+        'ticket': ticket,
+        'review_form': review_form
     }
+    return render(request, 'reviews/answer_ticket.html', context)
+
+
+@login_required
+def delete_ticket(request, ticket_id):
+    """
+    Handle the deletion of a ticket.
+
+    This view allows a user to delete their own ticket. If the requesting user
+    is not the owner of the ticket, they are redirected to the 'flux' page.
+    If the request method is POST, the ticket is deleted, and the user is
+    redirected to the 'user_tickets' page. Otherwise, a confirmation page
+    is displayed.
+
+    Args:
+        request (HttpRequest): The HTTP request object containing user data.
+        ticket_id (int): The ID of the ticket to be deleted.
+
+    Returns:
+        HttpResponse: Renders the ticket deletion confirmation page,
+                      or redirects to 'flux' if unauthorized, or 'user_tickets'
+                      upon deletion.
+    """
+    ticket = Ticket.objects.get(id=ticket_id)
+
+    if request.user != ticket.user:
+        return redirect(reverse('flux'))
+
+    if request.method == 'POST':
+        ticket.delete()
+        return redirect(reverse('user_posts'))
+
     return render(request,
-                  'reviews/flux.html',
-                  context)
+                  'reviews/delete_ticket.html',
+                  {'ticket': ticket})
 
 
 @login_required
@@ -201,7 +342,7 @@ def delete_review(request, review_id):
 
     if request.method == 'POST':
         review.delete()
-        return redirect(reverse('user_posts'))
+        return redirect(reverse('flux'))
 
     return render(request,
                   'reviews/delete_review.html',
@@ -209,40 +350,72 @@ def delete_review(request, review_id):
 
 
 @login_required
-def create_ticket(request):
+def flux(request):
     """
-    Handle the creation of a new ticket.
+    Display the main feed with the reviews and the tickets of the user and his
+    following users.
 
-    This view processes a POST request containing form data for creating a new
-    ticket. If the form is valid, a ticket is created and associated with the
-    requesting user. The ticket's creation timestamp is set to the current
-    time. Upon success, the user is redirected to the 'flux' page. If the
-    request method is GET, an empty form is displayed for the user.
+    This view retrieves and paginates reviews and tickets from the user and
+    the users he follows, while excluding content from banned users.
 
     Args:
-        request (HttpRequest): The HTTP request object containing user data and
-                                form inputs.
+        request (HttpRequest): The HTTP request object.
 
     Returns:
-        HttpResponse: Renders the ticket creation page with the form,
-                      or redirects to 'flux' upon successful submission.
+        HttpResponse: The feed page with paginated reviews and tickets.
     """
-    if request.method == 'POST':
-        form = TicketForm(request.POST, request.FILES)
-        if form.is_valid():
-            ticket = form.save(commit=False)
-            ticket.user = request.user
-            ticket.time_created = now()
-            ticket.save()
-            return redirect(reverse('flux'), {'form': form})
-        else:
-            print(form.errors)
-    else:
-        form = TicketForm()
 
+    banning_users = get_banning_users(request.user)
+
+    banned_users = get_banned_users(request.user)
+
+    following_users = get_followings(request.user)
+
+    users = chain([request.user], following_users)
+    list_users = list(users)
+
+    # list of user tickets that have had a review
+    user_answered_tickets = Ticket.objects.filter(review__isnull=False,
+                                                  user=request.user).distinct()
+
+    # list of tickets that have a user review
+    user_review_tickets = Ticket.objects.filter(
+        review__user=request.user).distinct()
+
+    # list of reviews of the user and those he follows
+    reviews = (Review.objects.select_related("user", "ticket").filter(
+        Q(user__in=list_users) |
+        Q(ticket__user__in=list_users))
+               .exclude(user__in=banned_users)
+               .exclude(ticket__user__in=banned_users)
+               .exclude(user__in=banning_users)
+               .exclude(ticket__user__in=banning_users)
+               )
+
+    # list of tickets of the user and those he follows
+    tickets = Ticket.objects.filter(user__in=list_users)
+
+    reviews_and_tickets = sorted(
+        chain(reviews, tickets),
+        key=lambda instance: instance.time_created,
+        reverse=True
+    )
+
+    paginator = Paginator(reviews_and_tickets, 6)
+
+    page_number = request.GET.get('page')
+
+    page_obj = paginator.get_page(page_number)
+
+    context = {
+        'page_obj': page_obj,
+        'user_answered_tickets': user_answered_tickets,
+        'user_review_tickets': user_review_tickets,
+        'banning_users': banning_users
+    }
     return render(request,
-                  'reviews/create_ticket.html',
-                  {'form': form})
+                  'reviews/flux.html',
+                  context)
 
 
 @login_required
@@ -266,8 +439,7 @@ def user_posts(request):
         HttpResponse: Renders the 'user_posts.html' template with the sorted
                       reviews and tickets.
     """
-    banning_users = User.objects.filter(following__followed_user=request.user,
-                                        following__banned=True)
+    banning_users = get_banning_users(request.user)
     # liste des tickets de l'utilisateur qui ont eu une critique
     user_answered_tickets = Ticket.objects.filter(review__isnull=False,
                                                   user=request.user).distinct()
@@ -298,123 +470,6 @@ def user_posts(request):
 
 
 @login_required
-def modify_ticket(request, ticket_id):
-    """
-    Handle the modification of an existing ticket.
-
-    This view allows a user to modify their own ticket. If the requesting user
-    is not the owner of the ticket, they are redirected to the 'flux' page.
-    If the form is valid, the ticket is updated and the user is redirected to
-    the 'user_posts' page. Otherwise, the form is displayed pre-filled with
-    the existing ticket data.
-
-    Args:
-        request (HttpRequest): The HTTP request object containing user data and
-         form inputs.
-        ticket_id (int): The ID of the ticket to be modified.
-
-    Returns:
-        HttpResponse: Renders the ticket modification page with the form,
-                      or redirects to 'flux' if unauthorized, or 'user_posts'
-                      upon success.
-    """
-    ticket = Ticket.objects.get(id=ticket_id)
-
-    if request.user != ticket.user:
-        return redirect(reverse('flux'))
-
-    if request.method == 'POST':
-        form = TicketForm(request.POST, request.FILES, instance=ticket)
-        if form.is_valid():
-            form.save()
-            return redirect(reverse('user_posts'))
-    else:
-        form = TicketForm(instance=ticket)
-
-    return render(request,
-                  'reviews/modify_ticket.html',
-                  {'form': form, 'ticket': ticket})
-
-
-def answer_ticket(request, ticket_id):
-    """
-    Handle the creation of a review in response to a ticket.
-
-    This view allows a user to respond to a ticket by submitting a review.
-    If the request method is POST and the review form is valid, the review is
-    associated with the ticket, and the ticket is marked as answered. The user
-    is then redirected to the 'flux' page. If the request method is GET, an
-    empty review form is displayed.
-
-    Args:
-        request (HttpRequest): The HTTP request object containing user data and
-         form inputs.
-        ticket_id (int): The ticket ID being answered.
-
-    Returns:
-        HttpResponse: Renders the review submission page with the form and
-                      ticket details or redirects to 'flux' upon successful
-                      submission.
-    """
-    if request.method == "POST":
-        ticket = Ticket.objects.get(id=ticket_id)
-        review_form = ReviewForm(request.POST)
-
-        if review_form.is_valid():
-            review = review_form.save(commit=False)
-            review.user = request.user
-            review.ticket = ticket
-
-            review.save()
-
-            return redirect('flux')
-
-    else:
-        review_form = ReviewForm()
-        ticket = Ticket.objects.get(id=ticket_id)
-
-    context = {
-        'ticket': ticket,
-        'review_form': review_form
-    }
-    return render(request, 'reviews/answer_ticket.html', context)
-
-
-@login_required
-def delete_ticket(request, ticket_id):
-    """
-    Handle the deletion of a ticket.
-
-    This view allows a user to delete their own ticket. If the requesting user
-    is not the owner of the ticket, they are redirected to the 'flux' page.
-    If the request method is POST, the ticket is deleted, and the user is
-    redirected to the 'user_tickets' page. Otherwise, a confirmation page
-    is displayed.
-
-    Args:
-        request (HttpRequest): The HTTP request object containing user data.
-        ticket_id (int): The ID of the ticket to be deleted.
-
-    Returns:
-        HttpResponse: Renders the ticket deletion confirmation page,
-                      or redirects to 'flux' if unauthorized, or 'user_tickets'
-                      upon deletion.
-    """
-    ticket = Ticket.objects.get(id=ticket_id)
-
-    if request.user != ticket.user:
-        return redirect(reverse('flux'))
-
-    if request.method == 'POST':
-        ticket.delete()
-        return redirect(reverse('user_posts'))
-
-    return render(request,
-                  'reviews/delete_ticket.html',
-                  {'ticket': ticket})
-
-
-@login_required
 def follow(request):
     """
    Handle user follow and unfollow actions while managing bans.
@@ -442,24 +497,14 @@ def follow(request):
                      Redirects to 'follow' upon successful submission or an
                      error.
    """
-    # those who have banned the user
-    banning_users = User.objects.filter(following__followed_user=request.user,
-                                        following__banned=True)
 
-    # those that the user has banned
-    banned_users = User.objects.filter(followers__user=request.user,
-                                       followers__banned=True)
+    banning_users = get_banning_users(request.user)
 
-    # those who follow the user less those who have banned it
-    followers_users = User.objects.filter(
-        following__followed_user=request.user).exclude(id__in=banning_users)
+    banned_users = get_banned_users(request.user)
 
-    # those that the user follows less those who have banned him and those
-    # that the user has banned
-    following_users = User.objects.filter(
-        followers__user=request.user).exclude(
-        id__in=banning_users).exclude(
-        id__in=banned_users)
+    followers_users = get_followers(request.user)
+
+    following_users = get_followings(request.user)
 
     if request.method == "POST":
         form = FollowUserForm(request.POST)
@@ -501,7 +546,7 @@ def follow(request):
             return redirect('follow')
 
     else:
-        form = FollowUserForm()
+        form = FollowUserForm(current_user=request.user)
 
     return render(request,
                   'reviews/follow.html',
@@ -532,8 +577,7 @@ def unfollow(request, user_id):
         HttpResponseRedirect: Redirects to the 'follow' page after unfollowing.
     """
     # list of members who have banned the user.
-    banning_users = User.objects.filter(following__user=request.user,
-                                        followers__banned=True)
+    banning_users = get_banning_users(request.user)
 
     user_to_unfollow = get_object_or_404(User, id=user_id)
 
