@@ -206,6 +206,25 @@ form label {
     font-size: smaller;
 }
 
+.errorlist {
+    list-style: none;
+    color: red;
+    margin: 0;
+    padding: 0;
+}
+
+.signupform{
+    display: grid;
+    gap: 25px;
+}
+.form-group{
+    display: grid;
+}
+
+span > ul {
+    text-align: left;
+}
+
 input {
     padding: 10px;
     margin: 10px 0;

@@ -2,16 +2,33 @@
 
 {% block content %}
 <div class="signup">
-    <h2>Créer un compte</h2>
-      <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="button" onclick="window.location.href='{% url 'login' %}'">Retour</button>
-        <button type="submit">S'inscrire</button>
+  <h2>Créer un compte</h2>
+  <form class="signupform" method="post">
+    {% csrf_token %}
+    {% for field in form %}
+      <div class="form-group">
+        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+        {{ field }}
+        {% if form.is_bound %}
+          <ul class="errorlist">
+            {% for error in field.errors %}
+              <li>{{ error }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+        {% if field.help_text %}
+          <span class="helptext">{{ field.help_text }}</span>
+        {% endif %}
 
-      </form>
-      <p>Déjà un compte ? <a href="{% url 'login' %}">Se connecter</a></p>
+      </div>
+    {% endfor %}
 
+    <div>
+      <button type="button" onclick="window.location.href='{% url 'login' %}'">Retour</button>
+      <button type="submit">S'inscrire</button>
+    </div>
+  </form>
+  <p>Déjà un compte ? <a href="{% url 'login' %}">Se connecter</a></p>
 </div>
 
 {% endblock content %}
