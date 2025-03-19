@@ -88,6 +88,10 @@ On the terminal enter following command to start the server:
 ```bash
 python manage.py runserver
 ```
+To log in to a SUPERUSER account,
+
+Fill in the ID: mikael and password: Invit1234
+All test database accounts use the same password
 
 ### 6. Start the Webapp
 
