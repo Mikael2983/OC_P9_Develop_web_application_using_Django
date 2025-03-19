@@ -1,6 +1,7 @@
 from django import template
 from django.utils import timezone
 
+
 MINUTE = 60
 HOUR = 60 * MINUTE
 DAY = 24 * HOUR
