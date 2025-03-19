@@ -21,7 +21,6 @@ class Ticket(models.Model):
            user (ForeignKey): The user who created the ticket.
            picture (ImageField): An optional image associated with the ticket.
            time_created (DateTimeField): The creation timestamp of the ticket
-           answered (BooleanField): If the ticket has been answered or not.
            IMAGE_SIZE (tuple): The dimensions for ticket images (141x180).
 
        Methods:
@@ -67,7 +66,7 @@ class Ticket(models.Model):
 
     def _process_uploaded_image(self):
         """
-        Convertit en WebP et redimensionne l’image uniquement si nécessaire.
+        Converts to WebP and resizes the image only if necessary.
         """
         img_path = self.picture.path
         webp_path = os.path.splitext(img_path)[0] + ".webp"
@@ -81,7 +80,7 @@ class Ticket(models.Model):
 
     def _generate_default_image(self):
         """
-        Crée une image WebP par défaut avec le titre du ticket.
+        Creates a default WebP image with the ticket title.
         """
         if not self.id:
             return  # évite les erreurs avant la première sauvegarde
