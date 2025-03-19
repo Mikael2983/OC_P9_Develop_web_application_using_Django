@@ -41,7 +41,7 @@ class ReviewForm(forms.ModelForm):
         label="Titre",
         max_length=150,
     )
-    rate_choices = ((i, i*'★')for i in range(1, 6))
+    rate_choices = ((i, i * '★') for i in range(1, 6))
     rating = forms.ChoiceField(choices=rate_choices,
                                widget=forms.RadioSelect(),
                                label="Note"
@@ -63,10 +63,43 @@ class FollowUserForm(forms.Form):
     their username from a dropdown list.
 
     Attributes:
-        user (ModelChoiceField): A dropdown field to select a user.
+        current_user (User): The user who is initiating the follow action.
     """
-    user = forms.ModelChoiceField(
-        queryset=User.objects.exclude(username="admin"),
-        label="Sélectionner un utilisateur",
-        widget=forms.Select(attrs={'class': 'form-control'})
-    )
+
+    def __init__(self, *args, **kwargs):
+        self.current_user = kwargs.pop('current_user',
+                                       None)  # Extract user from kwargs
+        super().__init__(*args, **kwargs)
+        self.fields['user'] = forms.ModelChoiceField(
+            queryset=self.filter_users(),
+            label="Sélectionner un utilisateur",
+            widget=forms.Select(attrs={'class': 'form-control'}),
+        )
+
+    def filter_users(self):
+        """
+        Selects users to be displayed in the dropdown menu.
+
+        Excludes from the list:
+            - Users that the current user is already following.
+            - Users who have blocked the current user.
+
+        Returns:
+            QuerySet: A list of users that the current user can follow, excluding
+            admin users and the current user.
+        """
+        following_users = User.objects.filter(
+            followers__user=self.current_user
+                                           )
+        banning_users = User.objects.filter(
+            following__followed_user=self.current_user,
+            following__banned=True)
+
+        excluded_users = following_users.union(banning_users)
+
+        user_to_follow = (
+            User.objects.all().exclude(username='admin')
+            .exclude(username=self.current_user)
+        )
+
+        return user_to_follow.difference(excluded_users)
