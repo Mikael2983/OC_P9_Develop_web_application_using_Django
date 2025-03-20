@@ -30,6 +30,6 @@ class UserUpdateView(LoginRequiredMixin, UpdateView):
     template_name = "authentification/account.html"
     success_url = reverse_lazy("flux")
 
-    def get_object(self):
+    def get_object(self, queryset=None):
         """Récupère l'utilisateur actuellement connecté."""
         return self.request.user

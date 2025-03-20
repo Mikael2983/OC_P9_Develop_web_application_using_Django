@@ -7,9 +7,11 @@ from django.utils.timezone import now
 from django.urls import reverse
 from django.core.paginator import Paginator
 from django.db.models import Q, QuerySet
+
 from authentification.models import User
-from reviews.models import Review, Ticket, UserFollows
-from reviews.forms import ReviewForm, TicketForm, FollowUserForm
+
+from .models import Review, Ticket, UserFollows
+from .forms import ReviewForm, TicketForm, FollowUserForm
 
 
 def get_banning_users(user: User) -> QuerySet:
@@ -47,14 +49,14 @@ def get_banned_users(user: User) -> QuerySet:
 def get_followers(user: User) -> QuerySet:
     """
     Retrieves the users who follow the given user, excluding those who have
-    banned them.
+    banned him.
 
     Args:
         user (User): The user whose followers we want to retrieve.
 
     Returns:
         QuerySet: A list of users following the given user, excluding those who
-         have banned them.
+         have banned him.
     """
     banning_users = get_banning_users(user)
     return User.objects.filter(
@@ -203,7 +205,7 @@ def delete_ticket(request, ticket_id):
     This view allows a user to delete their own ticket. If the requesting user
     is not the owner of the ticket, they are redirected to the 'flux' page.
     If the request method is POST, the ticket is deleted, and the user is
-    redirected to the 'user_tickets' page. Otherwise, a confirmation page
+    redirected to the 'flux' page. Otherwise, a confirmation page
     is displayed.
 
     Args:
@@ -222,7 +224,7 @@ def delete_ticket(request, ticket_id):
 
     if request.method == 'POST':
         ticket.delete()
-        return redirect(reverse('user_posts'))
+        return redirect(reverse('flux'))
 
     return render(request,
                   'reviews/delete_ticket.html',
@@ -323,7 +325,7 @@ def delete_review(request, review_id):
     This view allows a user to delete their own review. If the requesting user
     is not the owner of the review, he is redirected to the 'flux' page.
     If the request method is POST, the review is deleted, and the user is
-    redirected to the 'user_posts' page. Otherwise, a confirmation page
+    redirected to the 'flux' page. Otherwise, a confirmation page
     is displayed.
 
     Args:
@@ -440,11 +442,12 @@ def user_posts(request):
                       reviews and tickets.
     """
     banning_users = get_banning_users(request.user)
-    # liste des tickets de l'utilisateur qui ont eu une critique
+
+    # this two lists are used in context to display or not a button
+    # list of user tickets that have had a review
     user_answered_tickets = Ticket.objects.filter(review__isnull=False,
                                                   user=request.user).distinct()
-
-    # liste des tickets qui ont une critique de l'utilisateur
+    # list of tickets that have a user review
     user_review_tickets = Ticket.objects.filter(
         review__user=request.user).distinct()
 
@@ -472,31 +475,20 @@ def user_posts(request):
 @login_required
 def follow(request):
     """
-   Handle user follow and unfollow actions while managing bans.
+    Allows the user to follow another user.
 
-   This view allows users to follow other users, ensuring that:
-     - They cannot follow themselves.
-     - They cannot follow a user they are already following.
-     - They cannot follow a user who has blocked them.
-     - The form prevents following non-existent users.
+    - On POST: Adds a new follow relationship if the form is valid.
+    - On GET: Displays the follow form with a filtered user list.
 
-   It also retrieves:
-     - Users who have blocked the requesting user.
-     - Users that the requesting user has blocked.
-     - Users following the requesting user.
-     - Users the requesting user is following, excluding those who have blocked
-      them.
+    The user can only follow people he doesn’t already follow and who
+    haven’t blocked him.
 
-   Args:
-       request (HttpRequest): The HTTP request object containing user data and
-        form inputs.
+    Args:
+        request (HttpRequest): The incoming request.
 
-   Returns:
-       HttpResponse: Renders the 'follow.html' template with the form and lists
-                     of users.
-                     Redirects to 'follow' upon successful submission or an
-                     error.
-   """
+    Returns:
+        HttpResponse: Redirects on success, otherwise renders 'follow.html'.
+    """
 
     banning_users = get_banning_users(request.user)
 
@@ -511,34 +503,6 @@ def follow(request):
         if form.is_valid():
             user_to_follow = form.cleaned_data['user']
 
-            if user_to_follow == request.user:
-                messages.error(request,
-                               "Vous ne pouvez pas vous suivre vous-même.")
-                return redirect('follow')
-
-            if UserFollows.objects.filter(user=request.user,
-                                          followed_user=user_to_follow).exists():
-
-                user_relation = UserFollows.objects.filter(
-                    user=user_to_follow,
-                    followed_user=request.user).first()
-
-                if user_relation and user_relation.banned:
-                    messages.error(request, "Cet utilisateur vous a bloqué.")
-                    return redirect('follow')
-                else:
-                    user_relation = UserFollows.objects.filter(
-                        user=request.user,
-                        followed_user=user_to_follow).first()
-                    if user_relation and user_relation.banned:
-                        messages.error(request,
-                                       "Vous avez bloqué cet utilisateur.")
-                    else:
-                        messages.error(request,
-                                       "Vous suivez déjà cet utilisateur.")
-                    return redirect('follow')
-
-            # Création du suivi
             UserFollows.objects.create(user=request.user,
                                        followed_user=user_to_follow)
             messages.success(request,

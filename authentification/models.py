@@ -9,7 +9,7 @@ class User(AbstractUser):
        This model adds a profile photo field to the default Django user model.
 
        Attributes:
-           profile_photo: An imagefield for storing the user's profile picture.
+           email: An emailfield for storing the user's email.
     """
 
     email = models.EmailField(unique=True)

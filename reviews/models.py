@@ -95,7 +95,7 @@ class Ticket(models.Model):
         draw = ImageDraw.Draw(image)
         font = ImageFont.load_default()
 
-        lines = textwrap.wrap(self.title, width=15)
+        lines = textwrap.wrap(self.title.value_from_object(self), width=15)
         y = (self.IMAGE_SIZE[1] - len(
             lines) * 12) // 2  # Centrage vertical
 
