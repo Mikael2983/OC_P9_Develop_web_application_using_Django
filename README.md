@@ -2,7 +2,7 @@
 
 The project is a webapp which enables a community of users to publish reviews on books and literature on demand. Moreover, the user can follow, be followed or block other members.
 
-## Fonctionnalités de l'application
+## features of the application
 The application presents three main use cases:
 
  - The publication of book or article reviews;
