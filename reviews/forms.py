@@ -95,11 +95,13 @@ class FollowUserForm(forms.Form):
             following__followed_user=self.current_user,
             following__banned=True)
 
-        excluded_users = following_users.union(banning_users)
+        excluded_users = following_users.union(
+            banning_users).values_list('id', flat=True)
 
         user_to_follow = (
             User.objects.all().exclude(username='admin')
             .exclude(username=self.current_user)
+            .exclude(id__in=excluded_users)
         )
 
-        return user_to_follow.difference(excluded_users)
+        return user_to_follow

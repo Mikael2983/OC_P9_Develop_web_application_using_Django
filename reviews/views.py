@@ -499,7 +499,7 @@ def follow(request):
     following_users = get_followings(request.user)
 
     if request.method == "POST":
-        form = FollowUserForm(request.POST)
+        form = FollowUserForm(request.POST, request.user)
         if form.is_valid():
             user_to_follow = form.cleaned_data['user']
 
